@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css" >
+      <link rel="stylesheet" type="text/css" href="../css/perfil_usuario.css" >
+      <link rel="stylesheet" type="text/css" href="../css/main.css" >
+  </head>
+  <body>
+    <div id="wrapper">
+    {$header}
+    </div>
+
+    <!--CONTENEDOR PRINIPAL  -->
+    <div class="ibody">
+      <div class="jumbotron">
+          <h1 class="panel-title"> Perfil de Usuario </h1>
+      </div>
+
+      <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" enctype="multipart/form-data">
+          <!-- DATOS -->
+          <div class="form-group">
+            <div class="col-sm-12">
+                <input class="form-control" type="text" name="nombres" placeholder="nombre" {if isset($usuario)} value="{$usuario.nombres}"{/if} >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+                <input class="form-control" type="text" name="apellidos" placeholder="apellido" {if isset($usuario)} value="{$usuario.apellidos}"{/if}>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input class="form-control" type="date" name="nacimiento" {if isset($usuario)} value="{$usuario.nacimiento}"{/if}>
+            </div>
+          </div>
+          <div class="form-group">
+
+            <div class="col-sm-12">
+              <label for="inputEmail3" class="control-label">Seleccionar Archivo</label>
+              <input id="input-1" class="file" type="file" name="foto" value="">
+            </div>
+          </div>
+
+            <div class="form-group">
+                 <div class="enviar">
+                     <p> <input class="btn btn-primary btn-lg btn-block" type="submit" value="Enviar"></p>
+                </div>
+                 </div>
+             </div>
+      </form>
+
+    </div>
+
+      <!-- CODIGO JAVASCRIPT -->
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

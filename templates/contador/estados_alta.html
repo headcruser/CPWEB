@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Pone un icono en la pestaña -->
+    <link rel="shortcut icon" href="../image/iconHotel.png">
+
+    <!--hoja de estilos -->
+    <link rel="stylesheet" type="text/css" href="../css/main.css" >
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css" >
+
+    <title>FORMULARIO ESTADOS</title>
+  </head>
+
+  <body >
+  <!-- contenedor principal -->
+        <div id="wrapper">
+         {$header}
+
+          <div id="contenedor">
+                {if isset($id_estado)}
+                  <h1>EDICION DE ESTADO</h1>
+                  {else}
+                  <h1>NUEVO ESTADO</h1>
+                {/if}
+                <br>
+          </div>
+
+            <div class="formulario">
+
+            <h1>Formulario Estado </h1>
+
+
+                <form class="form-horizontal" method="POST" action="estados.php?accion={if isset($id_estado)}guardar{else}alta{/if}">
+
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Estado</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" name="estado" {if isset($id_estado)} value="{$estado.estado}"{/if} >
+                      </div>
+                    </div>
+
+
+                   {if isset($id_estado)}
+                    <input type="hidden" name="id_estado" value="{$id_estado}">
+                  {/if}
+
+
+                   <div class="form-group">
+                        <div class="enviar">
+                            <p> <input class=button type="submit" value="Añadir"></p>
+                      </div>></p>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+                 {include file='../footer.html'}
+        </div>
+
+    <!-- CODIGO JAVASCRIPT -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

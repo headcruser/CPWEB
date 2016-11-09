@@ -1,0 +1,373 @@
+/**HOJA DE ESTILOS PARA CPWEB PUBLICO*/
+
+/**Quita los margenes existentes*/
+*{
+  margin: 0;
+  padding:0;
+}
+
+
+/*****************************************************************************************
+                      CONTENEDORES DEL LOGO Y ENLACE EN INGLES
+******************************************************************************************/
+#logo,#enlaces
+{
+  width:975px;
+  margin: 10px 0px; /*asigna un pequeño espacio entre elementos**/
+  overflow:hidden;
+}
+
+/******************************************************************************************
+                                  BARRA DE NAVEGACION 
+********************************************************************************************/
+
+.navegacion 
+{
+    width: 100%;    
+    overflow: hidden;
+    height: 105px;  /**Tamaño de la barra de navegacion */
+    position: relative;
+}
+ 
+.barra 
+{
+  top:-20px;
+  position: absolute;
+  margin:20px auto;
+  max-width:1000px;
+  width:100%;
+}
+ 
+.barra ul 
+{
+  list-style:none;
+}
+ 
+.barra > ul 
+{
+  display:table;
+  width:100%;
+  background:#282830; /**Color de la barra*/
+  position:relative;
+}
+ 
+.barra > ul li 
+{
+  display:table-cell;
+}
+ 
+/*Sub-menu*/
+.barra > ul > li:hover > ul 
+{
+  display:block;
+  height:100%;
+}
+ 
+.barra > ul > li > ul 
+{
+  display:block;
+  position:absolute;
+  background:#282830;
+  left:0;
+  right:0;
+  overflow:hidden;
+  height:0%;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+ 
+.barra > ul li a 
+{
+  color:#fff;
+  display:block;
+  line-height:20px;
+  padding:20px;
+  position: relative;
+  text-align:center;
+  text-decoration:none;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+ 
+.barra > ul > li > ul > li a:hover {
+  background:#5da5a2;
+}
+ 
+.barra > ul > li > a span {
+  background:#174459;
+  display:block;
+  height:100%;
+  width:100%;
+  left:0;
+  position:absolute;
+  top:-55px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+ 
+.barra > ul > li > a span .icon {
+  display:block;
+  line-height:60px;
+}
+ 
+.barra > ul > li > a:hover > span {
+  top:0;
+}
+ 
+/*Colores*/
+.barra ul li a .primero {
+  background:#0e5061;
+}
+ 
+.barra ul li a .segundo {
+  background:#BADA55;
+}
+ 
+.barra ul li a .tercero {
+  background:#f25724;
+}
+ 
+.barra ul li a .cuarto {
+  background:#174459;
+}
+ 
+.barra ul li a .quinto {
+  background:#37a4d9;
+}
+
+.barra ul li a .sexto {
+  background:#BF55EC;
+}
+.barra ul li a .septimo {
+  background:#C0392B;
+}
+
+
+
+/******************************************************************************************
+                                ESTILO PARA LOS CONTENEDORES 
+******************************************************************************************/
+.cuerpo
+{
+  width: 100%;
+  background:#e6e6e6;
+  text-align: center; 
+}
+
+#wrapper
+{
+  width:975px;
+  margin: auto;
+  overflow:hidden;
+}
+
+.contenedor
+{
+  font-family: Helvetica, Geneva, Arial, sans-serif;
+  text-align: center;
+  width:100%;
+  overflow:hidden;
+
+}
+
+.contenedor h1
+{
+  text-align: center;
+  background:#2980b9;
+  color:#ecf0f1;
+  border-radius: 8px;
+  font-weight:normal;
+  margin: 10px 0px; /*asigna un pequeño espacio entre elementos**/
+}
+
+
+.contenedor h2
+{
+  font-size:16px;
+  text-align: center;
+  background:#1D2247;
+  color:#ecf0f1;
+  border-radius: 8px;
+  font-weight:normal;
+  margin: 10px 0px; /*asigna un pequeño espacio entre elementos**/
+}
+
+.contenedor h3
+{
+  font-size:16px;
+  text-align: center;
+  background:#5B4B27;
+  color:#ecf0f1;
+  border-radius: 8px;
+  font-weight:normal;
+  margin: 10px 0px; /*asigna un pequeño espacio entre elementos**/
+}
+
+.contenedor p
+{
+  text-align: left;
+  font-weight: normal;
+  line-height: 30px; /**Propiedades de interlineado*/
+}
+   
+
+section
+{
+  width: 65%;
+  margin-right:1.5%;
+  float:left;
+  background: #F2F8EA;
+  padding: 10px;
+  border-radius:10px;
+  height:100%;
+}
+
+
+#bienvenida
+{
+  width: 32%;
+  background: #F2F8EA;
+  float: left;
+  font-family: 'Comic Sans MS';
+	font-size: 12px;
+  text-align: center;
+  border-radius:10px;
+  height:520px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 10px 0px; /*asigna un pequeño espacio entre elementos**/
+}
+
+
+
+/******************************************************************************************
+                                ESTILO PARA LAS SECCIONES DEL FOOTER
+******************************************************************************************/
+footer
+{
+  /**Color azul*/
+  background: #282830;
+  color: #fff;
+  clear: both; /**limpia los rastros de los float*/
+  padding: 10px 0px;
+  text-align: center;
+  border-radius:10px;
+  height:200px;
+}
+
+#aviso a   /**para modificar los hipervinculos*/
+{
+  height: 100%;
+
+  width: 60%;
+  float: left;
+  margin:auto;
+  text-align: left;
+  text-decoration: none;
+}
+
+#direccion
+{
+  width: 100%;  text-align: center;
+  float: left;
+  font-family: Helvetica, Geneva, Arial, sans-serif;
+  font-weight:bolder;
+  color:  rgba(255,255,255,.6);
+}
+
+#privacidad
+{
+  width:60%;
+  float: left;
+  text-align: center;
+  float: left;
+}
+
+
+#redes
+{
+  width: 31%;
+  float: right;
+  text-align: center;
+}
+
+#enlaces 
+{
+  font-family: Helvetica, Geneva, Arial, sans-serif;
+  background: rgba(0,0,0,.1);
+  border-color: rgba(255,255,255,.1);
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px 10px; /*asigna un pequeño espacio entre elementos**/
+}
+
+#enlaces a 
+{
+  text-decoration: none;
+  font-weight:bolder;
+  font-size: 20px
+}
+
+
+
+.social_bookmarks_container {
+width:100%;
+height:65px;
+padding:0;
+position:relative;
+}
+.social_bookmarks {
+position:relative;
+float:left;
+margin:0;
+padding:0;
+}
+.social_bookmarks li {
+margin:0 0 1px 1px;
+height:57px;
+width:57px;
+list-style:none;
+float:left;
+padding:0;
+-webkit-transition: all 0.4s ease-in-out;
+-moz-transition: all 0.4s ease-in-out;
+-o-transition: all 0.4s ease-in-out;
+-ms-transition: all 0.4s ease-in-out;
+transition: all 0.4s ease-in-out;
+}
+.social_bookmarks li a {
+float:left;
+width:57px;
+line-height:24px;
+display: block;
+text-indent: -99999px;
+margin:0px;
+outline: none;
+padding:0;
+min-height:57px;
+height:100%;
+text-decoration:none;
+}
+.social_bookmarks .iconrss{background: #A4A4A4 url(http://lh6.googleusercontent.com/-s8sIx3OX2WI/U4vC1nmgr0I/AAAAAAAALK4/W3Z3qXMwrCg/s114/icon-rss.png) top left no-repeat;}
+.social_bookmarks .iconrssmail{background: #BDBDBD url(http://lh5.googleusercontent.com/-H4iUybdCAyU/U4vC1yQWu1I/AAAAAAAALLE/fTpR7eN4cIw/s114/icon-rssmail.png) top left no-repeat;}
+.social_bookmarks .icontwitter{background: #D8D8D8 url(http://lh6.googleusercontent.com/-4TshwJW7hIE/U4vC2JM25AI/AAAAAAAALLI/tcIkpheXrYU/s114/icon-twitter.png) top left no-repeat;}
+.social_bookmarks .iconfacebook{background: #E6E6E6 url(http://lh5.googleusercontent.com/-nt-UdZG1ns0/U4vC1v57lwI/AAAAAAAALLQ/pAOWjEBSnSg/s114/icon-facebook.png) top left no-repeat;}
+.social_bookmarks .icongplus{background: #F1F1F1 url(http://lh6.googleusercontent.com/-brT53y4GgMs/U4vC1UPpmFI/AAAAAAAALK8/vRxosS7GGKs/s114/icon-gplus.png) top left no-repeat;}
+.social_bookmarks .iconfacebook:hover{background-position:center -57px; background-color: #37589b;}
+.social_bookmarks .icontwitter:hover {background-position:center -57px; background-color: #46d4fe;}
+.social_bookmarks .icongplus:hover {background-position:center -57px; background-color: #de5a49;}
+.social_bookmarks .iconrss:hover{background-position:center -57px; background-color: #ff6600;}
+.social_bookmarks .iconrssmail:hover{background-position:center -57px; background-color: #FFDE00;}
+.social_bookmarks li:hover a{background: transparent url(//lh4.googleusercontent.com/-XNviZ_JqvyU/U4vDMDFAX8I/AAAAAAAALLk/E4VIJr1onlo/s57/icon-social-reflect.png) no-repeat;
+}

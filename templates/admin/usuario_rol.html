@@ -1,0 +1,69 @@
+{*Aquí incuimos el header y el footer de nuestra pagina web usando el include file*}
+{*En este archivo también se añaden los iconos, de lupa, equis y lapiz*}
+{*Realmente se ejecuta clientes.php*}
+{*Esta plantilla solo imprime la tabla de elementos *}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Pone un icono en la pestaña -->
+    <link rel="shortcut icon" href="../image/iconHotel.png">
+
+    <!--hoja de estilos -->
+    <link rel="stylesheet" type="text/css" href="../css/main.css" >
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css" >
+    <title>{$titulo}</title>
+  </head>
+<body>
+
+    <div id="wrapper">
+      {$header}
+
+      <div id="contenedor">
+      <h1>{$titulo}</h1>
+
+                <!--MUESTRA LA TABLA DE CLIENTESS -->
+              <table class="table"  CELLSPACING=1  >
+
+                <tr ALIGN=center>
+                  <th >ID_USUARIO </th>
+                  <th>ID_ROL</th>
+                  <th>Ver</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+
+                {foreach $usuario_rol as $elemento}
+                <tr ALIGN=center>
+                  <td>{$elemento.id_usuario}</td>
+                  <td> {$elemento.id_rol}</td>
+                  <td> <img src="../image/report.png" ></td>
+                  <td>
+                    <a href="usuario_rol.php?accion=editar&id_usuario={$elemento.id_usuario}&id_rol={$elemento.id_rol}">
+                      <img src="../image/lapiz.png" >
+                  </td>
+                    </a>
+                  <td>
+                       <a href="usuario_rol.php?accion=eliminar&id_usuario={$elemento.id_usuario}&id_rol={$elemento.id_rol}">
+                      <img src="../image/cancel.png" >
+                    </a>
+                  </td>
+                </tr>
+                {/foreach}
+            </table> <!-- fin de tabla -->
+
+                <div class="alta">
+                  <form >
+                      <a  class=button href="usuario_rol.php?accion=nuevo">Nueva asignacion </a>
+                  </form>
+                </div>
+            </div>
+      {include file='../footer.html'}
+    </div>
+
+    <!-- CODIGO JAVASCRIPT -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

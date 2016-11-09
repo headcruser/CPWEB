@@ -1,0 +1,39 @@
+/*Estilo para el perfil de usuario*/
+*{
+  margin: 0px;
+  padding:0px;
+}
+
+body{
+  background-color: #f0f0f0;
+  color:#4c4c4c;
+  font-family: Arial;
+}
+
+/*Contenedor principal*/
+.ibody{
+  background-color: #ecf0f3;
+  border:1px solid #bfd8eb;
+  border-radius: 8px;
+  margin: 30px auto;
+  padding: 26px;
+  width: 500px;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+}
+
+/*Contenedor jumbotron**/
+.jumbotron{
+  background-color: #bfd8eb;
+  border-radius:8px 8px 0px 0px;
+  padding: 16px;
+  -webkit-border-radius:8px 8px 0px 0px;
+  -moz-border-radius:8px 8px 0px 0px;
+
+}
+
+.jumbotron h1
+{
+  font-size:48px;
+  text-align: center;
+}
