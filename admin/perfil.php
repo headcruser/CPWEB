@@ -23,9 +23,32 @@
 		switch ($accion)
 		{
 			case 'guardar': //Muestra el formulario
+
 	      $web->setTabla("usuario");
+
+	      if(empty($_POST['contrasena']))
+			{
+				unset($_POST['contrasena']);
+			}
+			else
+			{
+				$_POST['contrasena']=md5($_POST['contrasena']);
+			}
+
+			
 	      $_POST['id_usuario']=$_SESSION['id_usuario'];
 	      $web->update($_POST,array('id_usuario'=>$_SESSION['id_usuario']));
+				
+	      		if( $_FILES['foto']['error']==0)
+	      		{
+					$temporal=$_FILES['foto']['tmp_name'];
+					$fp=fopen($temporal,'rb');  //guardar archivo
+					$SQL='UPDATE usuario set foto=? where id_usuario='.$_SESSION['id_usuario'];
+					$statement=$web->conn->Prepare($SQL);
+					$statement->bindParam(1,$fp,PDO::PARAM_LOB);
+					$statement->execute();
+				}	
+
 			break;
 		}
 	}
