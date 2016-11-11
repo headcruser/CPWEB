@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-11 08:05:54
+/* Smarty version 3.1.30, created on 2016-11-11 08:49:03
   from "C:\xampp\htdocs\CPWEB\templates\perfil.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58256dd2a302f0_79315864',
+  'unifunc' => 'content_582577ef922784_34341274',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6d53ccf6152fc1de741efad5ae6cbd42c23191cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\perfil.html',
-      1 => 1478847936,
+      1 => 1478850541,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58256dd2a302f0_79315864 (Smarty_Internal_Template $_smarty_tpl) {
+function content_582577ef922784_34341274 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,14 +28,14 @@ function content_58256dd2a302f0_79315864 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="utf-8">
     <title>Perfil</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css" >
-      <link rel="stylesheet" type="text/css" href="../css/perfil_usuario.css" >
-      <link rel="stylesheet" type="text/css" href="../css/main.css" >
+    <link rel="stylesheet" type="text/css" href="../css/perfil_usuario.css" >
+    <link rel="stylesheet" type="text/css" href="../css/main.css" >
   </head>
   <body>
     <div id="wrapper">
     <?php echo $_smarty_tpl->tpl_vars['header']->value;?>
 
-    </div>
+
 
     <!--CONTENEDOR PRINIPAL  -->
     <div class="ibody">
@@ -48,7 +48,7 @@ function content_58256dd2a302f0_79315864 (Smarty_Internal_Template $_smarty_tpl)
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          
+
             <?php if (isset($_smarty_tpl->tpl_vars['flag']->value)) {?>
               <?php if ($_smarty_tpl->tpl_vars['flag']->value == "true") {?>
                 <p> <img class="img-responsive img-thumbnail" src="mifoto.php" height="200" alt="200" > </p>
@@ -115,12 +115,13 @@ function content_58256dd2a302f0_79315864 (Smarty_Internal_Template $_smarty_tpl)
 
     </div>
 
-      <!-- CODIGO JAVASCRIPT -->
-      <?php echo '<script'; ?>
- src="js/jquery.js"><?php echo '</script'; ?>
+</div>
+    <!-- CODIGO JAVASCRIPT -->
+    <?php echo '<script'; ?>
+ src="../js/jquery.js"><?php echo '</script'; ?>
 >
-      <?php echo '<script'; ?>
- src="js/bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
+    <?php echo '<script'; ?>
+ src="../js/bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
 >
   </body>
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:14:32
+/* Smarty version 3.1.30, created on 2016-11-11 09:17:06
   from "C:\xampp\htdocs\CPWEB\templates\contador\clientes.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bec81ae7b5_77794623',
+  'unifunc' => 'content_58257e8204d3f0_09969778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '266636dec8f6700acae9e07438f595ac30390228' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\contador\\clientes.html',
-      1 => 1478672008,
+      1 => 1478852218,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bec81ae7b5_77794623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58257e8204d3f0_09969778 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
@@ -50,11 +50,11 @@ function content_5822bec81ae7b5_77794623 (Smarty_Internal_Template $_smarty_tpl)
 
 
       <div id="contenedor">
-      <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+      <h1 class="titulo"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
 
                 <!--MUESTRA LA TABLA DE CLIENTESS -->
-              <table class="table"  CELLSPACING=1  >
+              <table class="table-condensed"  CELLSPACING=1  >
 
                 <tr ALIGN=center>
                   <th >id Cliente </th>

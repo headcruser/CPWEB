@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-11 07:55:46
+/* Smarty version 3.1.30, created on 2016-11-11 09:00:34
   from "C:\xampp\htdocs\CPWEB\templates\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58256b7242d7c0_53524541',
+  'unifunc' => 'content_58257aa2d19d78_66799024',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa8586c3cd09934fd0a00524fc5a85b5e80765d5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\index.html',
-      1 => 1478847302,
+      1 => 1478851231,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_58256b7242d7c0_53524541 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58257aa2d19d78_66799024 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!DOCTYPE html>
@@ -45,14 +45,13 @@ function content_58256b7242d7c0_53524541 (Smarty_Internal_Template $_smarty_tpl)
       <?php echo $_smarty_tpl->tpl_vars['header']->value;?>
 
 
-        <div class="jumbotron">
-          <div class="container">
-            <div class="panel panel-primary">
+          <div class="contenedor">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                   <h3 class="panel-title"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h3>
                 </div>
-                <p>Bienvenido al sistema para contadores publicos </p>
+                <p><h1 class="titulo"></h1>Bienvenido al sistema para contadores publicos </p>
 
                 <div class="row">
                   <div class="col-md-4"></div>
@@ -75,7 +74,7 @@ function content_58256b7242d7c0_53524541 (Smarty_Internal_Template $_smarty_tpl)
 
 
           </div>
-        </div> <!--Fin jumbotron-->
+
 
       <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
