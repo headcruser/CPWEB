@@ -102,7 +102,11 @@
 
 	}
 	//Muestra la tabla
-	$usuario_rol=$web->fetchAll('select * from usuario_rol');
+	$usuario_rol=$web->fetchAll('select usuario.email,rol.rol,usuario.id_usuario,rol.id_rol
+															 from usuario_rol
+	 														 inner join usuario on usuario_rol.id_usuario=usuario.id_usuario
+															 inner join rol on usuario_rol.id_rol=rol.id_rol
+															 order by usuario.email');
 	$templates->assign('titulo','Usuario-Rol');
 	$templates->assign('usuario_rol',$usuario_rol);
 	$templates->assign('header',$header);

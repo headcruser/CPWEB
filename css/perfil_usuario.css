@@ -24,7 +24,7 @@ body{
 
 /*Contenedor jumbotron**/
 .jumbotron{
-  background-color: #bfd8eb;
+
   border-radius:8px 8px 0px 0px;
   padding: 16px;
   -webkit-border-radius:8px 8px 0px 0px;
@@ -34,6 +34,17 @@ body{
 
 .jumbotron h1
 {
-  font-size:48px;
+  font-size:38px;
   text-align: center;
+  color:#FFFFF7;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.titulo
+{
+  font-size:38px;
+  text-align: center;
+  color:#FFFFF7;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

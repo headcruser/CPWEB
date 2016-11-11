@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 04:46:26
+/* Smarty version 3.1.30, created on 2016-11-11 07:55:46
   from "C:\xampp\htdocs\CPWEB\templates\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58229c1241d853_71071904',
+  'unifunc' => 'content_58256b7242d7c0_53524541',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa8586c3cd09934fd0a00524fc5a85b5e80765d5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\index.html',
-      1 => 1478662241,
+      1 => 1478847302,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_58229c1241d853_71071904 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58256b7242d7c0_53524541 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +37,7 @@ function content_58229c1241d853_71071904 (Smarty_Internal_Template $_smarty_tpl)
 
       <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </title>
+
   </head>
 <body >
 
@@ -52,7 +53,27 @@ function content_58229c1241d853_71071904 (Smarty_Internal_Template $_smarty_tpl)
 </h3>
                 </div>
                 <p>Bienvenido al sistema para contadores publicos </p>
-              </div>
+
+                <div class="row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+
+                    <?php if (isset($_smarty_tpl->tpl_vars['flag']->value)) {?>
+                      <?php if ($_smarty_tpl->tpl_vars['flag']->value == "true") {?>
+                        <p> <img class="img-responsive img-thumbnail" src="mifoto.php" height="5" alt="5" > </p>
+                        <?php } else { ?>
+                        <p> <img class="img-responsive img-thumbnail" src="../image/avatar.png" height="5" alt="5" > </p>
+                      <?php }?>
+                      <?php } else { ?>
+                        <p> <img class="img-responsive img-thumbnail" src="../image/avatar.png" height="5" alt="5" > </p>
+                    <?php }?>
+
+                  </div>
+                </div>
+
+            </div>
+
+
           </div>
         </div> <!--Fin jumbotron-->
 

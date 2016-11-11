@@ -27,8 +27,8 @@
               <table class="table"  CELLSPACING=1  >
 
                 <tr ALIGN=center>
-                  <th >ID_USUARIO </th>
-                  <th>ID_ROL</th>
+                  <th >USUARIO </th>
+                  <th>ROL</th>
                   <th>Ver</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
@@ -36,8 +36,8 @@
 
                 {foreach $usuario_rol as $elemento}
                 <tr ALIGN=center>
-                  <td>{$elemento.id_usuario}</td>
-                  <td> {$elemento.id_rol}</td>
+                  <td>{$elemento.email}</td>
+                  <td> {$elemento.rol}</td>
                   <td> <img src="../image/report.png" ></td>
                   <td>
                     <a href="usuario_rol.php?accion=editar&id_usuario={$elemento.id_usuario}&id_rol={$elemento.id_rol}">

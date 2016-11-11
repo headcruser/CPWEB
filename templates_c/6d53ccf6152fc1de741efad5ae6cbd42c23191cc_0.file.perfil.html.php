@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 05:47:53
+/* Smarty version 3.1.30, created on 2016-11-11 08:05:54
   from "C:\xampp\htdocs\CPWEB\templates\perfil.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822aa79b49d61_15180070',
+  'unifunc' => 'content_58256dd2a302f0_79315864',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6d53ccf6152fc1de741efad5ae6cbd42c23191cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\perfil.html',
-      1 => 1478666867,
+      1 => 1478847936,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5822aa79b49d61_15180070 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58256dd2a302f0_79315864 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,9 +39,28 @@ function content_5822aa79b49d61_15180070 (Smarty_Internal_Template $_smarty_tpl)
 
     <!--CONTENEDOR PRINIPAL  -->
     <div class="ibody">
+
       <div class="jumbotron">
-          <h1 class="panel-title"> Perfil de Usuario </h1>
+          <h1 class="titulo"> Perfil de Usuario
+          </h1>
+
       </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          
+            <?php if (isset($_smarty_tpl->tpl_vars['flag']->value)) {?>
+              <?php if ($_smarty_tpl->tpl_vars['flag']->value == "true") {?>
+                <p> <img class="img-responsive img-thumbnail" src="mifoto.php" height="200" alt="200" > </p>
+                <?php } else { ?>
+                <p> <img class="img-responsive img-thumbnail" src="../image/avatar.png" height="200" alt="200" > </p>
+              <?php }?>
+              <?php } else { ?>
+                <p> <img class="img-responsive img-thumbnail" src="../image/avatar.png" height="200" alt="200" > </p>
+            <?php }?>
+        </div>
+      </div>
+
 
       <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" enctype="multipart/form-data">
           <!-- DATOS -->
@@ -52,6 +71,7 @@ function content_5822aa79b49d61_15180070 (Smarty_Internal_Template $_smarty_tpl)
             </div>
           </div>
 
+          <!-- APELLIDO -->
           <div class="form-group">
             <div class="col-sm-12">
                 <input class="form-control" type="text" name="apellidos" placeholder="apellido" <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['apellidos'];?>
@@ -59,26 +79,38 @@ function content_5822aa79b49d61_15180070 (Smarty_Internal_Template $_smarty_tpl)
             </div>
           </div>
 
+          <!-- FECHA DE NACIMIENTO -->
           <div class="form-group">
             <div class="col-sm-12">
               <input class="form-control" type="date" name="nacimiento" <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nacimiento'];?>
 "<?php }?>>
             </div>
           </div>
-          <div class="form-group">
 
-            <div class="col-sm-12">
-              <label for="inputEmail3" class="control-label">Seleccionar Archivo</label>
-              <input id="input-1" class="file" type="file" name="foto" value="">
+
+          <!-- CONTRASENA -->
+            <div class="form-group">
+              <div class="col-sm-12">
+                  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" >
+              </div>
             </div>
-          </div>
+
+            <!-- SUBIR FOTO -->
+
+            <div class="form-group">
+              <label for="inputEmail3" class="control-label">Seleccionar Archivo</label>
+                <div class="col-sm-12">
+                  <input id="input-1" class="file" type="file" name="foto" value="">
+                </div>
+            </div>
+
 
             <div class="form-group">
                  <div class="enviar">
                      <p> <input class="btn btn-primary btn-lg btn-block" type="submit" value="Enviar"></p>
                 </div>
-                 </div>
-             </div>
+            </div>
+
       </form>
 
     </div>

@@ -106,7 +106,11 @@
 
 
 	//Muestra la tabla de los rols registrados
-	$rol=$web->fetchAll('select * from rol_privilegio ');
+	$rol=$web->fetchAll('select rol.rol,privilegio.privilegio,rol.id_rol,privilegio.id_privilegio
+															 from rol_privilegio
+	 														 inner join rol on rol_privilegio.id_rol=rol.id_rol
+															 inner join privilegio on rol_privilegio.id_privilegio=privilegio.id_privilegio
+															 ');
 	$templates->assign('titulo','Roles Disponibles');
 	$templates->assign('rol',$rol);
 	$templates->assign('header',$header);

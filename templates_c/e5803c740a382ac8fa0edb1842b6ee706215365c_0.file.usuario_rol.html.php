@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:08:13
+/* Smarty version 3.1.30, created on 2016-11-11 04:32:55
   from "C:\xampp\htdocs\CPWEB\templates\admin\usuario_rol.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd4d3a60e5_46991986',
+  'unifunc' => 'content_58253be7ca65a7_58918517',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e5803c740a382ac8fa0edb1842b6ee706215365c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\usuario_rol.html',
-      1 => 1478671494,
+      1 => 1478835168,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd4d3a60e5_46991986 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58253be7ca65a7_58918517 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
@@ -55,8 +55,8 @@ function content_5822bd4d3a60e5_46991986 (Smarty_Internal_Template $_smarty_tpl)
               <table class="table"  CELLSPACING=1  >
 
                 <tr ALIGN=center>
-                  <th >ID_USUARIO </th>
-                  <th>ID_ROL</th>
+                  <th >USUARIO </th>
+                  <th>ROL</th>
                   <th>Ver</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
@@ -68,9 +68,9 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['elemento']->value) {
 ?>
                 <tr ALIGN=center>
-                  <td><?php echo $_smarty_tpl->tpl_vars['elemento']->value['id_usuario'];?>
+                  <td><?php echo $_smarty_tpl->tpl_vars['elemento']->value['email'];?>
 </td>
-                  <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['id_rol'];?>
+                  <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['rol'];?>
 </td>
                   <td> <img src="../image/report.png" ></td>
                   <td>

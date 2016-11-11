@@ -11,7 +11,7 @@
 
 
 body
-{  
+{
   width: 100%;
   background:#e6e6e6;
   text-align: center;
@@ -34,7 +34,7 @@ body
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: white;
   border-radius: 8px;
-  height:100%; 
+  height:100%;
   text-align: left;
 }
 
@@ -47,14 +47,14 @@ body
 {
   background:#428BCA;
   color:#FFF;
-  
+
 }
 
 .Encabezado
 {
-    margin: 5px auto;  
+    margin: 5px auto;
     padding: 20px auto;
-    width: 100%; 
+    width: 100%;
 }
 
 .Encabezado h1,h2
@@ -85,27 +85,35 @@ h2
      color:#ecf0f1;
 }
 
+.titulo
+{
+  font-size:38px;
+  text-align: center;
+  color:#FFFFF7;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 /******************************************************************************************
                                 ESTILO PARA LAS TABLAS
 ******************************************************************************************/
-table 
+table
 {
     border-collapse: collapse;
     width: 97%;
     font-size:12px;
     font-family: Helvetica, Geneva, Arial, sans-serif;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    margin: 0 auto;   /**Centra la tabla en el contenedor*/    
+    margin: 0 auto;   /**Centra la tabla en el contenedor*/
 
 }
 
-th 
+th
 {   text-align: center;
     background-color: #4CAF50;
     color: white;
 }
 
-th, td 
+th, td
 {
   padding: 8px;
   font-size:14px;
@@ -136,7 +144,7 @@ th, td
   border-radius: 10px;
   }
 
-.button:hover 
+.button:hover
 {
   background-color: #897FBA;
   color: white;
@@ -146,7 +154,7 @@ th, td
 
 
 /*************************************************************************************
-                                ESTILOS PARA LOS IMPUTS 
+                                ESTILOS PARA LOS IMPUTS
 **************************************************************************************/
 
 .formulario form
@@ -181,13 +189,13 @@ th, td
 .enviar
 {
     text-align: center;
-    margin: 40px 10px; /*asigna un pequeño espacio entre elementos**/    
+    margin: 40px 10px; /*asigna un pequeño espacio entre elementos**/
 }
 
 
 
 /******************************************************************************************
-                                ESTILO PARA LOS CONTENEDORES 
+                                ESTILO PARA LOS CONTENEDORES
 ******************************************************************************************/
 /**contenedor para crear un nuevo cliente */
 .alta
@@ -275,7 +283,7 @@ footer
 }
 
 
-#enlaces 
+#enlaces
 {
   font-family: Helvetica, Geneva, Arial, sans-serif;
   background: rgba(0,0,0,.1);
@@ -285,12 +293,12 @@ footer
   text-decoration: none;
   margin: 10px 10px; /*asigna un pequeño espacio entre elementos**/
 
-  
+
 }
 
-#enlaces a 
+#enlaces a
 {
-  
+
   text-decoration: none;
   font-weight:bolder;
   font-size: 20px
@@ -299,7 +307,7 @@ footer
 /******************************************************************************************
                                 ESTILO PARA LAS REDES SOCIALES
 ******************************************************************************************/
-.social_bookmarks_container 
+.social_bookmarks_container
 {
 width:100%;
 height:65px;

@@ -19,15 +19,15 @@
              {*Se agrego un if para poner una etiqueta *}
 
                 {if isset($id_cliente)}
-                  <h1>EDICION DE CLIENTE</h1>
+                  <h1 class="titulo">EDICION DE CLIENTE</h1>
                   {else}
-                  <h1>NUEVO CLIENTE</h1>
+                  <h1 class="titulo">NUEVO CLIENTE</h1>
                 {/if}
                 <br>
           </div>
 
           <div class="formulario ">
-              <h1>Formulario cliente </h1>
+              <h1 class="titulo">Formulario cliente </h1>
 
                 <form class="form-horizontal" method="POST" action="clientes.php?accion={if isset($id_cliente)}guardar{else}alta{/if}">
 
@@ -94,7 +94,7 @@
             </div>
 
 
-              {include file='../footer.html'}       
+              {include file='../footer.html'}
         </div>
 
          <!-- CODIGO JAVASCRIPT -->

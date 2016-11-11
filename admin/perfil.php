@@ -13,6 +13,7 @@
 	 if(isset($_SESSION)){
 	 	$privilegio=$_SESSION['roles'][0]['rol'];
 	 }
+
 	$web->checarAcceso($privilegio); // policia
 	$header=$web->Privilegiosheader($privilegio); //Crea el header
 
@@ -26,34 +27,40 @@
 
 	      $web->setTabla("usuario");
 
-	      if(empty($_POST['contrasena']))
-			{
-				unset($_POST['contrasena']);
-			}
-			else
-			{
-				$_POST['contrasena']=md5($_POST['contrasena']);
-			}
+			  if(empty($_POST['contrasena'])){
+						unset($_POST['contrasena']);
+					}
+					else{
+						$_POST['contrasena']=md5($_POST['contrasena']);
+					}
 
-			
 	      $_POST['id_usuario']=$_SESSION['id_usuario'];
 	      $web->update($_POST,array('id_usuario'=>$_SESSION['id_usuario']));
-				
-	      		if( $_FILES['foto']['error']==0)
-	      		{
+
+    		if( $_FILES['foto']['error']==0)
+    		{
 					$temporal=$_FILES['foto']['tmp_name'];
 					$fp=fopen($temporal,'rb');  //guardar archivo
 					$SQL='UPDATE usuario set foto=? where id_usuario='.$_SESSION['id_usuario'];
 					$statement=$web->conn->Prepare($SQL);
 					$statement->bindParam(1,$fp,PDO::PARAM_LOB);
 					$statement->execute();
-				}	
-
+			   }
 			break;
 		}
 	}
 
 	//Muestra el perfil del usuario
+
+
+
+	$foto=$web->fetchAll('select foto from usuario where id_usuario='.$_SESSION['id_usuario']);
+	if(empty ($foto)){
+	$templates->assign('flag','true');
+	}
+	else {
+		$templates->assign('flag','false');
+	}
 
 	$SQL="select * from usuario where id_usuario='".$_SESSION['id_usuario']."'";
 	$usuario=$web->getAll($SQL);

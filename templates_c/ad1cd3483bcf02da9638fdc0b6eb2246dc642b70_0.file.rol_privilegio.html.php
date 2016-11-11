@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:08:04
+/* Smarty version 3.1.30, created on 2016-11-11 04:44:02
   from "C:\xampp\htdocs\CPWEB\templates\admin\rol_privilegio.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd44c2dd19_84864455',
+  'unifunc' => 'content_58253e82921087_95936001',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ad1cd3483bcf02da9638fdc0b6eb2246dc642b70' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\rol_privilegio.html',
-      1 => 1478671462,
+      1 => 1478835826,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd44c2dd19_84864455 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58253e82921087_95936001 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
@@ -56,8 +56,8 @@ function content_5822bd44c2dd19_84864455 (Smarty_Internal_Template $_smarty_tpl)
               <table class="table"  CELLSPACING=1  >
 
                 <tr ALIGN=center>
-                  <th >ID_ROL </th>
-                  <th>ID_PRIVILEGIO</th>
+                  <th >ROL </th>
+                  <th>PRIVILEGIO</th>
                   <th>Ver</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
@@ -69,9 +69,9 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['elemento']->value) {
 ?>
                 <tr ALIGN=center>
-                  <td><?php echo $_smarty_tpl->tpl_vars['elemento']->value['id_rol'];?>
+                  <td><?php echo $_smarty_tpl->tpl_vars['elemento']->value['rol'];?>
 </td>
-                  <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['id_privilegio'];?>
+                  <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['privilegio'];?>
 </td>
 
                   <td> <img src="../image/report.png" ></td>
