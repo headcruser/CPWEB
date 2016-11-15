@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-11 08:27:16
+/* Smarty version 3.1.30, created on 2016-11-14 19:55:04
   from "C:\xampp\htdocs\CPWEB\templates\header_privilegios.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582572d426bd60_74064151',
+  'unifunc' => 'content_582a0888179cd2_59353411',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48ffe26bcef81a62afd2e2710de8c5e4a034e143' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\header_privilegios.html',
-      1 => 1478849232,
+      1 => 1479149701,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_582572d426bd60_74064151 (Smarty_Internal_Template $_smarty_tpl) {
+function content_582a0888179cd2_59353411 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- header privilegios -->
 <header>
@@ -53,6 +53,7 @@ function content_582572d426bd60_74064151 (Smarty_Internal_Template $_smarty_tpl)
         <div class="collapse navbar-collapse" id="menu-navegacion">
           <ul class="nav navbar-nav">
             <li class="active"><a href="../index.php">Ir a Página Principal</a></li>
+            <li ><a href="../servicio.php">Servicio</a></li>
 
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
             <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador") {?>

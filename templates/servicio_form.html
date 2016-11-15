@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="utf-8">
+          <!-- Pone un icono en la pestaña -->
+          <link rel="shortcut icon" href="../image/iconHotel.png">
+          <link rel="stylesheet" type="text/css" href="../css/main.css" >
+          <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css" >
+
+        <title>FORMULARIO SERVICIO</title>
+    </head>
+  <body>
+
+      <!-- contenedor principal -->
+      <div id="wrapper">
+          {$header}
+
+
+          <div id="Encabezado">
+             {*Se agrego un if para poner una etiqueta *}
+
+                {if isset($id_servicio)}
+                  <h1 class="titulo">EDICION DE SERVICIO</h1>
+                  {else}
+                  <h1 class="titulo">NUEVO SERVICIO</h1>
+                {/if}
+                <br>
+          </div>
+
+          <div class="formulario ">
+              <h1 class="titulo">Formulario Servicio </h1>
+
+                <form class="form-horizontal" method="POST" action="servicio.php?accion={if isset($id_servicio)}guardar{else}alta{/if}">
+
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Servicio</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" name="servicio" {if isset($id_servicio)} value="{$servicio.servicio}"{/if} >
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Precio</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" name="precio" {if isset($id_servicio)} value="{$servicio.precio}"{/if} >
+                      </div>
+                    </div>
+
+                    {if isset($id_servicio)}
+                        <input type="hidden" name="id_servicio" value="{$id_servicio}"> {/if}
+
+                    <div class="form-group">
+                      <div class="enviar">
+                              <p> <input class=button type="submit" value="INGRESAR"></p>
+                      </div>
+                    </div>
+                </form>
+            </div>
+            {include file='footer.html'}
+        </div>
+
+
+         <!-- CODIGO JAVASCRIPT -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

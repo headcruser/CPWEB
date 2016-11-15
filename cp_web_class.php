@@ -316,15 +316,16 @@ class Cpweb
 	function checarAcceso($rol=null)
 	{
 		$data = $_SESSION;
-      if(isset($data['validado'])) {
+      if(isset($data['validado']))
+      {
         if($data['validado'])
-				{
-					if(!$this->isExistRol($rol))
-					{
-						header('Location: login.php');
-					}
+        {
+			if(!$this->isExistRol($rol))
+			{
+				header('Location: login.php');
+			}
         }
-				else{
+		else{
           header('Location: login.php');
         }
       }else{
