@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-14 19:55:04
+/* Smarty version 3.1.30, created on 2016-11-17 18:10:09
   from "C:\xampp\htdocs\CPWEB\templates\header_privilegios.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582a0888179cd2_59353411',
+  'unifunc' => 'content_582de4714e8401_77369044',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48ffe26bcef81a62afd2e2710de8c5e4a034e143' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\header_privilegios.html',
-      1 => 1479149701,
+      1 => 1479336363,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_582a0888179cd2_59353411 (Smarty_Internal_Template $_smarty_tpl) {
+function content_582de4714e8401_77369044 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- header privilegios -->
 <header>
@@ -56,7 +56,28 @@ function content_582a0888179cd2_59353411 (Smarty_Internal_Template $_smarty_tpl)
             <li ><a href="../servicio.php">Servicio</a></li>
 
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
-            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador") {?>
+            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Cliente <span class="caret"></span>
+              </a>
+                <!-- SubMenu -->
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="clientes.php">Ir a Clientes</a></li>
+                    <li><a href="estados.php">Ir a Entidad Federativa</a></li>
+                    <li><a href="tipo.php">Ir a Tipo de Clientes</a></li>
+
+
+                  <li role="separator" class="divider"></li>
+                  <li><a href="reporte.php">Visualizar Reporte</a></li>
+                </ul>
+            </li>
+            <?php }?>
+          <?php }?>
+
+
+            <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
+            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                 Contadores <span class="caret"></span>

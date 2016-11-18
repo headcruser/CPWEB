@@ -64,7 +64,7 @@
 
 	$SQL="select * from usuario where id_usuario='".$_SESSION['id_usuario']."'";
 	$usuario=$web->getAll($SQL);
-  $templates->assign("usuario",$usuario[0]);
+    $templates->assign("usuario",$usuario[0]);
 	$templates->assign('header',$header);
 	$templates->display('perfil.html');
  ?>

@@ -5,26 +5,26 @@ include('../cp_web_class.php');
 	autor: Daniel
 	version : 1.0
 	fecha : 2016-11-01
-	Descripcion:Esta clase es encargada de verificar el inicio de 
+	Descripcion:Esta clase es encargada de verificar el inicio de
 	sesión.*/
 class Login extends Cpweb
 {
 	/***********************************************************************************
-						METODO PARA CREAR UNA SESION PARA EL USUARIO 
+						METODO PARA CREAR UNA SESION PARA EL USUARIO
 			parametro 					tipo 	 		Descripcion
-	  		@param $email  			   String 		  email del usuario 
-	  		@param $contrasena  	   String 		  Contraseña del usuario 
+	  		@param $email  			   String 		  email del usuario
+	  		@param $contrasena  	   String 		  Contraseña del usuario
 	**********************************************************************************/
 	function newlogin($email,$contrasena)
 	{
 	   $flag="false";
-	   $contrasena=md5($contrasena); // Encripto contraseña 
+	   $contrasena=md5($contrasena); // Encripto contraseña
 
 	   /**Realizo una consulta para revisar si el usuario existe */
 	   $sql="SELECT * FROM usuario where email='$email' and contrasena='$contrasena'";
 	   $resultado=array();
 	   $resultado=$this->fetchAll($sql);
-	   
+
 	   //Hay alguna coincidencia?
 	   if(isset($resultado[0]))
 	   {
@@ -39,17 +39,24 @@ class Login extends Cpweb
 	   	 $_SESSION['id_usuario']=$resultado[0]['id_usuario'];
 	   	 $_SESSION['validado']=true;
 
-	   	 
+
 	   	 //Se realiza una consulta para conocer los roles de los usuarios
 	   	$consulta_rol="select rol from rol inner join usuario_rol on rol.id_rol=usuario_rol.id_rol inner join usuario on usuario.id_usuario=usuario_rol.id_usuario where email='$email'";
 
-	   	 $roles=$this->fetchAll($consulta_rol); 
+	   	 $roles=$this->fetchAll($consulta_rol);
 	   	 $_SESSION['roles']=$roles; // Asigno el resultado a la superGobal
-	   	 header('Location: index.php'); // Envio a la pagina principal
+
+
+			 if($roles[0]['rol'] == 'cliente') {
+				  header('Location: ../cliente/index.php'); // Envio a la pagina principal
+        } else {
+					//Administrador
+          header("Location: index.php");
+        }
 	   }
 	   else
 	   {
-	   	 $this->logout(); //finaliza la sesion 	   	 
+	   	 $this->logout(); //finaliza la sesion
 	   }
 	  return $flag;
 	} ////////////////////Fin de la funcion ///////////////////////////////////
@@ -61,12 +68,12 @@ class Login extends Cpweb
 	**********************************************************************************/
 	function logout()
 	{
-		session_destroy(); //destruye la sesion 
+		session_destroy(); //destruye la sesion
 	}////////////////////Fin de la funcion ///////////////////////////////////
 
 
 	/***********************************************************************************
-		Se encarga de generar el mensaje que se enviara al correo electronico del usuario					
+		Se encarga de generar el mensaje que se enviara al correo electronico del usuario
 		parametro 					tipo 	 		Descripcion
 		$email 					   String 			el correo a donde se mandara la clave
 		$cadena 				   String 			clave encriptada para la recuperacion de la cuenta
@@ -76,12 +83,12 @@ class Login extends Cpweb
 		$mail             = new PHPMailer();  // Crea un objeto de la clase phpMailes
 		//$body             = file_get_contents('contents.html');
 		//$body             = eregi_replace("[\]",'',$body);
-		$mail->IsSMTP(); // metodo que indica el protocolo a utilizar 
+		$mail->IsSMTP(); // metodo que indica el protocolo a utilizar
 
-		// habilita  el debug de informacion para SMTP 
+		// habilita  el debug de informacion para SMTP
 	   	// 1 = Errores y mensahes
 	   	// 2 = Solo mensajes
-		//$mail->SMTPDebug  = 2; 
+		//$mail->SMTPDebug  = 2;
 
 		$mail->SMTPAuth   = true; // Habilita autenticacion SMTP
 		$mail->SMTPSecure = "tls";// sets the prefix to the servier
@@ -91,7 +98,7 @@ class Login extends Cpweb
 		$mail->Password   = "admin120324"; // GMAIL password
 		$mail->SetFrom('satanas666itc@gmail.com', 'Daniel');
 		$mail->Subject    = "Recuperacion de contraseña Cpweb";
-		
+
 		// Mensaje para nuestro usuario
 		$body="
 		<h1>Recuperacion de la cuenta</h1>
@@ -99,7 +106,7 @@ class Login extends Cpweb
 			Querido usuario, usted ha solicitado una recuperacion de contraseña, porfavor
 			presione el siguiente vinculo:
 		</p>
-		
+
 		<br>
 		<br>
 		<a href='http://www.cpweb.com:8081/CPWEB/admin/forgot.php?accion=recuperar&clave=$cadena'> Recuperar Contraseña </a>
@@ -107,7 +114,7 @@ class Login extends Cpweb
 		<br>
 		Este vinculo tendra vigencia de dos dias a partir de la recepcion de este e-mail
         atte: Contadores Cpweb";
-        
+
 		$mail->MsgHTML($body);
 		$address = $email;
 		$mail->AddAddress($address, "Usuario Cpweb");
