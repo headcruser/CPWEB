@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-11 08:49:03
+/* Smarty version 3.1.30, created on 2016-11-19 05:02:48
   from "C:\xampp\htdocs\CPWEB\templates\perfil.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582577ef922784_34341274',
+  'unifunc' => 'content_582fcee87eea02_60708264',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6d53ccf6152fc1de741efad5ae6cbd42c23191cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\perfil.html',
-      1 => 1478850541,
+      1 => 1479528166,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:footer.html' => 1,
   ),
 ),false)) {
-function content_582577ef922784_34341274 (Smarty_Internal_Template $_smarty_tpl) {
+function content_582fcee87eea02_60708264 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,10 +42,9 @@ function content_582577ef922784_34341274 (Smarty_Internal_Template $_smarty_tpl)
     <div class="ibody">
 
       <div class="jumbotron">
-          <h1 class="titulo"> Perfil de Usuario
-          </h1>
-
+          <h1 class="titulo"> Perfil de Usuario</h1>
       </div>
+
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -60,7 +60,9 @@ function content_582577ef922784_34341274 (Smarty_Internal_Template $_smarty_tpl)
             <?php }?>
         </div>
       </div>
-
+          <?php if (isset($_smarty_tpl->tpl_vars['email']->value)) {
+echo $_smarty_tpl->tpl_vars['email']->value;?>
+  <?php }?>
 
       <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" enctype="multipart/form-data">
           <!-- DATOS -->
@@ -114,6 +116,8 @@ function content_582577ef922784_34341274 (Smarty_Internal_Template $_smarty_tpl)
       </form>
 
     </div>
+    <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 </div>
     <!-- CODIGO JAVASCRIPT -->

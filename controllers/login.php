@@ -49,7 +49,8 @@ class Login extends Cpweb
 
 			 if($roles[0]['rol'] == 'cliente') {
 				  header('Location: ../cliente/index.php'); // Envio a la pagina principal
-        } else {
+        } else
+				{
 					//Administrador
           header("Location: index.php");
         }

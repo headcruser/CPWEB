@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-14 19:48:21
+/* Smarty version 3.1.30, created on 2016-11-19 04:20:30
   from "C:\xampp\htdocs\CPWEB\templates\login_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582a06f520c992_15167892',
+  'unifunc' => 'content_582fc4fe0fed63_10551155',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a175df1bbddb46aa2b2c71fdacb24df28cfa296a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\login_form.html',
-      1 => 1479149148,
+      1 => 1479525526,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:footer.html' => 1,
   ),
 ),false)) {
-function content_582a06f520c992_15167892 (Smarty_Internal_Template $_smarty_tpl) {
+function content_582fc4fe0fed63_10551155 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@ function content_582a06f520c992_15167892 (Smarty_Internal_Template $_smarty_tpl)
   <div id="wrapper">
     <?php echo $_smarty_tpl->tpl_vars['header']->value;?>
 
-    
+
         <?php if (isset($_smarty_tpl->tpl_vars['mensaje']->value)) {?>
           <div class="media">
                 <div class="alert alert-danger" role="alert">
@@ -81,6 +82,8 @@ function content_582a06f520c992_15167892 (Smarty_Internal_Template $_smarty_tpl)
               <a href="forgot.php">¿Olvidaste tu contraseña </a>
           </form>
       </div>
+      <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
   </div>
 </body>

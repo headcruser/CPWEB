@@ -16,10 +16,9 @@
     <div class="ibody">
 
       <div class="jumbotron">
-          <h1 class="titulo"> Perfil de Usuario
-          </h1>
-
+          <h1 class="titulo"> Perfil de Usuario</h1>
       </div>
+
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -35,7 +34,7 @@
             {/if}
         </div>
       </div>
-
+          {if isset($email)}{$email}  {/if}
 
       <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" enctype="multipart/form-data">
           <!-- DATOS -->
@@ -86,7 +85,7 @@
       </form>
 
     </div>
-
+    {include file='footer.html'}
 </div>
     <!-- CODIGO JAVASCRIPT -->
     <script src="../js/jquery.js"></script>

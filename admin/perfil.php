@@ -51,9 +51,6 @@
 	}
 
 	//Muestra el perfil del usuario
-
-
-
 	$foto=$web->fetchAll('select foto from usuario where id_usuario='.$_SESSION['id_usuario']);
 	if(empty ($foto)){
 	$templates->assign('flag','true');
@@ -63,8 +60,10 @@
 	}
 
 	$SQL="select * from usuario where id_usuario='".$_SESSION['id_usuario']."'";
+	$email=$_SESSION["email"];
 	$usuario=$web->getAll($SQL);
-    $templates->assign("usuario",$usuario[0]);
+  $templates->assign("usuario",$usuario[0]);
 	$templates->assign('header',$header);
+	$templates->assign('email',$email);
 	$templates->display('perfil.html');
  ?>

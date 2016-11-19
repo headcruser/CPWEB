@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-17 18:10:09
+/* Smarty version 3.1.30, created on 2016-11-19 05:53:00
   from "C:\xampp\htdocs\CPWEB\templates\header_privilegios.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582de4714e8401_77369044',
+  'unifunc' => 'content_582fdaac5805e3_17658257',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48ffe26bcef81a62afd2e2710de8c5e4a034e143' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\header_privilegios.html',
-      1 => 1479336363,
+      1 => 1479531178,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_582de4714e8401_77369044 (Smarty_Internal_Template $_smarty_tpl) {
+function content_582fdaac5805e3_17658257 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- header privilegios -->
 <header>
@@ -46,17 +46,36 @@ function content_582de4714e8401_77369044 (Smarty_Internal_Template $_smarty_tpl)
             <span class="icon-bar"></span>
           </button>
           <!-- Titulo de la pagina web -->
-          <a class="navbar-brand" href="index.php">CPWEB</a>
+          <img src="../image/iconHotel.png"/>
+          <a class="navbar-brand" href="../index.php">CPWEB</a>
         </div>
 
         <!-- Inicia el menu-->
         <div class="collapse navbar-collapse" id="menu-navegacion">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="../index.php">Ir a Página Principal</a></li>
-            <li ><a href="../servicio.php">Servicio</a></li>
 
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
-            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>
+              <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>
+            <li ><a href="../admin/index.php">Inicio</a></li>
+            <?php } else { ?>
+                <li ><a href="index.php">Inicio</a></li>
+            <?php }?>
+          <?php }?>
+          <!-- Seccion Servicios -->
+          <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
+            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
+            <li ><a href="../servicio.php">Servicio</a></li>
+            <?php }?>
+          <?php }?>
+
+          <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
+            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
+            <li ><a href="../servicio.php">Cotizaciones</a></li>
+            <?php }?>
+          <?php }?>
+
+            <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
+            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                 Cliente <span class="caret"></span>
@@ -95,16 +114,24 @@ function content_582de4714e8401_77369044 (Smarty_Internal_Template $_smarty_tpl)
             </li>
             <?php }?>
           <?php }?>
-          </ul>
+
+        </ul>     <!-- fin de la barra derecha -->
 
           <ul class="nav navbar-nav navbar-right">
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
               <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador" || $_smarty_tpl->tpl_vars['privilegio']->value == "login") {?>
               <li><a href="login.php?accion=logout">Cerrar Sesion</a></li>
-              <?php } else { ?>
-                <li><a href="login.php">Iniciar sesion</a></li>
               <?php }?>
             <?php }?>
+
+            <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
+              <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>
+              <li><a href="../admin/login.php?accion=logout">Cerrar Sesion</a></li>
+              <?php }?>
+            <?php }?>
+
+
+
 
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
               <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "administrador") {?>
@@ -126,6 +153,10 @@ function content_582de4714e8401_77369044 (Smarty_Internal_Template $_smarty_tpl)
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
               <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador" || $_smarty_tpl->tpl_vars['privilegio']->value == "login") {?>
               <li><a href="perfil.php">Mi perfil</a></li>
+                <?php } else { ?>
+                    <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>
+                    <li><a href="../admin/perfil.php">Mi perfil</a></li>
+                    <?php }?>
               <?php }?>
             <?php }?>
           </ul>
