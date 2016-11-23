@@ -46,14 +46,16 @@ class Login extends Cpweb
 	   	 $roles=$this->fetchAll($consulta_rol);
 	   	 $_SESSION['roles']=$roles; // Asigno el resultado a la superGobal
 
-
-			 if($roles[0]['rol'] == 'cliente') {
-				  header('Location: ../cliente/index.php'); // Envio a la pagina principal
-        } else
-				{
-					//Administrador
-          header("Location: index.php");
-        }
+			 //busca los permisos del usuario
+			 for ($i=0; $i <sizeof($roles) ; $i++)
+			 {
+					if ($roles[$i]['rol'] == "cliente") {
+  					header('Location: ../cliente/index.php'); // Envio a la pagina principal
+						//header('Location: index.php');
+					}else if ($roles[$i]['rol'] == "administrador" || $roles[$i]['rol'] == 'contador') {
+						header("Location: index.php");
+					}
+			}
 	   }
 	   else
 	   {

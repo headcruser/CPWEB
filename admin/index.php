@@ -2,15 +2,14 @@
 	include('../cp_web_class.php');
 
 	$web=new Cpweb;
-	$templates=$web->template(); //Inicializo smarty
-	$privilegio=null;
+	$templates=$web->template(); //Inicializo smarty(
 
 	 if(isset($_SESSION))
 	 {
-	 	$privilegio=$_SESSION['roles'][0]['rol'];
+		$privilegio=$web->obtenerRolSesion();
 
 		//Login es el usuario predeterminado
-		$web->checarAcceso($privilegio);
+		$web->checarAcceso('login');
 		$header=$web->Privilegiosheader($privilegio);
 
 		$usuario=$web->fetchAll('select foto from usuario where id_usuario='.$_SESSION['id_usuario']);
@@ -23,7 +22,7 @@
 		}
 
 		//Asigno variables
-		$templates->assign('titulo','HOLA BIENVENIDO');
+		$templates->assign('titulo',$_SESSION['email']);
 		$templates->assign('header',$header);
 		$templates->display('index.html');
 	 }

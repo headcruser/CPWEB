@@ -320,10 +320,10 @@ class Cpweb
       {
         if($data['validado'])
         {
-			if(!$this->isExistRol($rol))
-			{
-				header('Location: login.php');
-			}
+					if(!$this->isExistRol($rol))
+					{
+						header('Location: login.php');
+					}
         }
 		else{
           header('Location: login.php');
@@ -343,7 +343,15 @@ class Cpweb
 	function Privilegiosheader($privilegio)
 	{
 		$template=$this->template();	//llama a la libreria de smarty
-		$template->assign('privilegio',$privilegio);
+
+		if(isset($privilegio))
+		{
+			$template->assign('privilegio',$privilegio);
+	  }
+		else{
+			$template->assign('privilegio','login');
+		}
+
 		return $template->fetch('header_privilegios.html');
 
 	}////////////////////////////  Fin del metodo /////////////////////////////////////
@@ -359,18 +367,20 @@ class Cpweb
 	function isExistRol($rol)
 	{
 		$flag=false;
-		$roles=$this->getRoles();
+		$roles=$this->getRolesUsers();
 		if(isset($roles))
 		{
-			for ($i=0; $i < count($roles); $i++)
+			//busca los permisos del usuario
+			for ($i=0; $i <sizeof($roles) ; $i++)
 			{
-				if($roles[$i]['rol'] == $rol)
-				{
-					$flag = true;
-					break;
-				}
+				 if ($roles[$i]['rol'] == $rol)
+				 {
+					 $flag=true;
+					 break;
+				 }
 			}
 		}
+
 		return $flag;
 	}////////////////////////////  Fin del metodo /////////////////////////////////////
 
@@ -380,9 +390,33 @@ class Cpweb
 	@param $p_consulta 	      String 			Privilegio asignado a la barra
 
 	**********************************************************************************/
-	function getRoles()
+	function getRolesUsers()
 	{
+		if (isset($_SESSION)) {
 			return $_SESSION['roles'];
+		}else{
+			return array();
+		}
+
+	}////////////////////////////  Fin del metodo /////////////////////////////////////
+
+	function obtenerRolSesion()
+	{
+		$privilegio=null;
+		$rol=$this->getRolesUsers();
+
+		if(isset($rol))
+		{
+			for ($i=0; $i <sizeof($rol) ; $i++)
+			{
+				if($rol[$i]['rol']!='login')
+				{
+					 $privilegio=$rol[$i]['rol'];
+					 break;
+				}
+			}
+		}
+		return $privilegio;
 	}////////////////////////////  Fin del metodo /////////////////////////////////////
 
 } // Fin de la clase

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	/**Formulario que construye un reporte de los usuarios*/
 	include('../cp_web_class.php');
 
@@ -9,7 +9,7 @@
 	// Validacion para saber que tipo de header construir
 	 if(isset($_SESSION))
 	 {
-	 	$privilegio=$_SESSION['roles'][0]['rol'];
+	 		$privilegio=$web->obtenerRolSesion();
 	 }
 
 	 $header=$web->Privilegiosheader($privilegio);
@@ -22,5 +22,5 @@
 	$templates->assign('reporte1',$reporte1);
 	$templates->assign('header',$header);
 	$templates->display('reporte.html');
- 
+
  ?>

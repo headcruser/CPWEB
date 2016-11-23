@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>REPORTE PDF</title>
+    <style type"text/css" >
+      .rojo
+      {
+        color:red
+      }
+      .text-center
+      {
+         text-align: center;
+       }
+    </style>
+
+  </head>
+  <body>
+
+
+    <h1 class="text-center rojo">Cotizaciones </h1>
+
+    <!--DETALE DE LAS COTIZACIONES -->
+  <table class="table"  CELLSPACING=1  >
+
+    <tr ALIGN=center>
+      <th >id cotizacion  </th>
+      <th>Razon Social</th>
+
+    </tr>
+
+    {foreach $cotizacion as $elemento}
+    <tr ALIGN=center>
+      <td>{$elemento.id_cotizacion}</td>
+      <td> {$elemento.razon_social}</td>
+    </tr>
+    {/foreach}
+</table>
+
+
+
+          <!--DETALLE DE LOS SERVICIOS -->
+          <table class="table"  CELLSPACING=1  >
+
+          <tr ALIGN=center>
+            <th >id servicio  </th>
+            <th> cantidad </th>
+
+          </tr>
+
+          {foreach $detalle as $elemento}
+          <tr ALIGN=center>
+            <td>{$elemento.id_servicio}</td>
+            <td> {$elemento.cantidad}</td>
+          </tr>
+          {/foreach}
+          </table>
+
+  </body>
+</html>

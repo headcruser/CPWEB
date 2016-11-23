@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-19 05:53:00
+/* Smarty version 3.1.30, created on 2016-11-20 05:34:31
   from "C:\xampp\htdocs\CPWEB\templates\header_privilegios.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582fdaac5805e3_17658257',
+  'unifunc' => 'content_583127d7a65540_43417524',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48ffe26bcef81a62afd2e2710de8c5e4a034e143' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\header_privilegios.html',
-      1 => 1479531178,
+      1 => 1479616469,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_582fdaac5805e3_17658257 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583127d7a65540_43417524 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- header privilegios -->
 <header>
@@ -61,24 +61,25 @@ function content_582fdaac5805e3_17658257 (Smarty_Internal_Template $_smarty_tpl)
                 <li ><a href="index.php">Inicio</a></li>
             <?php }?>
           <?php }?>
-          <!-- Seccion Servicios -->
-          <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
-            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
-            <li ><a href="../servicio.php">Servicio</a></li>
-            <?php }?>
+
+          <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+              Servicios <span class="caret"></span>
+            </a>
+              <!-- SubMenu -->
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="../admin/cotizacion_detalle.php">Cotizaciones</a></li>
+              </ul>
+          </li>
           <?php }?>
 
-          <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
-            <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
-            <li ><a href="../servicio.php">Cotizaciones</a></li>
-            <?php }?>
-          <?php }?>
-
+        <!-- Seccion Servicios -->
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
             <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                Cliente <span class="caret"></span>
+                Catálogo <span class="caret"></span>
               </a>
                 <!-- SubMenu -->
                 <ul class="dropdown-menu" role="menu">
@@ -88,6 +89,7 @@ function content_582fdaac5805e3_17658257 (Smarty_Internal_Template $_smarty_tpl)
 
 
                   <li role="separator" class="divider"></li>
+                  <li ><a href="../admin/servicio.php">Servicios</a></li>
                   <li><a href="reporte.php">Visualizar Reporte</a></li>
                 </ul>
             </li>
@@ -97,30 +99,22 @@ function content_582fdaac5805e3_17658257 (Smarty_Internal_Template $_smarty_tpl)
 
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
             <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                Contadores <span class="caret"></span>
-              </a>
-                <!-- SubMenu -->
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="clientes.php">Ir a Clientes</a></li>
-                    <li><a href="estados.php">Ir a Entidad Federativa</a></li>
-                    <li><a href="tipo.php">Ir a Tipo de Clientes</a></li>
-
-
-                  <li role="separator" class="divider"></li>
-                  <li><a href="reporte.php">Visualizar Reporte</a></li>
-                </ul>
-            </li>
+            <li><a href="cotizacion.php">Ver cotizaciones</a></li>
             <?php }?>
           <?php }?>
 
         </ul>     <!-- fin de la barra derecha -->
 
           <ul class="nav navbar-nav navbar-right">
+
+            <!-- INDICA SI EL USUARIO QUIERE INICIAR SESION-->
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
-              <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador" || $_smarty_tpl->tpl_vars['privilegio']->value == "login") {?>
+              <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador") {?>
               <li><a href="login.php?accion=logout">Cerrar Sesion</a></li>
+              <?php } else { ?>
+                <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "login") {?>
+                <li><a href="login.php">Iniciar Sesion</a></li>
+                <?php }?>
               <?php }?>
             <?php }?>
 
@@ -151,7 +145,7 @@ function content_582fdaac5805e3_17658257 (Smarty_Internal_Template $_smarty_tpl)
           <?php }?>
 
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
-              <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador" || $_smarty_tpl->tpl_vars['privilegio']->value == "login") {?>
+              <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador" || $_smarty_tpl->tpl_vars['privilegio']->value == "administrador") {?>
               <li><a href="perfil.php">Mi perfil</a></li>
                 <?php } else { ?>
                     <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "cliente") {?>

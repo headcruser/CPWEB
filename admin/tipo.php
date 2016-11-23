@@ -12,7 +12,7 @@
 
 	// Validacion para saber que tipo de header construir
 	if(isset($_SESSION)){
-	 	$privilegio=$_SESSION['roles'][0]['rol'];
+	 		$privilegio=$web->obtenerRolSesion();
 	 }
 
 

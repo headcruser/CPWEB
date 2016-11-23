@@ -5,7 +5,7 @@
 	//Elementos que inician vacios
 	$accion=null;
 	$templates=$web->template();
-	$header=$web->Privilegiosheader("x"); //Crea el header
+	$header=$web->Privilegiosheader("login"); //Crea el header
 
 	//Obtiene la accion seleccionada por el usuario
 	if( isset($_GET['accion']))

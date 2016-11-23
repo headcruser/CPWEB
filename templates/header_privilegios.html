@@ -37,24 +37,25 @@
                 <li ><a href="index.php">Inicio</a></li>
             {/if}
           {/if}
-          <!-- Seccion Servicios -->
-          {if isset($privilegio)}
-            {if $privilegio eq "contador"}
-            <li ><a href="../servicio.php">Servicio</a></li>
-            {/if}
+
+          {if $privilegio eq "cliente"}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+              Servicios <span class="caret"></span>
+            </a>
+              <!-- SubMenu -->
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="../admin/cotizacion_detalle.php">Cotizaciones</a></li>
+              </ul>
+          </li>
           {/if}
 
-          {if isset($privilegio) }
-            {if $privilegio eq "contador"}
-            <li ><a href="../servicio.php">Cotizaciones</a></li>
-            {/if}
-          {/if}
-
+        <!-- Seccion Servicios -->
             {if isset($privilegio)}
             {if $privilegio eq "contador"}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                Cliente <span class="caret"></span>
+                Catálogo <span class="caret"></span>
               </a>
                 <!-- SubMenu -->
                 <ul class="dropdown-menu" role="menu">
@@ -64,6 +65,7 @@
 
 
                   <li role="separator" class="divider"></li>
+                  <li ><a href="../admin/servicio.php">Servicios</a></li>
                   <li><a href="reporte.php">Visualizar Reporte</a></li>
                 </ul>
             </li>
@@ -73,30 +75,22 @@
 
             {if isset($privilegio)}
             {if $privilegio eq "contador"}
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                Contadores <span class="caret"></span>
-              </a>
-                <!-- SubMenu -->
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="clientes.php">Ir a Clientes</a></li>
-                    <li><a href="estados.php">Ir a Entidad Federativa</a></li>
-                    <li><a href="tipo.php">Ir a Tipo de Clientes</a></li>
-
-
-                  <li role="separator" class="divider"></li>
-                  <li><a href="reporte.php">Visualizar Reporte</a></li>
-                </ul>
-            </li>
+            <li><a href="cotizacion.php">Ver cotizaciones</a></li>
             {/if}
           {/if}
 
         </ul>     <!-- fin de la barra derecha -->
 
           <ul class="nav navbar-nav navbar-right">
+
+            <!-- INDICA SI EL USUARIO QUIERE INICIAR SESION-->
             {if isset($privilegio)}
-              {if $privilegio eq "contador" or $privilegio eq "administrador" or $privilegio eq "login"}
+              {if $privilegio eq "contador" or $privilegio eq "administrador"}
               <li><a href="login.php?accion=logout">Cerrar Sesion</a></li>
+              {else }
+                {if $privilegio eq "login"}
+                <li><a href="login.php">Iniciar Sesion</a></li>
+                {/if}
               {/if}
             {/if}
 
@@ -127,7 +121,7 @@
           {/if}
 
             {if isset($privilegio)}
-              {if $privilegio eq "contador" or $privilegio eq "administrador" or $privilegio eq "login" }
+              {if $privilegio eq "contador" or $privilegio eq "administrador"}
               <li><a href="perfil.php">Mi perfil</a></li>
                 {else}
                     {if $privilegio eq "cliente"}
