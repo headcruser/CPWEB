@@ -25,14 +25,17 @@
 
 
       <div id="contenedor">
-      <h1>vista</h1>
+      <h1>Lista de reportes Eléctronicos</h1>
 
                 <!--MUESTRA LA TABLA DE CLIENTESS -->
               <table class="table"  CELLSPACING=1  >
 
                 <tr ALIGN=center>
-                  <th >id cotizacion  </th>
+                  <th >ID </th>
                   <th>Razon Social</th>
+                  <th>Fecha</th>
+                  <th>Total del Servicio</th>
+                  <th>Total</th>
                   <th>PDF</th>
                 </tr>
 
@@ -40,10 +43,12 @@
                 <tr ALIGN=center>
                   <td>{$elemento.id_cotizacion}</td>
                   <td> {$elemento.razon_social}</td>
-                  <!-- <td> {$elemento.contrasena}</td> -->
+                  <td> {$elemento.fecha}</td>
+                  <td> {$elemento.total_servicio}</td>
+                  <td> {$elemento.total}</td>
                   <td>
                     <a  href="vista_cotizacion.php?accion=imprimir&id_cotizacion={$elemento.id_cotizacion}">
-                      <img src="../image/cancel.png" >
+                      <img src="../image/pdf.png" >
                     </a>
                   </td>
                 </tr>
@@ -52,6 +57,7 @@
 
 
             </div>
+            {include file='footer.html'}
     </div>
     <!-- CODIGO JAVASCRIPT -->
     <script src="../js/jquery.js"></script>

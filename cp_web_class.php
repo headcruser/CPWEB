@@ -141,7 +141,13 @@ class Cpweb
 	function showList ($sql,$selected=null)
 	{
 		$datos=$this->getAll($sql); //Arreglo asosiativo //pero necesitamos el indexado
-		$nombresCol=array_keys($datos[0]);  //Obtiene el identificador del arreglo en la primera posicion
+
+		if(isset($datos)){
+			$nombresCol=array_keys($datos[0]);  //Obtiene el identificador del arreglo en la primera posicion
+		}
+		else{
+			$nombresCol=array();
+		}
 		$template=$this->template();	//llama a la libreria de smarty
 		$template->assign('datos',$datos); 	// envio de parametros
 		$template->assign('selected',$selected);	//enviamos el parametro del combo box

@@ -125,7 +125,10 @@
 			$combo_servicios=$web->showList("select id_servicio, servicio from servicio");
 			$templates->assign('combo_servicios',$combo_servicios);
 			$sql="select id_cliente, razon_social from cliente where id_usuario=".$_SESSION["id_usuario"];
+
+			
 			$combo_clientes=$web->showList($sql);
+
 
 			if (isset($_SESSION['cotizacion']))
 			{

@@ -45,7 +45,7 @@
             </a>
               <!-- SubMenu -->
               <ul class="dropdown-menu" role="menu">
-                  <li><a href="../admin/cotizacion_detalle.php">Cotizaciones</a></li>
+                  <li><a href="../cliente/cotizacion.php">Cotizaciones</a></li>
               </ul>
           </li>
           {/if}
@@ -76,6 +76,7 @@
             {if isset($privilegio)}
             {if $privilegio eq "contador"}
             <li><a href="cotizacion.php">Ver cotizaciones</a></li>
+            <li><a href="vista_cotizacion.php">Reportes PDF</a></li>
             {/if}
           {/if}
 

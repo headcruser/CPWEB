@@ -1,60 +1,68 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>REPORTE PDF</title>
-    <style type"text/css" >
-      .rojo
-      {
-        color:red
-      }
-      .text-center
-      {
-         text-align: center;
-       }
-    </style>
 
-  </head>
-  <body>
+<!-- HOJA DE ESTILOS -->
+	 <link rel="stylesheet" type="text/css" href="../css/main.css" >
 
 
-    <h1 class="text-center rojo">Cotizaciones </h1>
-
+    <h1 class="titulo">Cotizaciones </h1>
     <!--DETALE DE LAS COTIZACIONES -->
-  <table class="table"  CELLSPACING=1  >
-
-    <tr ALIGN=center>
-      <th >id cotizacion  </th>
-      <th>Razon Social</th>
-
-    </tr>
-
-    {foreach $cotizacion as $elemento}
-    <tr ALIGN=center>
-      <td>{$elemento.id_cotizacion}</td>
-      <td> {$elemento.razon_social}</td>
-    </tr>
-    {/foreach}
-</table>
 
 
+		<body>
+			<div id="wrapper">
+					<div id="contenedor">
 
-          <!--DETALLE DE LOS SERVICIOS -->
-          <table class="table"  CELLSPACING=1  >
+						<div class="contenedor">
+			        <table CELLSPACING=1  >
 
-          <tr ALIGN=center>
-            <th >id servicio  </th>
-            <th> cantidad </th>
+			          <tr ALIGN=center>
+			            <th >id cotizacion  </th>
+			            <th>Razon Social</th>
+			            <th>Fecha</th>
+			            <th>Total Servicio</th>
+			            <th>Total</th>
 
-          </tr>
+			          </tr>
 
-          {foreach $detalle as $elemento}
-          <tr ALIGN=center>
-            <td>{$elemento.id_servicio}</td>
-            <td> {$elemento.cantidad}</td>
-          </tr>
-          {/foreach}
-          </table>
+			          {foreach $cotizacion as $elemento}
+			          <tr ALIGN=center>
+			            <td>{$elemento.id_cotizacion}</td>
+			            <td> {$elemento.razon_social}</td>
+			            <td> {$elemento.fecha}</td>
+			            <td> {$elemento.total_servicio}</td>
+			            <td> {$elemento.total}</td>
+			          </tr>
+			          {/foreach}
+			      </table>
+			      </div>
 
-  </body>
-</html>
+					 <div>
+			<div>
+		</body>
+
+
+
+
+
+
+
+    <!--DETALLE DE LOS SERVICIOS -->
+      <div class="contenedor">
+        <table class="table"  CELLSPACING=1  >
+
+        <tr ALIGN=center>
+          <th>ID_CLiente  </th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+
+        </tr>
+
+        {foreach $detalle as $elemento}
+        <tr ALIGN=center>
+          <td>{$elemento.id_servicio}</td>
+          <td> {$elemento.cantidad}</td>
+          <td> {$elemento.precio}</td>
+        </tr>
+        {/foreach}
+        </table>
+      </div>
+    </div>

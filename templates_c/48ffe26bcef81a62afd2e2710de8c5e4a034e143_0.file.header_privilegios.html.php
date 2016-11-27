@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-20 05:34:31
+/* Smarty version 3.1.30, created on 2016-11-24 08:20:11
   from "C:\xampp\htdocs\CPWEB\templates\header_privilegios.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583127d7a65540_43417524',
+  'unifunc' => 'content_583694ab8923d3_92113255',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48ffe26bcef81a62afd2e2710de8c5e4a034e143' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\header_privilegios.html',
-      1 => 1479616469,
+      1 => 1479972007,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583127d7a65540_43417524 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583694ab8923d3_92113255 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- header privilegios -->
 <header>
@@ -69,7 +69,7 @@ function content_583127d7a65540_43417524 (Smarty_Internal_Template $_smarty_tpl)
             </a>
               <!-- SubMenu -->
               <ul class="dropdown-menu" role="menu">
-                  <li><a href="../admin/cotizacion_detalle.php">Cotizaciones</a></li>
+                  <li><a href="../cliente/cotizacion.php">Cotizaciones</a></li>
               </ul>
           </li>
           <?php }?>
@@ -100,6 +100,7 @@ function content_583127d7a65540_43417524 (Smarty_Internal_Template $_smarty_tpl)
             <?php if (isset($_smarty_tpl->tpl_vars['privilegio']->value)) {?>
             <?php if ($_smarty_tpl->tpl_vars['privilegio']->value == "contador") {?>
             <li><a href="cotizacion.php">Ver cotizaciones</a></li>
+            <li><a href="vista_cotizacion.php">Reportes PDF</a></li>
             <?php }?>
           <?php }?>
 

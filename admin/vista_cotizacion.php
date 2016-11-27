@@ -25,10 +25,13 @@
 	 switch ($accion )
 	 {
 	 	case 'imprimir':
-	 		$id_cotizacion=$_GET['id_cotizacion'];
-			//Por alguna razon postgress no me dejo incluir la consulta de arriba
-	 	 $cotizacion=$web->fetchAll("select * from v_cotizacion");
+			//Muestra el contenido del archivo PDF
+			$id_cotizacion=$_GET['id_cotizacion'];
+
+			//Consultas
 			$detalle =$web-> fetchAll("select id_servicio,cantidad,precio from v_cotizacion where id_cotizacion =".$id_cotizacion);
+			$cotizacion=$web->fetchAll("select id_cotizacion, razon_social, fecha, count(id_servicio) as total_servicio, sum(cantidad) as total from v_cotizacion group by 1,2,3");
+
 			$templates->assign('cotizacion',$cotizacion);
 			$templates->assign('detalle',$detalle);
 			$reporte=$templates->fetch('cotizaciones_pdf.html');
@@ -43,18 +46,16 @@
 	 		break;
 
 	 	default:
-	 		# code...
 	 		break;
 	 }
 
 
 
-	 //Por alguna razon postgress no me dejo incluir la consulta de arriba
-	// $cotizacion=$web->fetchAll("select id_cotizacion,razon_social,
-	// 															fecha ,count(id_servicio) as total_servicio , sum(subtotal) as total
-	// 														from v_cotizacion group by 1,2,3");
-
-	$cotizacion=$web->fetchAll("select * from v_cotizacion");
+	$cotizacion=$web->fetchAll("select id_cotizacion,
+	 																	razon_social,
+																		fecha,
+	 													        count(id_servicio) as total_servicio,
+														 				sum(cantidad) as total from v_cotizacion group by 1,2,3");
 
 	$templates->assign('cotizacion',$cotizacion);
 	$templates->assign('header',$header);

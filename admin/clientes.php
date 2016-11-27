@@ -33,12 +33,15 @@
 
 	switch ($accion)
 	{
-		case 'nuevo': //Muestra el formulario
-
+		case 'nuevo':
+				//Nuevo elemento
 		  	$combo=$web->showList('select id_tipo,tipo from tipo'); //Otiene una lista de elementos
 		  	$comboEstado=$web->showList('select id_estado,estado from estado');
+				$comboUsuario=$web->showList('select id_usuario, email  from usuario');
+
+				$templates->assign('combo',$combo);
 		  	$templates->assign('comboEstado',$comboEstado);	//se agrega el combo de estados
-		  	$templates->assign('combo',$combo);
+		  	$templates->assign('comboUsuario',$comboUsuario);	//se agrega el combo de usuarios
 		  	$templates->assign('header',$header);
 			$templates->display('clientes_alta.html');
 			die();
@@ -47,14 +50,21 @@
 
 		//Edita al cliente registrado en la base de datos
 		case 'editar':
-			$cliente=$web->getCliente($idcliente);
-			$combo=$web->showList('select id_tipo,tipo from tipo',$cliente[0]['id_tipo']);
 
-			// Se añade el combo box de los estados para insertarlos
+			//Se obtiene el elemento seleccionado
+			$cliente=$web->getCliente($idcliente);
+
+			// Se crean los combos para los datos adicionales
+			$combo=$web->showList('select id_tipo,tipo from tipo',$cliente[0]['id_tipo']);
 			$comboEstado=$web->showList('select id_estado,estado from estado',$cliente[0]['id_estado']);
+			$comboUsuario=$web->showList('select id_usuario, email  from usuario',$cliente[0]['id_usuario']);
+
+			//Se agregan los combos
+			$templates->assign('combo',$combo);
+  		$templates->assign('comboEstado',$comboEstado);
+			$templates->assign('comboUsuario',$comboUsuario);
+
 			$templates->assign('cliente',$cliente[0]);
-	  		$templates->assign('combo',$combo); 			// Se agrega el combo tipo
-	  		$templates->assign('comboEstado',$comboEstado);	//se agrega el combo de estados
 			$templates->assign('id_cliente',$idcliente);
 			$templates->assign('header',$header);
 			$templates->display('clientes_alta.html');
