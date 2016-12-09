@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-11 04:32:55
+/* Smarty version 3.1.30, created on 2016-12-09 05:14:22
   from "C:\xampp\htdocs\CPWEB\templates\admin\usuario_rol.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58253be7ca65a7_58918517',
+  'unifunc' => 'content_584a2f9e9e15a6_27150168',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e5803c740a382ac8fa0edb1842b6ee706215365c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\usuario_rol.html',
-      1 => 1478835168,
+      1 => 1481256801,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_58253be7ca65a7_58918517 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a2f9e9e15a6_27150168 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
+<!-- VISTA DE LA ASIGNACION DE UN ROL A UN USUARIO -->
 <!DOCTYPE html>
 <html>
   <head>

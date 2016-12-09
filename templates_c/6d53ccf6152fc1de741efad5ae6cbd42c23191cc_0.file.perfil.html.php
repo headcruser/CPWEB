@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-19 05:02:48
+/* Smarty version 3.1.30, created on 2016-12-09 06:58:00
   from "C:\xampp\htdocs\CPWEB\templates\perfil.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582fcee87eea02_60708264',
+  'unifunc' => 'content_584a47e8bbc2d4_67492573',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6d53ccf6152fc1de741efad5ae6cbd42c23191cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\perfil.html',
-      1 => 1479528166,
+      1 => 1481263074,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_582fcee87eea02_60708264 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a47e8bbc2d4_67492573 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,11 +64,11 @@ function content_582fcee87eea02_60708264 (Smarty_Internal_Template $_smarty_tpl)
 echo $_smarty_tpl->tpl_vars['email']->value;?>
   <?php }?>
 
-      <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" data-toggle="validator" role="form" enctype="multipart/form-data">
           <!-- DATOS -->
           <div class="form-group">
             <div class="col-sm-12">
-                <input class="form-control" type="text" name="nombres" placeholder="nombre" <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nombres'];?>
+                <input class="form-control" type="text" name="nombres" placeholder="Escribe tu Nombre"  required <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nombres'];?>
 "<?php }?> >
             </div>
           </div>
@@ -76,7 +76,7 @@ echo $_smarty_tpl->tpl_vars['email']->value;?>
           <!-- APELLIDO -->
           <div class="form-group">
             <div class="col-sm-12">
-                <input class="form-control" type="text" name="apellidos" placeholder="apellido" <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['apellidos'];?>
+                <input class="form-control" type="text" name="apellidos" placeholder="Escribe tu Apellido" required <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['apellidos'];?>
 "<?php }?>>
             </div>
           </div>
@@ -84,7 +84,7 @@ echo $_smarty_tpl->tpl_vars['email']->value;?>
           <!-- FECHA DE NACIMIENTO -->
           <div class="form-group">
             <div class="col-sm-12">
-              <input class="form-control" type="date" name="nacimiento" <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nacimiento'];?>
+              <input class="form-control" type="date" name="nacimiento" placeholder="Escribe tu Fecha de nacimiento" required <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nacimiento'];?>
 "<?php }?>>
             </div>
           </div>

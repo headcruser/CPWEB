@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:07:43
+/* Smarty version 3.1.30, created on 2016-12-09 04:47:30
   from "C:\xampp\htdocs\CPWEB\templates\admin\usuario.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd2f9bedf1_71413208',
+  'unifunc' => 'content_584a2952596c06_14882682',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e212334893b66adf52efde37b689faf300f89b07' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\usuario.html',
-      1 => 1478671518,
+      1 => 1481255246,
       2 => 'file',
     ),
   ),
@@ -21,15 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd2f9bedf1_71413208 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a2952596c06_14882682 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
-
-
+<!-- Muestra a los Usuario -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -101,12 +95,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
             </table>
 
-                  <!--INSERTA UN NUEVO CLIENTE-->
-
+                  <!--Boton para dar de alta-->
                 <div class="alta">
                   <form >
                       <!--<input class=button type=submit value="alta" name="accion">-->
-                      <a  class=button href="usuario.php?accion=nuevo">NUEVO usuario</a>
+                      <a  class=button href="usuario.php?accion=nuevo">Nuevo usuario</a>
                   </form>
                 </div>
             </div>

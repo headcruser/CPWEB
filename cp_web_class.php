@@ -390,22 +390,27 @@ class Cpweb
 		return $flag;
 	}////////////////////////////  Fin del metodo /////////////////////////////////////
 
-	/***********************************************************************************
-	Indica si el rol Especificado Existe
-	parametro 					tipo 					Descripcion
+
+
+	/****************************************************************************
+      Obtiene los roles de la persona que accedio al sistema
+      parametro 								tipo 					Descripcion
+      @param $p_consulta 	      String 			Privilegio asignado a la barra
+    **************************************************************************/
+  function getRolesUsers()
+  {
+    if (isset($_SESSION)){
+      return $_SESSION['roles'];
+    }else{
+      return array();
+    }
+  }////////////////////////////  Fin del metodo /////////////////////////////////////
+
+	/*****************************************************************************
+	compara los roles de la persona que accedio al sistema
+	parametro 								tipo 					Descripcion
 	@param $p_consulta 	      String 			Privilegio asignado a la barra
-
-	**********************************************************************************/
-	function getRolesUsers()
-	{
-		if (isset($_SESSION)) {
-			return $_SESSION['roles'];
-		}else{
-			return array();
-		}
-
-	}////////////////////////////  Fin del metodo /////////////////////////////////////
-
+	******************************************************************************/
 	function obtenerRolSesion()
 	{
 		$privilegio=null;
@@ -424,6 +429,7 @@ class Cpweb
 		}
 		return $privilegio;
 	}////////////////////////////  Fin del metodo /////////////////////////////////////
+
 
 } // Fin de la clase
 ?>

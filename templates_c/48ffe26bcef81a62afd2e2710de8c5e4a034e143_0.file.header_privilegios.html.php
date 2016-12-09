@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-24 08:20:11
+/* Smarty version 3.1.30, created on 2016-12-09 04:07:16
   from "C:\xampp\htdocs\CPWEB\templates\header_privilegios.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583694ab8923d3_92113255',
+  'unifunc' => 'content_584a1fe45bdb62_69411222',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '48ffe26bcef81a62afd2e2710de8c5e4a034e143' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\header_privilegios.html',
-      1 => 1479972007,
+      1 => 1481252831,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583694ab8923d3_92113255 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a1fe45bdb62_69411222 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- header privilegios -->
 <header>
@@ -86,7 +86,7 @@ function content_583694ab8923d3_92113255 (Smarty_Internal_Template $_smarty_tpl)
                     <li><a href="clientes.php">Ir a Clientes</a></li>
                     <li><a href="estados.php">Ir a Entidad Federativa</a></li>
                     <li><a href="tipo.php">Ir a Tipo de Clientes</a></li>
-
+                    <li><a href="cotizacion_detalle.php">Cotizacion Detalle</a></li>
 
                   <li role="separator" class="divider"></li>
                   <li ><a href="../admin/servicio.php">Servicios</a></li>

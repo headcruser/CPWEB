@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-19 04:20:30
+/* Smarty version 3.1.30, created on 2016-12-09 04:29:12
   from "C:\xampp\htdocs\CPWEB\templates\login_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582fc4fe0fed63_10551155',
+  'unifunc' => 'content_584a25081b28f9_36559662',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a175df1bbddb46aa2b2c71fdacb24df28cfa296a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\login_form.html',
-      1 => 1479525526,
+      1 => 1481254147,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_582fc4fe0fed63_10551155 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a25081b28f9_36559662 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,6 +49,17 @@ function content_582fc4fe0fed63_10551155 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         <?php }?>
 
+
+        <?php if (isset($_smarty_tpl->tpl_vars['msg']->value)) {?>
+          <div class="media">
+            <div class="alert alert-success" role="alert">
+            <strong> Perfecto ¡¡:</strong>
+            <?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
+
+            </div>
+          </div>
+          <?php }?>
+
       <div class="formulario ">
 
         <?php if (isset($_smarty_tpl->tpl_vars['titulo']->value)) {?>
@@ -57,19 +68,19 @@ function content_582fc4fe0fed63_10551155 (Smarty_Internal_Template $_smarty_tpl)
                   <?php } else { ?>
                   <h1>Login</h1>
                 <?php }?>
-            <form class="form-horizontal" method="POST" action="login.php?accion=login">
+            <form class="form-horizontal" method="POST" action="login.php?accion=login" data-toggle="validator" role="form">
 
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">EMAIL</label>
+                  <label for="inputEmail" class="col-sm-2 control-label">EMAIL</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="email" >
+                      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Ingresa tu Email" required>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">CONTRASEÑA</label>
+                  <label for="inputPassword" class="col-sm-2 control-label">CONTRASEÑA</label>
                   <div class="col-sm-10">
-                      <input type="password" class="form-control" name="contrasena" >
+                      <input type="password" minlength="3" class="form-control"  id="inputPassword" name="contrasena"  placeholder="Ingresa tu contraseña" required>
                   </div>
                 </div>
 
@@ -84,6 +95,16 @@ function content_582fc4fe0fed63_10551155 (Smarty_Internal_Template $_smarty_tpl)
       </div>
       <?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
+      <?php echo '<script'; ?>
+ src="../js/jquery.js"><?php echo '</script'; ?>
+>
+      <?php echo '<script'; ?>
+ src="../js/bootstrap/bootstrap.js"><?php echo '</script'; ?>
+>
+      <?php echo '<script'; ?>
+ src="../js/jquery.validate.js"><?php echo '</script'; ?>
+>
 
   </div>
 </body>

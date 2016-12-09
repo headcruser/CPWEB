@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-11 04:44:02
+/* Smarty version 3.1.30, created on 2016-12-09 05:04:33
   from "C:\xampp\htdocs\CPWEB\templates\admin\rol_privilegio.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58253e82921087_95936001',
+  'unifunc' => 'content_584a2d51c48b41_19773303',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ad1cd3483bcf02da9638fdc0b6eb2246dc642b70' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\rol_privilegio.html',
-      1 => 1478835826,
+      1 => 1481256192,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_58253e82921087_95936001 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a2d51c48b41_19773303 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
-
+<!-- Vista de rol-privilegio -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,7 +40,6 @@ function content_58253e82921087_95936001 (Smarty_Internal_Template $_smarty_tpl)
 
     <div id="wrapper">
       <?php echo $_smarty_tpl->tpl_vars['header']->value;?>
-
 
 
       <div id="contenedor">
@@ -97,7 +91,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
             </table>
-
 
                 <div class="alta">
                   <form >

@@ -36,25 +36,25 @@
       </div>
           {if isset($email)}{$email}  {/if}
 
-      <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" action="perfil.php?accion=guardar" method="post" data-toggle="validator" role="form" enctype="multipart/form-data">
           <!-- DATOS -->
           <div class="form-group">
             <div class="col-sm-12">
-                <input class="form-control" type="text" name="nombres" placeholder="nombre" {if isset($usuario)} value="{$usuario.nombres}"{/if} >
+                <input class="form-control" type="text" name="nombres" placeholder="Escribe tu Nombre"  required {if isset($usuario)} value="{$usuario.nombres}"{/if} >
             </div>
           </div>
 
           <!-- APELLIDO -->
           <div class="form-group">
             <div class="col-sm-12">
-                <input class="form-control" type="text" name="apellidos" placeholder="apellido" {if isset($usuario)} value="{$usuario.apellidos}"{/if}>
+                <input class="form-control" type="text" name="apellidos" placeholder="Escribe tu Apellido" required {if isset($usuario)} value="{$usuario.apellidos}"{/if}>
             </div>
           </div>
 
           <!-- FECHA DE NACIMIENTO -->
           <div class="form-group">
             <div class="col-sm-12">
-              <input class="form-control" type="date" name="nacimiento" {if isset($usuario)} value="{$usuario.nacimiento}"{/if}>
+              <input class="form-control" type="date" name="nacimiento"  required {if isset($usuario)} value="{$usuario.nacimiento}"{/if}>
             </div>
           </div>
 
@@ -62,7 +62,7 @@
           <!-- CONTRASENA -->
             <div class="form-group">
               <div class="col-sm-12">
-                  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" >
+                  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" minlength="3" required>
               </div>
             </div>
 

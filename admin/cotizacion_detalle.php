@@ -104,7 +104,11 @@
 
 	}
 	//Muestra la tabla
-	$cotizacion_detalle=$web->fetchAll("select * from cotizacion_detalle");
+	$cotizacion_detalle=$web->fetchAll("select id_cotizacion,id_servicio,
+																			(select servicio from servicio
+																			where id_servicio=cotizacion_detalle.id_servicio) as servicio,
+																			cantidad
+	 																		from cotizacion_detalle");
 	$templates->assign('titulo','Cotizacion Detalle');
 	$templates->assign('cotizacion_detalle',$cotizacion_detalle);
 	$templates->assign('header',$header);

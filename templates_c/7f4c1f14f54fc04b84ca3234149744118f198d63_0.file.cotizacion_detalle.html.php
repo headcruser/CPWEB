@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-14 23:45:46
+/* Smarty version 3.1.30, created on 2016-12-09 04:14:12
   from "C:\xampp\htdocs\CPWEB\templates\cliente\cotizacion_detalle.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582a3e9a1d3d55_08395203',
+  'unifunc' => 'content_584a2184957510_57735520',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7f4c1f14f54fc04b84ca3234149744118f198d63' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\cliente\\cotizacion_detalle.html',
-      1 => 1479163536,
+      1 => 1481253250,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_582a3e9a1d3d55_08395203 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a2184957510_57735520 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +66,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['elemento']->value) {
                 <tr ALIGN=center>
                   <td><?php echo $_smarty_tpl->tpl_vars['elemento']->value['id_cotizacion'];?>
 </td>
-                  <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['id_servicio'];?>
+                  <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['servicio'];?>
 </td>
                   <td> <?php echo $_smarty_tpl->tpl_vars['elemento']->value['cantidad'];?>
 </td>

@@ -1,3 +1,4 @@
+
 <?php
 	/**Formulario que construye un reporte de los usuarios*/
 	include('../cp_web_class.php');

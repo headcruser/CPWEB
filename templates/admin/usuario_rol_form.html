@@ -31,10 +31,10 @@
 
                   <h1>FORMULARIO USUARIO-ROL </h1>
 
-                <form class="form-horizontal" method="POST" action="usuario_rol.php?accion={if isset($id_usuario) and isset($id_rol)}guardar{else}alta{/if}">
+                <form class="form-horizontal"  data-toggle="validator" role="form" method="POST" action="usuario_rol.php?accion={if isset($id_usuario) and isset($id_rol)}guardar{else}alta{/if}">
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">SELECCION DE USUARIO</label>
+                      <label for="inputName" class="col-sm-2 control-label">SELECCION DE USUARIO</label>
                       <div class="col-sm-10">
                          {$combo_usuario}
                       </div>
@@ -42,7 +42,7 @@
 
 
                       <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">SELECCION DE ROL</label>
+                        <label for="inputName" class="col-sm-2 control-label">SELECCION DE ROL</label>
                         <div class="col-sm-10">
                            {$combo_rol}
                         </div>
@@ -63,8 +63,6 @@
         </div>
                  {include file='../footer.html'}
       </div>
-
-
 
     <!-- CODIGO JAVASCRIPT -->
     <script src="../js/jquery.js"></script>

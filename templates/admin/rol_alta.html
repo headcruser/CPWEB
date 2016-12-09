@@ -30,14 +30,14 @@
           </div>
 
           <div class="formulario ">
-              <h1>Formulario ROL </h1>
 
-                <form class="form-horizontal" method="POST" action="rol.php?accion={if isset($id_rol)}guardar{else}alta{/if}">
+              <h1>Formulario Rol </h1>
+                <form class="form-horizontal" method="POST" data-toggle="validator" role="form" action="rol.php?accion={if isset($id_rol)}guardar{else}alta{/if}">
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">ROL</label>
+                      <label for="inputName" class="col-sm-2 control-label">ROL</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name="rol" {if isset($id_rol)} value="{$rol.rol}"{/if} >
+                          <input type="text" class="form-control" id="inputName" placeholder="Escribe un rol" required name="rol" {if isset($id_rol)} value="{$rol.rol}"{/if} >
                       </div>
                     </div>
 
@@ -53,11 +53,11 @@
                 </form>
             </div>
 
-
-              {include file='../footer.html'}       
+              {include file='../footer.html'}
         </div>
     <!-- CODIGO JAVASCRIPT -->
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/jquery.validate.js"></script>
 </body>
 </html>

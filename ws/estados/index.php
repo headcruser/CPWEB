@@ -3,12 +3,12 @@
   /**29 de noviembre del 2016
    * Esta Clase se encarga de grestionar los servicios Disponibles
    *Le dimos super poderes a nuestra clase*/
-  class ServicesControl extends Cpweb
+  class controlEstados extends Cpweb
   {
     function API()
     {
       $this->conexion();
-      header('Content-Type: application/json');
+      //header('Content-Type: application/json');
       $metodo=$_SERVER['REQUEST_METHOD'];
       switch ($metodo)
       {
@@ -100,12 +100,10 @@
     /**Debe ser capaz de traer los servicios y opcional */
     function APIviewAll()
     {
-      //Obtengo mis servicios
-      $servicios=$this->fetchAll('select * from servicio order by servicio');
-
-      //decodifica los servicios de burton
-      $servicios=json_encode($servicios,JSON_PRETTY_PRINT);
-      echo $servicios;
+      $sql_estado="select * from estado order by estado";
+      $estados=$this->fetchAll($sql_estado);
+      $estados=json_encode($estados);
+      echo $estados;
     }
 
     /**Obtiene Un servicio del id que se indique
@@ -113,19 +111,15 @@
     *int           $id             Recibe el id del servicio*/
     function APIviewOne($id)
     {
-
-      $SQL="select * from servicio where id_servicio=$id";
-
-      //Obtengo mis servicios
-      $servicios=$this->fetchAll($SQL);
-      //decodifica los servicios de burton
-      $servicios=json_encode($servicios,JSON_PRETTY_PRINT);
-      echo($servicios);
+      $sql="select * from estado where id_estado=".$id;
+		  $estado=$this->fetchAll($sql);
+      $estado=json_encode($estado,JSON_PRETTY_PRINT);
+      echo($estado);
     }
 
   } // Fin de clase
 
-  $web=new ServicesControl;
+  $web=new controlEstados;
   $web->API();
 
  ?>

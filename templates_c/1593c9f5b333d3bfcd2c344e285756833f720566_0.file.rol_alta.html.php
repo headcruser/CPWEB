@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:07:52
+/* Smarty version 3.1.30, created on 2016-12-09 05:01:28
   from "C:\xampp\htdocs\CPWEB\templates\admin\rol_alta.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd3819f850_08436083',
+  'unifunc' => 'content_584a2c98c18ec7_73609556',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1593c9f5b333d3bfcd2c344e285756833f720566' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\rol_alta.html',
-      1 => 1478671415,
+      1 => 1481256072,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd3819f850_08436083 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a2c98c18ec7_73609556 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,14 +56,14 @@ function content_5822bd3819f850_08436083 (Smarty_Internal_Template $_smarty_tpl)
           </div>
 
           <div class="formulario ">
-              <h1>Formulario ROL </h1>
 
-                <form class="form-horizontal" method="POST" action="rol.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?>guardar<?php } else { ?>alta<?php }?>">
+              <h1>Formulario Rol </h1>
+                <form class="form-horizontal" method="POST" data-toggle="validator" role="form" action="rol.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?>guardar<?php } else { ?>alta<?php }?>">
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">ROL</label>
+                      <label for="inputName" class="col-sm-2 control-label">ROL</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name="rol" <?php if (isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['rol']->value['rol'];?>
+                          <input type="text" class="form-control" id="inputName" placeholder="Escribe un rol" required name="rol" <?php if (isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['rol']->value['rol'];?>
 "<?php }?> >
                       </div>
                     </div>
@@ -84,7 +84,7 @@ function content_5822bd3819f850_08436083 (Smarty_Internal_Template $_smarty_tpl)
 
               <?php $_smarty_tpl->_subTemplateRender("file:../footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-       
+
         </div>
     <!-- CODIGO JAVASCRIPT -->
     <?php echo '<script'; ?>
@@ -92,6 +92,9 @@ function content_5822bd3819f850_08436083 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
  src="../js/bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="../js/jquery.validate.js"><?php echo '</script'; ?>
 >
 </body>
 </html>

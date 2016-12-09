@@ -13,7 +13,6 @@
 		$header=$web->Privilegiosheader($privilegio);
 
 		$usuario=$web->fetchAll('select foto from usuario where id_usuario='.$_SESSION['id_usuario']);
-
 		if(empty ($usuario)){
 		$templates->assign('flag','true');
 		}

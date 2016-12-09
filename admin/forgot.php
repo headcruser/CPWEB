@@ -127,7 +127,10 @@
 						$temp['id_usuario']=$resultado[0]['id_usuario'];
 
 						$web->update( $temp,array('id_usuario'=>$resultado[0]['id_usuario']));
-						$templates->assign('mensaje','La contraseña se Restablecio');
+
+						$header=$web->Privilegiosheader("login"); //Crea el header
+						$templates->assign('header',$header);
+						$templates->assign('msg', 'La contraseña se reestableció');
 						$templates->display("login_form.html");
 						die();
 					}

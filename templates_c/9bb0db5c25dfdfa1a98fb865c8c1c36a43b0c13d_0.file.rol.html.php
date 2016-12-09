@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:07:50
+/* Smarty version 3.1.30, created on 2016-12-09 05:01:19
   from "C:\xampp\htdocs\CPWEB\templates\admin\rol.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd360a20b3_19178820',
+  'unifunc' => 'content_584a2c8fb5b601_74836723',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9bb0db5c25dfdfa1a98fb865c8c1c36a43b0c13d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\rol.html',
-      1 => 1478671471,
+      1 => 1481255893,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd360a20b3_19178820 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584a2c8fb5b601_74836723 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
-
+<!--vista de los privilegios  -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +37,7 @@ function content_5822bd360a20b3_19178820 (Smarty_Internal_Template $_smarty_tpl)
     <title>Roles disponibles</title>
 </head>
 <body>
-
+    <!-- contenedor principal -->
     <div id="wrapper">
       <?php echo $_smarty_tpl->tpl_vars['header']->value;?>
 
