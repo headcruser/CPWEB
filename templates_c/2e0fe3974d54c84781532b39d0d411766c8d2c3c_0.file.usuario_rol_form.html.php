@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:08:15
+/* Smarty version 3.1.30, created on 2016-12-10 19:54:19
   from "C:\xampp\htdocs\CPWEB\templates\admin\usuario_rol_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd4f39c407_93214567',
+  'unifunc' => 'content_584c4f5b4d2876_37719953',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2e0fe3974d54c84781532b39d0d411766c8d2c3c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\usuario_rol_form.html',
-      1 => 1478671487,
+      1 => 1481396002,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd4f39c407_93214567 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584c4f5b4d2876_37719953 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,10 +57,10 @@ function content_5822bd4f39c407_93214567 (Smarty_Internal_Template $_smarty_tpl)
 
                   <h1>FORMULARIO USUARIO-ROL </h1>
 
-                <form class="form-horizontal" method="POST" action="usuario_rol.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['id_usuario']->value) && isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?>guardar<?php } else { ?>alta<?php }?>">
+                <form class="form-horizontal"  data-toggle="validator" role="form" method="POST" action="usuario_rol.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['id_usuario']->value) && isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?>guardar<?php } else { ?>alta<?php }?>">
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">SELECCION DE USUARIO</label>
+                      <label for="inputName" class="col-sm-2 control-label">SELECCION DE USUARIO</label>
                       <div class="col-sm-10">
                          <?php echo $_smarty_tpl->tpl_vars['combo_usuario']->value;?>
 
@@ -69,17 +69,19 @@ function content_5822bd4f39c407_93214567 (Smarty_Internal_Template $_smarty_tpl)
 
 
                       <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">SELECCION DE ROL</label>
+                        <label for="inputName" class="col-sm-2 control-label">SELECCION DE ROL</label>
                         <div class="col-sm-10">
                            <?php echo $_smarty_tpl->tpl_vars['combo_rol']->value;?>
+
+
 
                         </div>
                       </div>
 
                      <?php if (isset($_smarty_tpl->tpl_vars['id_usuario']->value) && isset($_smarty_tpl->tpl_vars['id_rol']->value)) {?>
-                      <input type="hidden" name="id_usuario" value="<?php echo $_smarty_tpl->tpl_vars['id_usuario']->value;?>
+                      <input type="hidden" name="nee1" value="<?php echo $_smarty_tpl->tpl_vars['id_usuario']->value;?>
 ">
-                      <input type="hidden" name="id_rol" value="<?php echo $_smarty_tpl->tpl_vars['id_rol']->value;?>
+                      <input type="hidden" name="nee2" value="<?php echo $_smarty_tpl->tpl_vars['id_rol']->value;?>
 ">
                     <?php }?>
 
@@ -95,8 +97,6 @@ function content_5822bd4f39c407_93214567 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 
       </div>
-
-
 
     <!-- CODIGO JAVASCRIPT -->
     <?php echo '<script'; ?>

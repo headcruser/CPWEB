@@ -22,5 +22,4 @@
 	$templates->assign('reporte1',$reporte1);
 	$templates->assign('header',$header);
 	$templates->display('reporte.html');
-
  ?>

@@ -17,6 +17,4 @@
     print_r($image);
 
   }
-
-
  ?>

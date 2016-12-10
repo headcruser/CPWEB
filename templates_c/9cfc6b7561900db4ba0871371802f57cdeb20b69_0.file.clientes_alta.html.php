@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-12-09 05:48:03
+/* Smarty version 3.1.30, created on 2016-12-09 20:48:00
   from "C:\xampp\htdocs\CPWEB\templates\contador\clientes_alta.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_584a37836c4ac2_80724258',
+  'unifunc' => 'content_584b0a7080ecb4_43195050',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfc6b7561900db4ba0871371802f57cdeb20b69' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\contador\\clientes_alta.html',
-      1 => 1481258819,
+      1 => 1481259193,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_584a37836c4ac2_80724258 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584b0a7080ecb4_43195050 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -100,7 +100,7 @@ function content_584a37836c4ac2_80724258 (Smarty_Internal_Template $_smarty_tpl)
 
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">Persona Fisica/Moral</label>
+                      <label for="inputName" class="col-sm-2 control-label">Persona Fisica/Moral</label>
                       <div class="col-sm-10">
                           <?php echo $_smarty_tpl->tpl_vars['combo']->value;?>
 
@@ -108,7 +108,7 @@ function content_584a37836c4ac2_80724258 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">Entidad Federativa</label>
+                      <label for="inputName" class="col-sm-2 control-label">Entidad Federativa</label>
                       <div class="col-sm-10">
                           <?php echo $_smarty_tpl->tpl_vars['comboEstado']->value;?>
 
@@ -116,7 +116,7 @@ function content_584a37836c4ac2_80724258 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
 
                     <div class="form-group">
-                      <label for="inputEmail3" class="col-sm-2 control-label">Selecciona Usuario</label>
+                      <label for="inputName" class="col-sm-2 control-label">Selecciona Usuario</label>
                       <div class="col-sm-10">
                           <?php echo $_smarty_tpl->tpl_vars['comboUsuario']->value;?>
 
@@ -147,6 +147,9 @@ function content_584a37836c4ac2_80724258 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
  src="../js/bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="../js/jquery.validate.js"><?php echo '</script'; ?>
 >
 </body>
 </html>

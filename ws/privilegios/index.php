@@ -1,7 +1,7 @@
 <?php
   include("../../cp_web_class.php");
-  /*estados Web*/
-  class controlEstados extends Cpweb
+  /*privilegios Web*/
+  class contprivilegioPrivilegios extends Cpweb
   {
     function API()
     {
@@ -18,35 +18,35 @@
         default:
             if(isset($_GET['id']))
             {
-                //echo "aqui voy a a consultar el estado
+                //echo "aqui voy a a consultar el privilegio
                 $this-> APIviewOne($_GET['id']);
             }else {
-                //echo "Aqui voy a Mostrar todos los estados";
+                //echo "Aqui voy a Mostrar todos los privilegios";
                 $this-> APIviewAll();
             }
         break;
         case 'PUT':
           $this-> APIupdate($_GET['id']);
-          //echo "Aqui voy a acutualizar el estado".$_GET['id'];
+          //echo "Aqui voy a acutualizar el privilegio".$_GET['id'];
         break;
 
         case'DELETE':
-          //echo "Aqui voy a Eliminar el estado".$_GET['id'];
+          //echo "Aqui voy a Eliminar el privilegio".$_GET['id'];
            $this->APIdelete($_GET['id']);
         break;
       }
     } // Fin del metodo
 
-    /**Metodo para insertar un estado*/
+    /**Metodo para insertar un privilegio*/
     function APIinsert()
     {
       //protocolo de entrada de php
       $objeto=json_decode(file_get_contents('php://input'));
-      foreach ($objeto as $estado)
+      foreach ($objeto as $privilegio)
       {
-          $SQL="INSERT INTO estado (estado) values (:estado)";
+          $SQL="INSERT INTO privilegio (privilegio) values (:privilegio)";
           $stmt = $this->conn->Prepare($SQL);
-          $stmt->bindParam(':estado', $estado->estado, PDO::PARAM_STR);          
+          $stmt->bindParam(':privilegio', $privilegio->privilegio, PDO::PARAM_STR);
           $stmt->Execute();
       }
 
@@ -64,12 +64,12 @@
     {
       //protocolo de entrada de php
       $obj=json_decode(file_get_contents('php://input'));
-		foreach ($obj as $estado)
+		foreach ($obj as $privilegio)
 		{
-			$sql="update estado set estado=:estado where id_estado=:id_estado";
+			$sql="update privilegio set privilegio=:privilegio where id_privilegio=:id_privilegio";
 			$stmt= $this->conn->prepare($sql);
-      $stmt->bindParam(':estado', $estado->estado);
-			$stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+      $stmt->bindParam(':privilegio', $privilegio->privilegio);
+			$stmt->bindParam(':id_privilegio', $id, PDO::PARAM_INT);
 			$stmt->execute();
 		}
   		$message['status']='OK';
@@ -82,9 +82,9 @@
     /**Metodo para eliminar un Estado**/
     function APIdelete($id)
     {
-      $sql="delete from estado where id_estado= :id_estado";
+      $sql="delete from privilegio where id_privilegio= :id_privilegio";
       $stmt= $this->conn->prepare($sql);
-      $stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+      $stmt->bindParam(':id_privilegio', $id, PDO::PARAM_INT);
       $stmt->execute();
       $message['status']='OK';
       $message['message']="El registro se elimino adecuadamente";
@@ -93,30 +93,30 @@
       echo $message;
     }
 
-    /**Debe ser capaz de traer los estados y opcional */
+    /**Debe ser capaz de traer los privilegios y opcional */
     function APIviewAll()
     {
-      $sql_estado="select * from estado ";
-      $estados=$this->fetchAll($sql_estado);
-      $estados=json_encode($estados);
-      echo $estados;
+      $sql_privilegio="select * from privilegio ";
+      $privilegios=$this->fetchAll($sql_privilegio);
+      $privilegios=json_encode($privilegios);
+      echo $privilegios;
 
     }
 
-    /**Obtiene Un estado del id que se indique
+    /**Obtiene Un privilegio del id que se indique
     type           param            Description
-    *int           $id             Recibe el id del estado*/
+    *int           $id             Recibe el id del privilegio*/
     function APIviewOne($id)
     {
-      $sql="select * from estado where id_estado=".$id;
-		  $estado=$this->fetchAll($sql);
-      $estado=json_encode($estado,JSON_PRETTY_PRINT);
-      echo($estado);
+      $sql="select * from privilegio where id_privilegio=".$id;
+		  $privilegio=$this->fetchAll($sql);
+      $privilegio=json_encode($privilegio,JSON_PRETTY_PRINT);
+      echo($privilegio);
     }
 
   } // Fin de clase
 
-  $web=new controlEstados;
+  $web=new contprivilegioPrivilegios;
   $web->API();
 
  ?>

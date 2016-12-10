@@ -11,31 +11,27 @@
 	if( isset($_GET['accion']))
 	{
 		$accion=$_GET['accion'];
+
+		switch ($accion)
+		{
+			case 'login': // ingresar al sistema
+				$email=$_POST['email'];
+				$contrasena=$_POST['contrasena'];
+				$flag=$web->newlogin($email,$contrasena);
+				if(strcasecmp ($flag , "false" )==0)
+				{
+					$templates->assign('mensaje','Usuario y/o Contraseña Incorrectos');
+				}
+
+				break;
+			case 'logout': // salir del sistema
+				$web->logout();
+				break;
+			default:
+		}
 	}
 
-	if (isset($_GET['id_cliente']))
-	{
-		//Obtener el id del cliente
-		$idcliente=$_GET['id_cliente'];
-	}
 
-	switch ($accion)
-	{
-		case 'login': // ingresar al sistema
-			$email=$_POST['email'];
-			$contrasena=$_POST['contrasena'];
-			$flag=$web->newlogin($email,$contrasena);
-			if(strcasecmp ($flag , "false" )==0)
-			{
-				$templates->assign('mensaje','Usuario y/o Contraseña Incorrectos');
-			}
-
-			break;
-		case 'logout': // salir del sistema
-			$web->logout();
-			break;
-		default:
-	}
 
 	//Mostrar login
 	$templates->assign('titulo','LOGIN');

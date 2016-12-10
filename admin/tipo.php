@@ -24,60 +24,59 @@
 	if( isset($_GET['accion']))
 	{
 		$accion=$_GET['accion'];
-	}
 
-	if (isset($_GET['id_tipo']))
-	{
-		//Obtener el id del tipo
-		$id_tipo=$_GET['id_tipo'];
-	}
+		if (isset($_GET['id_tipo']))
+		{
+			//Obtener el id del tipo
+			$id_tipo=$_GET['id_tipo'];
 
+			switch ($accion)
+			{
+				case 'nuevo':
+					$templates->assign('header',$header);
+					$templates->display('tipo_form.html');
+					die();
 
-	switch ($accion)
-	{
-		case 'nuevo':
-			$templates->assign('header',$header);
-			$templates->display('tipo_form.html');
-			die();
+				break;
 
-		break;
-
-		//Edita al tipo seleccionado
-		case 'editar':
-			$tipo=$web->getTipo($id_tipo);
-			//$combo=$web->showList('select id_tipo,tipo from tipo',$estado[0]['id_tipo']);
-			$templates->assign('tipo',$tipo[0]);
-			$templates->assign('id_tipo',$id_tipo);
-			$templates->assign('header',$header);
-			$templates->display('tipo_form.html');
-			die();
-		break;
+				//Edita al tipo seleccionado
+				case 'editar':
+					$tipo=$web->getTipo($id_tipo);
+					//$combo=$web->showList('select id_tipo,tipo from tipo',$estado[0]['id_tipo']);
+					$templates->assign('tipo',$tipo[0]);
+					$templates->assign('id_tipo',$id_tipo);
+					$templates->assign('header',$header);
+					$templates->display('tipo_form.html');
+					die();
+				break;
 
 
-		// inserta un nuevo tipo
-		case 'alta':
+				// inserta un nuevo tipo
+				case 'alta':
 
-			$web->setTabla("tipo");
-			$web->insert($_POST);
-			break;
+					$web->setTabla("tipo");
+					$web->insert($_POST);
+					break;
 
 
-		// Actualiza la informacion del tipo
-		case 'guardar':
+				// Actualiza la informacion del tipo
+				case 'guardar':
 
-			$web->setTabla("tipo");
-			$web->update($_POST,array('id_tipo'=>$_POST['id_tipo']));
+					$web->setTabla("tipo");
+					$web->update($_POST,array('id_tipo'=>$_POST['id_tipo']));
 
-			break;
+					break;
 
-		//Elimina a un Estado de la base de datos
-		case 'eliminar':
-				$web ->deleteTipo($id_tipo);
-			 break;
+				//Elimina a un Estado de la base de datos
+				case 'eliminar':
+						$web ->deleteTipo($id_tipo);
+					 break;
 
-		case 'ver':
-		break;
+				case 'ver':
+				break;
 
+			}
+		}
 	}
 
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-12-09 05:09:06
+/* Smarty version 3.1.30, created on 2016-12-10 20:32:53
   from "C:\xampp\htdocs\CPWEB\templates\admin\rol_privilegio_alta.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_584a2e62802ba0_12803342',
+  'unifunc' => 'content_584c5865798d78_68963389',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b6c9bdf13807eabed2ad5ac33801c6b465d525ea' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\rol_privilegio_alta.html',
-      1 => 1481256421,
+      1 => 1481397961,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_584a2e62802ba0_12803342 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584c5865798d78_68963389 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,7 +58,7 @@ function content_584a2e62802ba0_12803342 (Smarty_Internal_Template $_smarty_tpl)
           <div class="formulario ">
               <h1>FORMULARIO ROL-PRIVILEGIO </h1>
 
-                <form class="form-horizontal" method="POST" data-toggle="validator" role="form" action="rol_privilegio.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['id_privilegio']->value)) {?>guardar<?php } else { ?>alta<?php }?>">
+                <form class="form-horizontal" method="POST" data-toggle="validator" role="form" action="rol_privilegio.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['id_rol']->value) && isset($_smarty_tpl->tpl_vars['id_privilegio']->value)) {?>guardar<?php } else { ?>alta<?php }?>">
 
 
                   <div class="form-group">
@@ -78,10 +78,13 @@ function content_584a2e62802ba0_12803342 (Smarty_Internal_Template $_smarty_tpl)
                       </div>
                     </div>
 
-
-                    <?php if (isset($_smarty_tpl->tpl_vars['id_usuario']->value)) {?>
-                        <input type="hidden" name="id_privilegio" value="<?php echo $_smarty_tpl->tpl_vars['id_privilegio']->value;?>
-"> <?php }?>
+                    <!-- se tuvo que cambiar el nombre para guardar los valores anteriores de los combos -->
+                    <?php if (isset($_smarty_tpl->tpl_vars['id_rol']->value) && isset($_smarty_tpl->tpl_vars['id_privilegio']->value)) {?>
+                     <input type="hidden" name="nee1" value="<?php echo $_smarty_tpl->tpl_vars['id_rol']->value;?>
+">
+                     <input type="hidden" name="nee2" value="<?php echo $_smarty_tpl->tpl_vars['id_privilegio']->value;?>
+">
+                   <?php }?>
 
                     <div class="form-group">
                       <div class="enviar">

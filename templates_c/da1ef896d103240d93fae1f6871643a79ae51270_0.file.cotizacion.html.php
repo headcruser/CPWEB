@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-14 22:52:39
+/* Smarty version 3.1.30, created on 2016-12-09 20:51:17
   from "C:\xampp\htdocs\CPWEB\templates\cliente\cotizacion.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_582a32276f6eb8_80485730',
+  'unifunc' => 'content_584b0b354a1693_70202484',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da1ef896d103240d93fae1f6871643a79ae51270' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\cliente\\cotizacion.html',
-      1 => 1479160355,
+      1 => 1481253710,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_582a32276f6eb8_80485730 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584b0b354a1693_70202484 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
-
+<!--ABC COTIZACION | PARA VISUALIZAR EL CONTADOR  -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -44,7 +39,7 @@ function content_582a32276f6eb8_80485730 (Smarty_Internal_Template $_smarty_tpl)
 </title>
   </head>
 <body>
-
+  <!-- CONTENEDOR PRINCIPAL  -->
     <div id="wrapper">
       <?php echo $_smarty_tpl->tpl_vars['header']->value;?>
 
@@ -53,7 +48,7 @@ function content_582a32276f6eb8_80485730 (Smarty_Internal_Template $_smarty_tpl)
       <h1 class="titulo"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
 
-                <!--MUESTRA LA TABLA DE CLIENTESS -->
+                <!--MUESTRA LA TABLA -->
               <table class="table-condensed"  CELLSPACING=1  >
 
                 <tr ALIGN=center>

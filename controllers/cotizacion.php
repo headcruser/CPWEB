@@ -1,5 +1,13 @@
 <?php
 
+/***
+controllers/cotizacion
+Gestiona las cotizaciones de Cpweb
+Clase: cotizacion
+autor: Daniel
+version : 0.1
+fecha : 2016-09-21
+*/
 
 include('../cp_web_class.php'); //Incluye a la clase Cpweb
 
@@ -7,15 +15,16 @@ class Cotizacion extends Cpweb
 {
 
 	/***********************************************************************************
-			parametro 					tipo 	 			Descripcion
-	  		@param $p_idCliente  	     int 		  Identificador del cliente
+												METODO PARA OBTENER UNA COTIZACION
+				parametro 									tipo 	 			Descripcion
+	  		@param $id_cotizacion  	     int 		  Identificador de la cotizacion
 	**********************************************************************************/
-	function getCotizacion($p_id_cotizacion)
+	function getCotizacion($id_cotizacion)
 	{
 		$cotizacion=array(); //Arreglo vacio
-		 if(is_numeric($p_id_cotizacion))
+		 if(is_numeric($id_cotizacion))
 		 {
-		 	$statement=$this->conn->Prepare('select * from cotizacion where id_cotizacion='.$p_id_cotizacion);
+		 	$statement=$this->conn->Prepare('select * from cotizacion where id_cotizacion='.$id_cotizacion);
 		 	$statement->Execute();
 		 	$cotizacion=$statement->FetchAll(PDO::FETCH_ASSOC);
 		 }
@@ -25,14 +34,14 @@ class Cotizacion extends Cpweb
 
 	/***********************************************************************************
 				METODO PARA ELIMINAR UN CLIENTE DE LA BASE DE DATOS
-			parametro 					tipo 	 		Descripcion
-	  		@param $idcliente  			INT 		  Nombre de la tabla
+							parametro 					tipo 	 		Descripcion
+	  		@param $id_cotizacion  			INT 		  Identificador de la cotizacion
 	**********************************************************************************/
-	function deleteCotizacion($p_id_cotizacion)
+	function deleteCotizacion($id_cotizacion)
 	{
 		$sql = "DELETE FROM cotizacion WHERE id_cotizacion = :id_cotizacion";
 		$stmt = $this->conn->Prepare($sql);
-		$stmt->bindParam(':id_cotizacion', $p_id_cotizacion, PDO::PARAM_INT);
+		$stmt->bindParam(':id_cotizacion', $id_cotizacion, PDO::PARAM_INT);
 		$this->verifyQuery($stmt);
 	} //fin de la funcion
 

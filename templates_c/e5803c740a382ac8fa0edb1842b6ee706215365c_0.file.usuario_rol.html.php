@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-12-09 05:14:22
+/* Smarty version 3.1.30, created on 2016-12-10 17:13:06
   from "C:\xampp\htdocs\CPWEB\templates\admin\usuario_rol.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_584a2f9e9e15a6_27150168',
+  'unifunc' => 'content_584c2992491ff6_91226010',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e5803c740a382ac8fa0edb1842b6ee706215365c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\usuario_rol.html',
-      1 => 1481256801,
+      1 => 1481386379,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_584a2f9e9e15a6_27150168 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584c2992491ff6_91226010 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- VISTA DE LA ASIGNACION DE UN ROL A UN USUARIO -->
 <!DOCTYPE html>
@@ -94,7 +94,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
                 <div class="alta">
                   <form >
-                      <a  class=button href="usuario_rol.php?accion=nuevo">Nueva asignacion </a>
+                      <a  class=button href="usuario_rol.php?accion=nuevo&id_usuario=null">Nueva asignacion </a>
                   </form>
                 </div>
             </div>

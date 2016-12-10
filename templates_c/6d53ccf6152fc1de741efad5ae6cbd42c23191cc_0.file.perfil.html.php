@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-12-09 06:58:00
+/* Smarty version 3.1.30, created on 2016-12-09 19:15:00
   from "C:\xampp\htdocs\CPWEB\templates\perfil.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_584a47e8bbc2d4_67492573',
+  'unifunc' => 'content_584af4a45e9f29_57820727',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6d53ccf6152fc1de741efad5ae6cbd42c23191cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\perfil.html',
-      1 => 1481263074,
+      1 => 1481307294,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_584a47e8bbc2d4_67492573 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584af4a45e9f29_57820727 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,7 +84,7 @@ echo $_smarty_tpl->tpl_vars['email']->value;?>
           <!-- FECHA DE NACIMIENTO -->
           <div class="form-group">
             <div class="col-sm-12">
-              <input class="form-control" type="date" name="nacimiento" placeholder="Escribe tu Fecha de nacimiento" required <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nacimiento'];?>
+              <input class="form-control" type="date" name="nacimiento"  required <?php if (isset($_smarty_tpl->tpl_vars['usuario']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['usuario']->value['nacimiento'];?>
 "<?php }?>>
             </div>
           </div>
@@ -93,7 +93,7 @@ echo $_smarty_tpl->tpl_vars['email']->value;?>
           <!-- CONTRASENA -->
             <div class="form-group">
               <div class="col-sm-12">
-                  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" >
+                  <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" minlength="3" >
               </div>
             </div>
 

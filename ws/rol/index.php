@@ -1,7 +1,7 @@
 <?php
   include("../../cp_web_class.php");
-  /*estados Web*/
-  class controlEstados extends Cpweb
+  /*rols Web*/
+  class controlRoles extends Cpweb
   {
     function API()
     {
@@ -18,35 +18,35 @@
         default:
             if(isset($_GET['id']))
             {
-                //echo "aqui voy a a consultar el estado
+                //echo "aqui voy a a consultar el rol
                 $this-> APIviewOne($_GET['id']);
             }else {
-                //echo "Aqui voy a Mostrar todos los estados";
+                //echo "Aqui voy a Mostrar todos los rols";
                 $this-> APIviewAll();
             }
         break;
         case 'PUT':
           $this-> APIupdate($_GET['id']);
-          //echo "Aqui voy a acutualizar el estado".$_GET['id'];
+          //echo "Aqui voy a acutualizar el rol".$_GET['id'];
         break;
 
         case'DELETE':
-          //echo "Aqui voy a Eliminar el estado".$_GET['id'];
+          //echo "Aqui voy a Eliminar el rol".$_GET['id'];
            $this->APIdelete($_GET['id']);
         break;
       }
     } // Fin del metodo
 
-    /**Metodo para insertar un estado*/
+    /**Metodo para insertar un rol*/
     function APIinsert()
     {
       //protocolo de entrada de php
       $objeto=json_decode(file_get_contents('php://input'));
-      foreach ($objeto as $estado)
+      foreach ($objeto as $rol)
       {
-          $SQL="INSERT INTO estado (estado) values (:estado)";
+          $SQL="INSERT INTO rol (rol) values (:rol)";
           $stmt = $this->conn->Prepare($SQL);
-          $stmt->bindParam(':estado', $estado->estado, PDO::PARAM_STR);          
+          $stmt->bindParam(':rol', $rol->rol, PDO::PARAM_STR);
           $stmt->Execute();
       }
 
@@ -64,12 +64,12 @@
     {
       //protocolo de entrada de php
       $obj=json_decode(file_get_contents('php://input'));
-		foreach ($obj as $estado)
+		foreach ($obj as $rol)
 		{
-			$sql="update estado set estado=:estado where id_estado=:id_estado";
+			$sql="update rol set rol=:rol where id_rol=:id_rol";
 			$stmt= $this->conn->prepare($sql);
-      $stmt->bindParam(':estado', $estado->estado);
-			$stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+      $stmt->bindParam(':rol', $rol->rol);
+			$stmt->bindParam(':id_rol', $id, PDO::PARAM_INT);
 			$stmt->execute();
 		}
   		$message['status']='OK';
@@ -82,9 +82,9 @@
     /**Metodo para eliminar un Estado**/
     function APIdelete($id)
     {
-      $sql="delete from estado where id_estado= :id_estado";
+      $sql="delete from rol where id_rol= :id_rol";
       $stmt= $this->conn->prepare($sql);
-      $stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+      $stmt->bindParam(':id_rol', $id, PDO::PARAM_INT);
       $stmt->execute();
       $message['status']='OK';
       $message['message']="El registro se elimino adecuadamente";
@@ -93,30 +93,30 @@
       echo $message;
     }
 
-    /**Debe ser capaz de traer los estados y opcional */
+    /**Debe ser capaz de traer los rols y opcional */
     function APIviewAll()
     {
-      $sql_estado="select * from estado ";
-      $estados=$this->fetchAll($sql_estado);
-      $estados=json_encode($estados);
-      echo $estados;
+      $sql_rol="select * from rol ";
+      $rols=$this->fetchAll($sql_rol);
+      $rols=json_encode($rols);
+      echo $rols;
 
     }
 
-    /**Obtiene Un estado del id que se indique
+    /**Obtiene Un rol del id que se indique
     type           param            Description
-    *int           $id             Recibe el id del estado*/
+    *int           $id             Recibe el id del rol*/
     function APIviewOne($id)
     {
-      $sql="select * from estado where id_estado=".$id;
-		  $estado=$this->fetchAll($sql);
-      $estado=json_encode($estado,JSON_PRETTY_PRINT);
-      echo($estado);
+      $sql="select * from rol where id_rol=".$id;
+		  $rol=$this->fetchAll($sql);
+      $rol=json_encode($rol,JSON_PRETTY_PRINT);
+      echo($rol);
     }
 
   } // Fin de clase
 
-  $web=new controlEstados;
+  $web=new controlRoles;
   $web->API();
 
  ?>

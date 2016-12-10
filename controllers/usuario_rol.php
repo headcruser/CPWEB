@@ -14,9 +14,10 @@ class usuario_rol extends Cpweb
 {
 
 	/***********************************************************************************
-						METODO PARA OBTENER UN USUARIO_ROL  
+						METODO PARA OBTENER UN USUARIO_ROL
 			parametro 					tipo 	 		Descripcion
-	  		@param $idEstado  			 Int 		  Identificador del estado 
+	  		@param id_usuarioRol  			 Int 		  Identificador del usuario
+				@param id_rol				  			 Int 		  Identificador del rol
 	**********************************************************************************/
 	function getUsuario_rol ($id_usuarioRol,$id_rol)
 	{
@@ -28,8 +29,16 @@ class usuario_rol extends Cpweb
 		 	$usuario_rol=$statement->FetchAll(PDO::FETCH_ASSOC);
 		 }
 		 	return $usuario_rol;
-	} // Fin del metodo 
-	
+	} // Fin del metodo
+
+
+
+	/***********************************************************************************
+						METODO PARA ELIMINAR UN DETALLE DE ROL-PRIVILEGIO
+			parametro 								 tipo 	 			Descripcion
+			@param $id_usuario    	    Array 		  Recibe el id anterior
+			@param $id_rol			  	    Array 		  recibe el id anterior
+	**********************************************************************************/
 	function deleteUsuario_rol($id_usuario,$id_rol)
 	{
 		$sql = "DELETE FROM usuario_rol WHERE id_usuario = :id_usuario AND id_rol = :id_rol";
@@ -40,5 +49,29 @@ class usuario_rol extends Cpweb
 		$this->verifyQuery($stmt);
 
 	} //fin de la funcion
-} // Fin de la clase 
+
+	/***********************************************************************************
+						METODO PARA ACTUALIZAR EL DETALLE USUARIO_ROL
+			parametro 								 tipo 	 			Descripcion
+	  	@param $Actualizacion  	    Array 		  Lista con los nuevos elementos
+			@param $id_usuario    	    Array 		  Recibe el id anterior
+			@param $id_rol			  	    Array 		  recibe el id anterior
+	**********************************************************************************/
+	function updateUsuario_rol($Actualizacion,$id_usuario,$id_rol)
+	{
+		 if(is_numeric($id_usuario) && is_numeric($id_rol)&&isset($Actualizacion))
+		 {
+			 $updateIDUser=$Actualizacion['id_usuario'];
+	 		 $updateIDrol=$Actualizacion['id_rol'];
+
+				$sql = "UPDATE usuario_rol SET id_usuario=$updateIDUser,id_rol =$updateIDrol
+											WHERE id_usuario=$id_usuario and id_rol=$id_rol";
+
+			$statement=$this->conn->Prepare($sql);
+			$statement->Execute();
+			}
+
+	} //fin de la funcion
+
+} // Fin de la clase
 ?>

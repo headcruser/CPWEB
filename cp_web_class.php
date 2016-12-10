@@ -232,6 +232,37 @@ class Cpweb
 		$this->verifyQuery($statement);
 	} ////////////////////////////  Fin del metodo /////////////////////////////////////
 
+	/****************************************************************************
+	Version actualizada del metodo actualizar
+ @param   array  $datos      contiene los datos de las columnas
+ @param   String $id         indica la llave primaria
+ @param   array  $condition  Elementos where para la condicion
+	****************************************************************************/
+	public function updateV2($datos, $id, $condition = null)
+   {
+     $nombresColumnas = $this->getNombresColumnas($datos);
+     $columnas        = $this->getColumnas($datos, 'update');
+     $where = "";
+     if (!empty($condition)) {
+       $where                = " where ";
+       $nombresColumnasWhere = array_keys($condition); //2016-10-11
+       for ($i = 0; $i < sizeof($nombresColumnasWhere); $i++) {
+         $where .= $nombresColumnasWhere[$i]; //2016-10-11
+         $where .= '=:' . $nombresColumnasWhere[$i]; //2016-10-11
+         if ($i != sizeof($nombresColumnasWhere) - 1) {
+           $where .= ' and ';
+         }
+       }
+     }
+     $sql  = "update " . $this->getTabla() . " set " . $columnas . $where;
+     $stmt = $this->conn->prepare($sql);
+     for ($i = 0; $i < sizeof($nombresColumnas); $i++) { //2016-10-11
+       $stmt->bindParam(':' . $nombresColumnas[$i], $datos[$nombresColumnas[$i]]); //2016-10-11
+     }
+     $stmt->execute();
+   }
+
+
 
 
 	/***********************************************************************************

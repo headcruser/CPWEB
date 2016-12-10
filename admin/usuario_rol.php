@@ -1,7 +1,6 @@
 <?php
 	include('../controllers/usuario_rol.php');
 
-
 	$web=new usuario_rol; //Crea un objeto de la clase clientes
 
 	//Llave compuesta
@@ -20,7 +19,7 @@
 	 		$privilegio=$web->obtenerRolSesion();
 	 }
 
-	$web->checarAcceso($privilegio); // indica que es un usuario predeterminado
+//	$web->checarAcceso($privilegio); // indica que es un usuario predeterminado
 	$header=$web->Privilegiosheader($privilegio);
 
 
@@ -58,16 +57,12 @@
 
 		//Editar
 		case 'editar':
-			 $usuario_rol=$web->getUsuario_rol($id_usuario,$id_rol);
-
-
+			$usuario_rol=$web->getUsuario_rol($id_usuario,$id_rol);
 			$combo_usuario=$web->showList('select id_usuario,email from usuario',$usuario_rol[0]['id_usuario']);
 			$combo_rol=$web->showList('select id_rol,rol from rol',$usuario_rol[0]['id_rol']);
-
 			$templates->assign('usuario_rol',$usuario_rol[0]);
 	  	$templates->assign('combo_usuario',$combo_usuario);
 	  	$templates->assign('combo_rol',$combo_rol);
-
 			$templates->assign('id_usuario',$id_usuario);
 			$templates->assign('id_rol',$id_rol);
 			$templates->assign('header',$header);
@@ -87,9 +82,14 @@
 		// Actualiza la infromacion del cliente
 		case 'guardar':
 
+			$id_usuarioAux=$_POST['nee1'];
+			$id_rolAux=$_POST['nee2'];
+			unset($_POST['nee1']);
+			unset($_POST['nee2']);
 
 			$web->setTabla("usuario_rol");
-			$web->update($_POST,array('id_usuario'=>$_POST['id_usuario'],'id_rol'=>$_POST['id_rol'] ));
+			$web->updateUsuario_rol($_POST,$id_usuarioAux,$id_rolAux);
+
 			break;
 
 		//Elimina a un cliente de la base de datos

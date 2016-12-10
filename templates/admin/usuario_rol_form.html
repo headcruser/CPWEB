@@ -45,12 +45,14 @@
                         <label for="inputName" class="col-sm-2 control-label">SELECCION DE ROL</label>
                         <div class="col-sm-10">
                            {$combo_rol}
+
+
                         </div>
                       </div>
 
                      {if isset($id_usuario) and isset($id_rol) }
-                      <input type="hidden" name="id_usuario" value="{$id_usuario}">
-                      <input type="hidden" name="id_rol" value="{$id_rol}">
+                      <input type="hidden" name="nee1" value="{$id_usuario}">
+                      <input type="hidden" name="nee2" value="{$id_rol}">
                     {/if}
 
 

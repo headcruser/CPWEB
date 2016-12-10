@@ -1,14 +1,12 @@
 <?php
   include("../../cp_web_class.php");
-  /**29 de noviembre del 2016
-   * Esta Clase se encarga de grestionar los servicios Disponibles
-   *Le dimos super poderes a nuestra clase*/
+
   class ServicesControl extends Cpweb
   {
     function API()
     {
       $this->conexion();
-      header('Content-Type: application/json');
+      // header('Content-Type: application/json');
       $metodo=$_SERVER['REQUEST_METHOD'];
       switch ($metodo)
       {
@@ -101,11 +99,13 @@
     function APIviewAll()
     {
       //Obtengo mis servicios
-      $servicios=$this->fetchAll('select * from servicio order by servicio');
+      $servicios=$this->fetchAll('select * from servicio ');
+      echo "<pre>";
+      print_r($servicios);
 
       //decodifica los servicios de burton
-      $servicios=json_encode($servicios,JSON_PRETTY_PRINT);
-      echo $servicios;
+      $servicios=json_encode($servicios);
+      //echo $servicios;
     }
 
     /**Obtiene Un servicio del id que se indique

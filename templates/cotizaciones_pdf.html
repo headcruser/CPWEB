@@ -1,18 +1,45 @@
+<!-- Estilos para los documentos -->
+<style type="text/css">
+		.titulo
+		{
+			font-family: Helvetica, Geneva, Arial, sans-serif;
+			background:#2980b9;
+			color:#ecf0f1;
+			text-align: center;
+			border-radius:10px;
+		}
 
-<!-- HOJA DE ESTILOS -->
-	 <link rel="stylesheet" type="text/css" href="../css/main.css" >
+    .table
+    {
+      border-collapse: collapse;
+      width: 100%;
+      font-size:12px;
+      font-family: Helvetica, Geneva, Arial, sans-serif;
+      margin: 0 auto;   /**Centra la tabla en el contenedor*/
+      border: 1px;
+    }
+    th
+    {
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+    }
 
+    th, td
+    {
+      padding: 8px;
+      font-size:14px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+  </style>
+
+	<page backtop="5%" backbottom="5%" backleft="5%" backright="5%">
 
     <h1 class="titulo">Cotizaciones </h1>
     <!--DETALE DE LAS COTIZACIONES -->
-
-
-		<body>
-			<div id="wrapper">
-					<div id="contenedor">
-
-						<div class="contenedor">
-			        <table CELLSPACING=1  >
+			  <table class="table">
 
 			          <tr ALIGN=center>
 			            <th >id cotizacion  </th>
@@ -33,21 +60,14 @@
 			          </tr>
 			          {/foreach}
 			      </table>
-			      </div>
-
-					 <div>
-			<div>
-		</body>
+	</page>
 
 
-
-
-
-
+<page backtop="5%" backbottom="5%" backleft="5%" backright="5%">
 
     <!--DETALLE DE LOS SERVICIOS -->
-      <div class="contenedor">
-        <table class="table"  CELLSPACING=1  >
+		<h1 class="titulo">Detalle de los servicios </h1>
+        <table class="table" >
 
         <tr ALIGN=center>
           <th>ID_CLiente  </th>
@@ -64,5 +84,4 @@
         </tr>
         {/foreach}
         </table>
-      </div>
-    </div>
+</page>

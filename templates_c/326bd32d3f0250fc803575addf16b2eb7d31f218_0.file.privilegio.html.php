@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 07:07:56
+/* Smarty version 3.1.30, created on 2016-12-10 16:25:29
   from "C:\xampp\htdocs\CPWEB\templates\admin\privilegio.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822bd3c00a1d2_22221300',
+  'unifunc' => 'content_584c1e691c10b4_38555474',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '326bd32d3f0250fc803575addf16b2eb7d31f218' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\privilegio.html',
-      1 => 1478671395,
+      1 => 1481255802,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_5822bd3c00a1d2_22221300 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584c1e691c10b4_38555474 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
-
+<!-- Vista de los privilegios -->
 <!DOCTYPE html>
 <html>
   <head>

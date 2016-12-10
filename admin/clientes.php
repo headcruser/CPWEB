@@ -22,79 +22,78 @@
 	if( isset($_GET['accion']))
 	{
 		$accion=$_GET['accion'];
-	}
 
-	if (isset($_GET['id_cliente']))
-	{
-		//Obtener el id del cliente
-		$idcliente=$_GET['id_cliente'];
-	}
+		if (isset($_GET['id_cliente']))
+		{
+			//Obtener el id del cliente
+			$idcliente=$_GET['id_cliente'];
 
+			switch ($accion)
+			{
+				case 'nuevo':
+						//Nuevo elemento
+						$combo=$web->showList('select id_tipo,tipo from tipo'); //Otiene una lista de elementos
+						$comboEstado=$web->showList('select id_estado,estado from estado');
+						$comboUsuario=$web->showList('select id_usuario, email  from usuario');
 
-	switch ($accion)
-	{
-		case 'nuevo':
-				//Nuevo elemento
-		  	$combo=$web->showList('select id_tipo,tipo from tipo'); //Otiene una lista de elementos
-		  	$comboEstado=$web->showList('select id_estado,estado from estado');
-				$comboUsuario=$web->showList('select id_usuario, email  from usuario');
+						$templates->assign('combo',$combo);
+						$templates->assign('comboEstado',$comboEstado);	//se agrega el combo de estados
+						$templates->assign('comboUsuario',$comboUsuario);	//se agrega el combo de usuarios
+						$templates->assign('header',$header);
+					$templates->display('clientes_alta.html');
+					die();
 
-				$templates->assign('combo',$combo);
-		  	$templates->assign('comboEstado',$comboEstado);	//se agrega el combo de estados
-		  	$templates->assign('comboUsuario',$comboUsuario);	//se agrega el combo de usuarios
-		  	$templates->assign('header',$header);
-			$templates->display('clientes_alta.html');
-			die();
+				break;
 
-		break;
+				//Edita al cliente registrado en la base de datos
+				case 'editar':
 
-		//Edita al cliente registrado en la base de datos
-		case 'editar':
+					//Se obtiene el elemento seleccionado
+					$cliente=$web->getCliente($idcliente);
 
-			//Se obtiene el elemento seleccionado
-			$cliente=$web->getCliente($idcliente);
+					// Se crean los combos para los datos adicionales
+					$combo=$web->showList('select id_tipo,tipo from tipo',$cliente[0]['id_tipo']);
+					$comboEstado=$web->showList('select id_estado,estado from estado',$cliente[0]['id_estado']);
+					$comboUsuario=$web->showList('select id_usuario, email  from usuario',$cliente[0]['id_usuario']);
 
-			// Se crean los combos para los datos adicionales
-			$combo=$web->showList('select id_tipo,tipo from tipo',$cliente[0]['id_tipo']);
-			$comboEstado=$web->showList('select id_estado,estado from estado',$cliente[0]['id_estado']);
-			$comboUsuario=$web->showList('select id_usuario, email  from usuario',$cliente[0]['id_usuario']);
+					//Se agregan los combos
+					$templates->assign('combo',$combo);
+					$templates->assign('comboEstado',$comboEstado);
+					$templates->assign('comboUsuario',$comboUsuario);
 
-			//Se agregan los combos
-			$templates->assign('combo',$combo);
-  		$templates->assign('comboEstado',$comboEstado);
-			$templates->assign('comboUsuario',$comboUsuario);
-
-			$templates->assign('cliente',$cliente[0]);
-			$templates->assign('id_cliente',$idcliente);
-			$templates->assign('header',$header);
-			$templates->display('clientes_alta.html');
-			die();
-		break;
+					$templates->assign('cliente',$cliente[0]);
+					$templates->assign('id_cliente',$idcliente);
+					$templates->assign('header',$header);
+					$templates->display('clientes_alta.html');
+					die();
+				break;
 
 
-		// inserta un nuevo cliente
-		case 'alta':
-			// insert generico
-			$web->setTabla("cliente");
-			$web->insert($_POST);
-			break;
+				// inserta un nuevo cliente
+				case 'alta':
+					// insert generico
+					$web->setTabla("cliente");
+					$web->insert($_POST);
+					break;
 
 
-		// Actualiza la infromacion del cliente
-		case 'guardar':
+				// Actualiza la infromacion del cliente
+				case 'guardar':
 
-			$web->setTabla("cliente");
-			$web->update($_POST,array('id_cliente'=>$_POST['id_cliente']));
-			break;
+					$web->setTabla("cliente");
+					$web->update($_POST,array('id_cliente'=>$_POST['id_cliente']));
+					break;
 
-		//Elimina a un cliente de la base de datos
-		case 'eliminar':
-			$web ->deleteCliente($idcliente);
-			 break;
+				//Elimina a un cliente de la base de datos
+				case 'eliminar':
+					$web ->deleteCliente($idcliente);
+					 break;
 
-		case 'ver':
-		break;
+				case 'ver':
+				break;
 
+			}
+		}
 	}
 
 	//Muestra la tabla de clientes registrados

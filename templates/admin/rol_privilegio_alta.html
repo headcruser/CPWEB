@@ -32,7 +32,7 @@
           <div class="formulario ">
               <h1>FORMULARIO ROL-PRIVILEGIO </h1>
 
-                <form class="form-horizontal" method="POST" data-toggle="validator" role="form" action="rol_privilegio.php?accion={if isset($id_privilegio)}guardar{else}alta{/if}">
+                <form class="form-horizontal" method="POST" data-toggle="validator" role="form" action="rol_privilegio.php?accion={if isset($id_rol) and isset($id_privilegio)}guardar{else}alta{/if}">
 
 
                   <div class="form-group">
@@ -50,9 +50,11 @@
                       </div>
                     </div>
 
-
-                    {if isset($id_usuario)}
-                        <input type="hidden" name="id_privilegio" value="{$id_privilegio}"> {/if}
+                    <!-- se tuvo que cambiar el nombre para guardar los valores anteriores de los combos -->
+                    {if isset($id_rol) and isset($id_privilegio) }
+                     <input type="hidden" name="nee1" value="{$id_rol}">
+                     <input type="hidden" name="nee2" value="{$id_privilegio}">
+                   {/if}
 
                     <div class="form-group">
                       <div class="enviar">

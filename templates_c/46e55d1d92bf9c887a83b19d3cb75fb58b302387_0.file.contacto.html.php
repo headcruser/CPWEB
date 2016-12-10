@@ -1,28 +1,28 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-09 06:54:15
+/* Smarty version 3.1.30, created on 2016-12-09 18:33:58
   from "C:\xampp\htdocs\CPWEB\templates\publico\contacto.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5822ba070c7324_43389368',
+  'unifunc' => 'content_584aeb06a8a8d2_06000479',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '46e55d1d92bf9c887a83b19d3cb75fb58b302387' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\publico\\contacto.html',
-      1 => 1477273305,
+      1 => 1478670904,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:header_publico.html' => 1,
-    'file:footer_publico.html' => 1,
+    'file:publico/header_publico.html' => 1,
+    'file:publico/footer_publico.html' => 1,
   ),
 ),false)) {
-function content_5822ba070c7324_43389368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584aeb06a8a8d2_06000479 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>     <!--INDICA QUE ES UN DOCUMENTO HTML -->
 <html>
@@ -38,7 +38,7 @@ function content_5822ba070c7324_43389368 (Smarty_Internal_Template $_smarty_tpl)
   <body class="cuerpo">
     <!--contenedor principal -->
     <div id="wrapper">
-      <?php $_smarty_tpl->_subTemplateRender("file:header_publico.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+      <?php $_smarty_tpl->_subTemplateRender("file:publico/header_publico.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 
@@ -73,16 +73,16 @@ function content_5822ba070c7324_43389368 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-10">
-                    <textarea name="comentario" class="form-control" rows="8" cols="40"></textarea> 
+                    <textarea name="comentario" class="form-control" rows="8" cols="40"></textarea>
                   </div>
                 </div>
 
                   <input type="submit" name="enviar" value="enviar">
           </form>
         </div>
-          
 
-          
+
+
 
           <p>
             CONOZCA LO MEJOR EN SERVICIOS INTEGRALES DE CONTABILIDAD EN GUANAJUATO! En Contadores CPWEB  de Celaya – Guanajuato estamos para atender todas sus necesidades en el área fiscal, de auditoría y contable en México. Contáctenos con gusto atenderemos todas sus preguntas e inquietudes:
@@ -104,10 +104,10 @@ function content_5822ba070c7324_43389368 (Smarty_Internal_Template $_smarty_tpl)
       </div>  <!--Fin del contenedor-->
 
       <!--Seccion footer -->
-      <?php $_smarty_tpl->_subTemplateRender("file:footer_publico.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+      <?php $_smarty_tpl->_subTemplateRender("file:publico/footer_publico.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-      
+
     </div>  <!--Fin del wrapper-->
 
     <!-- CODIGO JAVASCRIPT -->
@@ -118,5 +118,6 @@ function content_5822ba070c7324_43389368 (Smarty_Internal_Template $_smarty_tpl)
  src="js/bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
 >
   </body>
-</html><?php }
+</html>
+<?php }
 }

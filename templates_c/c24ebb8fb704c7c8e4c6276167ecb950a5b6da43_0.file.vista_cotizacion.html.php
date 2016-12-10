@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-24 08:17:58
+/* Smarty version 3.1.30, created on 2016-12-09 20:40:34
   from "C:\xampp\htdocs\CPWEB\templates\vista_cotizacion.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583694264ea770_89299133',
+  'unifunc' => 'content_584b08b29dbc56_02506986',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c24ebb8fb704c7c8e4c6276167ecb950a5b6da43' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\vista_cotizacion.html',
-      1 => 1479971871,
+      1 => 1481312053,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_583694264ea770_89299133 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584b08b29dbc56_02506986 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
