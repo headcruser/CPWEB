@@ -26,57 +26,57 @@
 	if( isset($_GET['accion']))
 	{
 		$accion=$_GET['accion'];
+	}
 
-		if (isset($_GET['id_privilegio']))
-		{
-			//Obtener el id del cliente
-			$id_privilegio=$_GET['id_privilegio'];
+	if (isset($_GET['id_privilegio']))
+	{
+		//Obtener el id del cliente
+		$id_privilegio=$_GET['id_privilegio'];
+	}
 
-			switch ($accion)
-			{
-				case 'nuevo': //Muestra el formulario
-					$templates->assign('header',$header);
-					$templates->display('privilegio_alta.html');
-					die();
-				break;
+	switch ($accion)
+	{
+		case 'nuevo': //Muestra el formulario
+			$templates->assign('header',$header);
+			$templates->display('privilegio_alta.html');
+			die();
+		break;
 
-				//Edita
-				case 'editar':
+		//Edita
+		case 'editar':
 
-					$privilegio=$web->getPrivilegio($id_privilegio);
-					$templates->assign('privilegio',$privilegio[0]);
-					$templates->assign('id_privilegio',$id_privilegio);
-					$templates->assign('header',$header);
-					$templates->display('privilegio_alta.html');
-					die();
-				break;
-
-
-				// inserta
-				case 'alta':
-					// insert generico
-					$web->setTabla("privilegio");
-					$web->insert($_POST);
-					break;
+			$privilegio=$web->getPrivilegio($id_privilegio);
+			$templates->assign('privilegio',$privilegio[0]);
+			$templates->assign('id_privilegio',$id_privilegio);
+			$templates->assign('header',$header);
+			$templates->display('privilegio_alta.html');
+			die();
+		break;
 
 
-				// Actualiza
-				case 'guardar':
+		// inserta
+		case 'alta':
+			// insert generico
+			$web->setTabla("privilegio");
+			$web->insert($_POST);
+			break;
 
-					$web->setTabla("privilegio");
-					$web->update($_POST,array('id_privilegio'=>$_POST['id_privilegio']));
-					break;
 
-				//Elimina
-				case 'eliminar':
-					$web ->deletePrivilegio($id_privilegio);
-					 break;
+		// Actualiza
+		case 'guardar':
 
-				case 'ver':
-				break;
+			$web->setTabla("privilegio");
+			$web->update($_POST,array('id_privilegio'=>$_POST['id_privilegio']));
+			break;
 
-			}
-		}
+		//Elimina
+		case 'eliminar':
+			$web ->deletePrivilegio($id_privilegio);
+			 break;
+
+		case 'ver':
+		break;
+
 	}
 
 	//Muestra la tabla

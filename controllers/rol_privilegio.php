@@ -57,7 +57,7 @@ class rol_privilegio extends Cpweb
 	**********************************************************************************/
 	function updateRolPrivilegio($Actualizacion,$id_rol,$id_privilegio)
 	{
-		if(is_numeric($id_usuario) && is_numeric($id_rol)&&isset($Actualizacion))
+		if(is_numeric($id_rol) && is_numeric($id_privilegio)&&isset($Actualizacion))
 		 {
 					$updateIDrol=$Actualizacion['id_rol'];
 			 		$updateIDprivilegio=$Actualizacion['id_privilegio'];

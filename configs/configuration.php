@@ -4,7 +4,7 @@
 	define('PATH','C:/xampp/htdocs/CPWEB');
 
 	define('DB_PORT','172.20.108.24');
-	define('DB_IP','192.168.86.128');
+	define('DB_IP','192.168.1.72');
 	define('DB_NAME','cp_web');
 	define('DB_USER','conta');
 	define('DB_PASS','123');

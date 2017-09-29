@@ -82,13 +82,18 @@
 		// Actualiza la infromacion del cliente
 		case 'guardar':
 
-			$id_usuarioAux=$_POST['nee1'];
-			$id_rolAux=$_POST['nee2'];
-			unset($_POST['nee1']);
-			unset($_POST['nee2']);
+			if(isset($_POST))
+			{
+				$id_usuarioAux=$_POST['nee1'];
+				$id_rolAux=$_POST['nee2'];
+				unset($_POST['nee1']);
+				unset($_POST['nee2']);
 
 			$web->setTabla("usuario_rol");
 			$web->updateUsuario_rol($_POST,$id_usuarioAux,$id_rolAux);
+
+			}
+
 
 			break;
 

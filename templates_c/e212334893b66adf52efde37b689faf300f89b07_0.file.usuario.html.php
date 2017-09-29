@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-12-09 04:47:30
+/* Smarty version 3.1.30, created on 2016-12-11 04:45:15
   from "C:\xampp\htdocs\CPWEB\templates\admin\usuario.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_584a2952596c06_14882682',
+  'unifunc' => 'content_584ccbcbee3b58_20939350',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e212334893b66adf52efde37b689faf300f89b07' => 
     array (
       0 => 'C:\\xampp\\htdocs\\CPWEB\\templates\\admin\\usuario.html',
-      1 => 1481255246,
+      1 => 1481385913,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html' => 1,
   ),
 ),false)) {
-function content_584a2952596c06_14882682 (Smarty_Internal_Template $_smarty_tpl) {
+function content_584ccbcbee3b58_20939350 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Muestra a los Usuario -->
 <!DOCTYPE html>
@@ -98,8 +98,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                   <!--Boton para dar de alta-->
                 <div class="alta">
                   <form >
-                      <!--<input class=button type=submit value="alta" name="accion">-->
-                      <a  class=button href="usuario.php?accion=nuevo">Nuevo usuario</a>
+                      <!--se tiene que limpiar el id_usuario porque si no se queda con el valor anterior-->
+                      <a  class=button href="usuario.php?accion=nuevo$id_usuario=null">Nuevo usuario</a>
                   </form>
                 </div>
             </div>

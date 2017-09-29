@@ -140,7 +140,9 @@
 				}
 				break;
 		}
-		$templates->assign('header',$header);
-		$templates->display("forgot.html")
+
 	}
+
+	$templates->assign('header',$header);
+	$templates->display("forgot.html");
  ?>

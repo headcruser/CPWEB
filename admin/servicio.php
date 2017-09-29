@@ -23,58 +23,55 @@
 	if( isset($_GET['accion']))
 	{
 		$accion=$_GET['accion'];
+	}
 
-		if (isset($_GET['id_servicio']))
-		{
-			//Obtener el id del cliente
-			$id_servicio=$_GET['id_servicio'];
+	if (isset($_GET['id_servicio']))
+	{
+		//Obtener el id del cliente
+		$id_servicio=$_GET['id_servicio'];
+	}
+	switch ($accion)
+	{
 
-			switch ($accion)
-			{
+		case 'nuevo':
+			$templates->assign('header',$header);
+			$templates->display('servicio_form.html');
+			die();
 
-				case 'nuevo':
-					$templates->assign('header',$header);
-					$templates->display('servicio_form.html');
-					die();
+		break;
 
-				break;
-
-				//Edita al Estado seleccionado
-				case 'editar':
-					$servicio=$web->getServicio($id_servicio);
-					$templates->assign('servicio',$servicio[0]);
-					$templates->assign('id_servicio',$id_servicio);
-					$templates->assign('header',$header);
-					$templates->display('servicio_form.html');
-					die();
-				break;
-
-
-				// inserta un nuevo estado
-				case 'alta':
-					$web->setTabla("servicio");
-					$web->insert($_POST);
-					break;
+		//Edita al Estado seleccionado
+		case 'editar':
+			$servicio=$web->getServicio($id_servicio);
+			$templates->assign('servicio',$servicio[0]);
+			$templates->assign('id_servicio',$id_servicio);
+			$templates->assign('header',$header);
+			$templates->display('servicio_form.html');
+			die();
+		break;
 
 
-				// Actualiza la informacion del estado
-				case 'guardar':
-					$web->setTabla("servicio");
-					$web->update($_POST,array('id_servicio'=>$_POST['id_servicio']));
+		// inserta un nuevo estado
+		case 'alta':
+			$web->setTabla("servicio");
+			$web->insert($_POST);
+			break;
 
-					break;
 
-				//Elimina a un Estado de la base de datos
-				case 'eliminar':
-						$web ->deleteServicio($id_servicio);
-					 break;
+		// Actualiza la informacion del estado
+		case 'guardar':
+			$web->setTabla("servicio");
+			$web->update($_POST,array('id_servicio'=>$_POST['id_servicio']));
 
-			}
-		}		
+			break;
+
+		//Elimina a un Estado de la base de datos
+		case 'eliminar':
+				$web ->deleteServicio($id_servicio);
+			 break;
 	}
 
 	//Muestra la tabla de clientes registrados
-
 	$servicio=$web->fetchAll('select * from servicio');
 	$templates->assign('titulo','servicio');
 	$templates->assign('servicio',$servicio);
