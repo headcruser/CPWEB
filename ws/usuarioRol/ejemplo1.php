@@ -8,7 +8,7 @@ $cadenajson='
     "id_usuario": 1,
     "nombres": 1,
     "apellidos": 1,
-    "nacimiento": '05/12/2016',
+    "nacimiento": "05/12/2016",
     },
     "usuario_rol":
     [

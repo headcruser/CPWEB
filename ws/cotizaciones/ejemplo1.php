@@ -5,7 +5,7 @@ $cadenajson='
     {
     "id_cotizacion" : "1",
     "id_cliente": 1,
-    "fecha": '05/12/2016',
+    "fecha": "05/12/2016",
     },
     "cotizacion_detalle":
     [
