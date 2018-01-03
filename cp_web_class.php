@@ -1,15 +1,16 @@
 <?php
-	/***
-	Clase: Cpweb
-	autor: Daniel
-	version : 0.1
-	fecha : 2016-09-21
-	*/
-	session_start(); // Iniciamos la sesion
-	require_once('lib/smarty/Smarty.class.php'); //Importa la libreria de smarty
-	include ("configs/configuration.php"); //incluye el archivo de configuracion
-	require_once('lib/phpmailer/PHPMailerAutoload.php'); //Libreria para el correo electronico
-
+	// DEFINE PATH PROYECT SYSTEM
+	define ('SD',DIRECTORY_SEPARATOR);
+	define ("PATH",dirname(realpath(__FILE__)).SD);
+	define ('FILE_CONFIG',PATH.'configs'.SD);
+	//INCLUDE CONFIG FILE
+	include (FILE_CONFIG.'configuration.php');
+	// INCLUDE LIBRARYS
+	require_once('lib/smarty/Smarty.class.php');
+	require_once('lib/phpmailer/PHPMailerAutoload.php');
+	die();
+	// STARTING SESSION
+	session_start();
 class Cpweb
 {
 
