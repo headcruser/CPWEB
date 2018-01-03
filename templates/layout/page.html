@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {block name=styles}
+            <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}publico.css">
+            <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}fonts/style.css">
+            <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}bootstrap/bootstrap.css">
+        {/block}
+        {block name=script}
+            <script src="{$smarty.const.JS}jquery.js"></script>
+            <script src="{$smarty.const.JS}bootstrap/bootstrap.min.js"></script>
+        {/block}
+        {block name=title}PLANTILLA GENERICA{/block}
+        {block name=icon}{/block}
+    </head>
+    <body class="cuerpo">
+        <div id="wrapper">
+            {block name=header}{/block}
+            {block name=content}{/block}
+            {block name=footer}{/block}
+        </div>
+    </body>
+</html>

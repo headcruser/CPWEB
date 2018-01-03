@@ -1,14 +1,13 @@
 <?php
 	// DEFINE PATH PROYECT SYSTEM
 	define ('SD',DIRECTORY_SEPARATOR);
-	define ("PATH",dirname(realpath(__FILE__)).SD);
-	define ('FILE_CONFIG',PATH.'configs'.SD);
+	define ("PATH",'.'.SD);
+	define ('FILE_CONFIG',PATH.'config'.SD);
 	//INCLUDE CONFIG FILE
 	include (FILE_CONFIG.'configuration.php');
 	// INCLUDE LIBRARYS
 	require_once('lib/smarty/Smarty.class.php');
 	require_once('lib/phpmailer/PHPMailerAutoload.php');
-	die();
 	// STARTING SESSION
 	session_start();
 class Cpweb
@@ -24,10 +23,7 @@ class Cpweb
 
 
 	 // Constructor de la clase
-	function __construct()
-	{
-     	$this->conexion();
-  	}
+	function __construct(){}
 
 	/***********************************************************************************/
 	//							CONEXION A LA BASE DE DATOS

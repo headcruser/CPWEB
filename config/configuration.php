@@ -14,5 +14,5 @@
 	//PUBLIC RESOURCES
 	define ('CSS', PATH.'css'.SD);
 	define ('JS', PATH.'js'.SD);
-	define ('IMG', PATH.'images'.SD);
+	define ('IMG', PATH.'image'.SD);
 	define ('TEMPLATES', PATH.'templates'.SD);

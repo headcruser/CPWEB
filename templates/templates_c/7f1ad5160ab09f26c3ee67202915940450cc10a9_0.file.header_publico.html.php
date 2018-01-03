@@ -1,8 +1,33 @@
+<?php
+/* Smarty version 3.1.30, created on 2018-01-03 22:30:03
+  from "C:\xampp2\htdocs\CPWEB\templates\publico\header_publico.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5a4d4b5b434932_00722390',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7f1ad5160ab09f26c3ee67202915940450cc10a9' => 
+    array (
+      0 => 'C:\\xampp2\\htdocs\\CPWEB\\templates\\publico\\header_publico.html',
+      1 => 1515014789,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5a4d4b5b434932_00722390 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <div id="enlaces">
   <a href="en">English version </a>
 </div>
 <div id="logo">
-  <img src="{$smarty.const.IMG}CPWEB.png" />
+  <img src="<?php echo @constant('IMG');?>
+CPWEB.png" />
 </div>
 <div class="navegacion">
   <nav class="barra">
@@ -69,4 +94,5 @@
     </ul>
   </nav>
 </div>
-</header>
+</header><?php }
+}

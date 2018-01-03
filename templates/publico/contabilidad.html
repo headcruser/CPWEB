@@ -1,59 +1,39 @@
-<!DOCTYPE html>     <!--INDICA QUE ES UN DOCUMENTO HTML -->
-<html>
-  <head>
-      <meta charset="utf-8">
+{extends file="../layout/page.html"}
+{block name=title}<title>ALIANZAS</title>{/block}
+{block name=icon}{/block}
+{block name=header} {include file='publico/header_publico.html'} {/block}
+{block name=content}
+<div class="contenedor">
+  <section>
+    <h2>TODA TU CONTABILIDAD EN UNA SOLA PLATAFORMA</h2>
 
-      <!--hoja de estilos -->
-      <link rel="stylesheet" type="text/css" href="css/publico.css" >
-      <link rel="stylesheet" type="text/css" href="css/fonts/style.css" >
-      <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" >
-    <title> Contabilidad </title>
-  </head>
-  <body class="cuerpo">
-    <!--contenedor principal -->
-    <div id="wrapper">
-      {include file='publico/header_publico.html'}
+    <ul>
+      <li>Emite y envía facturas electrónicas (CFDI) y PDF de forma ilimitada y con un solo clic. </li>
+      <li>Conoce tu estatus ante el SAT y monitorea tu buzón tributario. </li>
+      <li>Clasifica tus ingresos y gastos según rubro para control de tu flujo. </li>
+      <li>Personaliza tus facturas con el logo de tu empresa. </li>
 
-      <div class="contenedor">
-       <section>
-          <h2>TODA TU CONTABILIDAD EN UNA SOLA PLATAFORMA</h2>
+      <li>Visualiza tus ingresos y tus gastos para conocer tu situación financiera. </li>
 
-          <ul>
-            <li>Emite y envía facturas electrónicas (CFDI) y PDF de forma ilimitada y con un solo clic. </li>
-            <li>Conoce tu estatus ante el SAT y monitorea tu buzón tributario. </li>
-            <li>Clasifica tus ingresos y gastos según rubro para control de tu flujo. </li>
-            <li>Personaliza tus facturas con el logo de tu empresa. </li>
+      <li>Muchas más funcionalidades. Solicita tu demo gratis.</li>
+      <li>Tus impuestos al día, cumplimiento de tus obligaciones y asesoría fiscal.</li>
+      <li>Facturación electrónica ilimitada, clasificada y en un solo sitio.</li>
+    </ul>
 
-            <li>Visualiza tus ingresos y tus gastos para conocer tu situación financiera. </li>
+  </section>
 
-            <li>Muchas más funcionalidades. Solicita tu demo gratis.</li>
-            <li>Tus impuestos al día, cumplimiento de tus obligaciones y asesoría fiscal.</li>
-            <li>Facturación electrónica ilimitada, clasificada y en un solo sitio.</li>
-          </ul>
+  <aside id="bienvenida">
+    <div >
+      <div >
+        <h2>Contabilidad </h2><br>
+        <p>
+          <img src=".\IMAGE\contabilidad.png" height="150" width="220" />
+        </p>
 
-        </section>
+      </div>
+    </div>
 
-        <aside id="bienvenida">
-          <div >
-            <div >
-              <h2>Contabilidad </h2><br>
-              <p>
-                <img src=".\IMAGE\contabilidad.png" height="150" width="220" />
-              </p>
-
-            </div>
-          </div>
-
-        </aside>
-      </div>  <!--Fin del contenedor-->
-
-      <!--Seccion footer -->
-      {include file='publico/footer_publico.html'}
-
-    </div>  <!--Fin del wrapper-->
-
-    <!-- CODIGO JAVASCRIPT -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-  </body>
-</html>
+  </aside>
+</div>  <!--Fin del contenedor-->
+{/block}
+{block name=footer}{include file='publico/footer_publico.html'}{/block}
