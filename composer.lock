@@ -1,0 +1,158 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a7211a31fec7d31b87c01638a909e594",
+    "packages": [
+        {
+            "name": "kint-php/kint",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kint-php/kint.git",
+                "reference": "ada810111ced4e3a926b4040da9b86442e43b613"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/ada810111ced4e3a926b4040da9b86442e43b613",
+                "reference": "ada810111ced4e3a926b4040da9b86442e43b613",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Kint.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rokas Šleinius",
+                    "homepage": "https://github.com/raveren"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/raveren/kint/contributors"
+                }
+            ],
+            "description": "Kint - debugging helper for PHP developers",
+            "homepage": "https://github.com/raveren/kint",
+            "keywords": [
+                "debug",
+                "kint",
+                "php"
+            ],
+            "time": "2013-08-12T22:46:16+00:00"
+        },
+        {
+            "name": "smarty/smarty",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smarty-php/smarty.git",
+                "reference": "93909aacf8df28cbd41b26adfc1a3af1de29ab9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/93909aacf8df28cbd41b26adfc1a3af1de29ab9b",
+                "reference": "93909aacf8df28cbd41b26adfc1a3af1de29ab9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "libs/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Monte Ohrt",
+                    "email": "monte@ohrt.com"
+                },
+                {
+                    "name": "Uwe Tews",
+                    "email": "uwe.tews@googlemail.com"
+                },
+                {
+                    "name": "Rodney Rehm",
+                    "email": "rodney.rehm@medialize.de"
+                }
+            ],
+            "description": "Smarty - the compiling PHP template engine",
+            "homepage": "http://www.smarty.net",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2017-11-22T00:21:09+00:00"
+        },
+        {
+            "name": "wixel/gump",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Wixel/GUMP.git",
+                "reference": "577dbac33becf96f4e1acdf490cd5013383a7059"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Wixel/GUMP/zipball/577dbac33becf96f4e1acdf490cd5013383a7059",
+                "reference": "577dbac33becf96f4e1acdf490cd5013383a7059",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "gump.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Nieuwoudt",
+                    "homepage": "https://wixelhq.com"
+                },
+                {
+                    "name": "Filis Futsarov",
+                    "homepage": "https://filis.me"
+                }
+            ],
+            "description": "A fast, extensible & stand-alone PHP input validation class that allows you to validate any data",
+            "homepage": "https://wixelhq.com/",
+            "time": "2017-11-24T16:05:07+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "smarty/smarty": 20,
+        "wixel/gump": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

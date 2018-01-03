@@ -6,8 +6,8 @@
 	//INCLUDE CONFIG FILE
 	include (FILE_CONFIG.'configuration.php');
 	// INCLUDE LIBRARYS
-	require_once('lib/smarty/Smarty.class.php');
 	require_once('lib/phpmailer/PHPMailerAutoload.php');
+	require_once('vendor/autoload.php');
 	// STARTING SESSION
 	session_start();
 class Cpweb

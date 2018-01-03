@@ -1,0 +1,26 @@
+{
+    "name": "headcruser/CPWEB",
+    "description": "CPWEB-Contadores públicos web",
+    "type": "proyect",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Martinez Sierra",
+            "email": "headcruser@gmail.com",
+            "homepage": "https://gitlab.com/headcruser/ProyectRH",
+            "role": "Project Manager"
+        }
+    ],
+    "require": {
+        "smarty/smarty": "dev-trunk",
+        "kint-php/kint": "0.9",
+        "wixel/gump": "dev-master"
+    },
+    "autoload":{
+        "psr-4": {
+            "CpWebDotMe\\":"src"
+        }
+    },"config":{
+        "optimize-autoloader": true
+    }
+}
