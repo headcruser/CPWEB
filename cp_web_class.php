@@ -1,11 +1,12 @@
 <?php
-	// DEFINE PATH PROYECT SYSTEM
+	// SYSTEM FILES
+	define ('ROOT',__DIR__);
 	define ('SD',DIRECTORY_SEPARATOR);
-	define ("PATH",'.'.SD);
-	define ('FILE_CONFIG',PATH.'config'.SD);
+	define ("RESOURCES",dirname('.').SD);
+	define ('CONFIG',ROOT.SD.'config'.SD);
 	//INCLUDE CONFIG FILE
-	include (FILE_CONFIG.'configuration.php');
-	// INCLUDE LIBRARYS
+	include (CONFIG.'configuration.php');
+	// INCLUDE VENDOR
 	require_once('vendor/autoload.php');
 	// STARTING SESSION
 	session_start();
@@ -459,7 +460,5 @@ class Cpweb
 
 
 } // Fin de la clase
-
-die();
 $web=new Cpweb;
 $templates=$web->template();

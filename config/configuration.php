@@ -7,12 +7,12 @@
 	define('DB_PASS','123');
 	define('DB_ENGINE','mysql');
 	// SMARTY CONFIGURARION
-	define('TEMPLATE',PATH.'templates'.SD);
-	define('TEMPLATE_c',PATH.'templates'.SD."templates_c".SD);
-	define('CACHE',PATH.'cache'.SD);
-	define('CONFIGS',PATH.'configs'.SD);
+	define('TEMPLATE',RESOURCES.'templates'.SD);
+	define('TEMPLATE_c',RESOURCES.'templates'.SD."templates_c".SD);
+	define('CACHE',RESOURCES.'cache'.SD);
+	define('CONFIGS',RESOURCES.'configs'.SD);
 	//PUBLIC RESOURCES
-	define ('CSS', PATH.'css'.SD);
-	define ('JS', PATH.'js'.SD);
-	define ('IMG', PATH.'image'.SD);
-	define ('TEMPLATES', PATH.'templates'.SD);
+	define ('CSS', RESOURCES.'css'.SD);
+	define ('JS', RESOURCES.'js'.SD);
+	define ('IMG', RESOURCES.'image'.SD);
+	define ('TEMPLATES', RESOURCES.'templates'.SD);
