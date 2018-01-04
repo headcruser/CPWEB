@@ -6,7 +6,6 @@
 	//INCLUDE CONFIG FILE
 	include (FILE_CONFIG.'configuration.php');
 	// INCLUDE LIBRARYS
-	require_once('lib/phpmailer/PHPMailerAutoload.php');
 	require_once('vendor/autoload.php');
 	// STARTING SESSION
 	session_start();
@@ -460,4 +459,7 @@ class Cpweb
 
 
 } // Fin de la clase
-?>
+
+die();
+$web=new Cpweb;
+$templates=$web->template();
