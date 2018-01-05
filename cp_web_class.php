@@ -102,7 +102,7 @@ class Cpweb
 		$template->assign('selected',$selected);	//enviamos el parametro del combo box
 		$template->assign('datos',$datos);
 		$template->assign('id',$nombresCol[0]);	//Envia el nombre de las columnas
-		return $template->fetch('select.component.html');
+		return $template->fetch('layout/select.component.html');
 
 	} ////////////////////////////  Fin del metodo /////////////////////////////////////
 
@@ -287,7 +287,7 @@ class Cpweb
 		$template=$this->template();	//llama a la libreria de smarty
 		$template->assign('datos',$datos);
 		$template->assign('campos',$campos);
-		return $template->fetch('query2html.component.html');
+		return $template->fetch('layout/query2html.component.html');
 
 	} ////////////////////////////  Fin del metodo /////////////////////////////////////
 
@@ -338,7 +338,7 @@ class Cpweb
 			$template->assign('privilegio','login');
 		}
 
-		return $template->fetch('header_privilegios.html');
+		return $template->fetch('layout/header_privilegios.html');
 
 	}////////////////////////////  Fin del metodo /////////////////////////////////////
 

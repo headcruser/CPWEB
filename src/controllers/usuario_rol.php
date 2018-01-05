@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/usuario_rol
 Gestiona los usuario_rols de Cpweb

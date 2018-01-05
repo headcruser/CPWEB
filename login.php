@@ -1,9 +1,5 @@
 <?php
-	include('../controllers/login.php');
-	$web=new Login;
-	die('simon');
-
-	//Elementos que inician vacios
+    include('cp_web_class.php');
 	$accion=null;
 	$templates=$web->template();
 	$header=$web->Privilegiosheader("login"); //Crea el header
@@ -31,12 +27,6 @@
 			default:
 		}
 	}
-
-
-
-	//Mostrar login
-	$templates->assign('titulo','LOGIN');
+    $templates->assign('titulo','LOGIN');
 	$templates->assign('header',$header);
-	$templates->display('login_form.html');
-
- ?>
+	$templates->display('publico/login.html');

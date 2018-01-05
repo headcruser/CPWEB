@@ -1,5 +1,6 @@
 <?php
-include('../cp_web_class.php');
+namespace  CpWebDotMe\controllers;
+include('../../cp_web_class.php'); //Incluye a la clase Cpweb
 
 /**Clase: Cpweb
 	autor: Daniel

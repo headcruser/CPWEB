@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/rol_privilegio
 Gestiona los rol_privilegios de Cpweb
@@ -8,7 +9,7 @@ version : 0.1
 fecha : 2016-09-21
 */
 
-include('../cp_web_class.php'); //Incluye a la clase Cpweb
+include('../../cp_web_class.php'); //Incluye a la clase Cpweb
 
 class rol_privilegio extends Cpweb
 {

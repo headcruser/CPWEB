@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-38, created on 2018-01-03 23:24:42
+/* Smarty version 3.1.32-dev-38, created on 2018-01-05 19:04:00
   from 'C:\xampp2\htdocs\CPWEB\templates\publico\header_publico.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-38',
-  'unifunc' => 'content_5a4d582a5f5b65_67440668',
+  'unifunc' => 'content_5a4fbe102e9f11_03410287',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7f1ad5160ab09f26c3ee67202915940450cc10a9' => 
     array (
       0 => 'C:\\xampp2\\htdocs\\CPWEB\\templates\\publico\\header_publico.html',
-      1 => 1515014789,
+      1 => 1515175437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a4d582a5f5b65_67440668 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a4fbe102e9f11_03410287 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="enlaces">
   <a href="en">English version </a>
 </div>
@@ -79,7 +79,7 @@ CPWEB.png" />
           </span>Bolsa de Trabajo</a>
       </li>
       <li>
-        <a href="admin/index.php">
+        <a href="login.php">
           <span class="sexto">
             <i class="icon icon-sesion"></i>
           </span>Iniciar Sesion</a>

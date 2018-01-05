@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/cotizacion_detalle
 Gestiona los cotizacion_detalle de Cpweb
@@ -7,7 +8,7 @@ autor: Daniel
 version : 0.1
 fecha : 2016-09-21
 */
-include('../cp_web_class.php'); //Incluye a la clase Cpweb
+include('../../cp_web_class.php'); //Incluye a la clase Cpweb
 
 class cotizacion_detalle extends Cpweb
 {
@@ -46,6 +47,6 @@ class cotizacion_detalle extends Cpweb
 		$stmt->bindParam(':id_servicio', $id_servicio, PDO::PARAM_INT);
 		$this->verifyQuery($stmt);
 	} //fin de la funcion
-	
+
 } // Fin de la clase
 ?>

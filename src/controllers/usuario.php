@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/usuario
 Gestiona los usuarios de Cpweb
@@ -14,9 +15,9 @@ class usuario extends Cpweb
 {
 
 	/***********************************************************************************
-						METODO PARA OBTENER UN ESTADO  
+						METODO PARA OBTENER UN ESTADO
 			parametro 					tipo 	 		Descripcion
-	  		@param $idEstado  			 Int 		  Identificador del estado 
+	  		@param $idEstado  			 Int 		  Identificador del estado
 	**********************************************************************************/
 	function getUsuario ($id_usuario)
 	{
@@ -28,13 +29,13 @@ class usuario extends Cpweb
 		 	$usuario=$statement->FetchAll(PDO::FETCH_ASSOC);
 		 }
 		 	return $usuario;
-	} // Fin del metodo 
+	} // Fin del metodo
 
 
 	/***********************************************************************************
 					METODO PARA ELIMINAR UN ESTADO DE LA BASE DE DATOS
 			parametro 					tipo 	 		Descripcion
-	  		@param $idEstado  			Int           Identificador del estado  		  
+	  		@param $idEstado  			Int           Identificador del estado
 	**********************************************************************************/
 	function deleteUsuario($id_usuario)
 	{
@@ -44,5 +45,5 @@ class usuario extends Cpweb
 		$this->verifyQuery($stmt);
 
 	} //fin de la funcion
-} // Fin de la clase 
+} // Fin de la clase
 ?>

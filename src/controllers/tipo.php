@@ -1,5 +1,5 @@
-
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/tipo
 Gestiona los Tipos de cliente de Cpweb
@@ -15,9 +15,9 @@ class Tipo extends Cpweb
 {
 
 	/***********************************************************************************
-						METODO PARA OBTENER UN Tipo  
+						METODO PARA OBTENER UN Tipo
 			parametro 					tipo 	 		Descripcion
-	  		@param $idTipo  			 Int 		  Identificador del tipo cliente 
+	  		@param $idTipo  			 Int 		  Identificador del tipo cliente
 	**********************************************************************************/
 	function getTipo ($idTipo)
 	{
@@ -29,13 +29,13 @@ class Tipo extends Cpweb
 		 	$tipos=$statement->FetchAll(PDO::FETCH_ASSOC);
 		 }
 		 	return $tipos;
-	} // Fin del metodo 
+	} // Fin del metodo
 
 
 	/***********************************************************************************
 					METODO PARA ELIMINAR UN TIPO CLIENTE DE LA BASE DE DATOS
 			parametro 					tipo 	 		Descripcion
-	  		@param $idTipo  			Int           Identificador del TIPO  		  
+	  		@param $idTipo  			Int           Identificador del TIPO
 	**********************************************************************************/
 	function deleteTipo($idTipo)
 	{
@@ -45,5 +45,5 @@ class Tipo extends Cpweb
 		$this->verifyQuery($stmt);
 
 	} //fin de la funcion
-} // Fin de la clase 
+} // Fin de la clase
 ?>

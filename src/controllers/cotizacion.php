@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 
 /***
 controllers/cotizacion
@@ -9,7 +10,7 @@ version : 0.1
 fecha : 2016-09-21
 */
 
-include('../cp_web_class.php'); //Incluye a la clase Cpweb
+include('../../cp_web_class.php'); //Incluye a la clase Cpweb
 
 class Cotizacion extends Cpweb
 {

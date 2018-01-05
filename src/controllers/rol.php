@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/rol
 Gestiona los rols de Cpweb
@@ -8,15 +9,15 @@ version : 0.1
 fecha : 2016-09-21
 */
 
-include('../cp_web_class.php'); //Incluye a la clase Cpweb
+include('../../cp_web_class.php'); //Incluye a la clase Cpweb
 
 class rol extends Cpweb
 {
 
 	/********************************************************************
-						METODO PARA OBTENER UN ESTADO  
+						METODO PARA OBTENER UN ESTADO
 			parametro 					tipo 	 		Descripcion
-	  		@param $idEstado  			 Int 		  Identificador del estado 
+	  		@param $idEstado  			 Int 		  Identificador del estado
 	*************************************************************************/
 	function getRol ($id_rol)
 	{
@@ -28,13 +29,13 @@ class rol extends Cpweb
 		 	$rol=$statement->FetchAll(PDO::FETCH_ASSOC);
 		 }
 		 	return $rol;
-	} // Fin del metodo 
+	} // Fin del metodo
 
 
 	/***********************************************************************************
 					METODO PARA ELIMINAR UN ESTADO DE LA BASE DE DATOS
 			parametro 					tipo 	 		Descripcion
-	  		@param $idEstado  			Int           Identificador del estado  		  
+	  		@param $idEstado  			Int           Identificador del estado
 	**********************************************************************************/
 	function deleteRol($id_rol)
 	{
@@ -44,5 +45,5 @@ class rol extends Cpweb
 		$this->verifyQuery($stmt);
 
 	} //fin de la funcion
-} // Fin de la clase 
+} // Fin de la clase
 ?>

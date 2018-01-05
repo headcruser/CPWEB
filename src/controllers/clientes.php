@@ -1,4 +1,5 @@
 <?php
+namespace  CpWebDotMe\controllers;
 /***
 controllers/Cliente
 Gestiona los clientes de Cpweb
@@ -8,16 +9,16 @@ version : 0.1
 fecha : 2016-09-21
 */
 
-include('../cp_web_class.php'); //Incluye a la clase Cpweb
+include('../../cp_web_class.php'); //Incluye a la clase Cpweb
 
 class Clientes extends Cpweb
 {
 
 	/***********************************************************************************
-						METODO PARA OBTENER UN SOLO CLIENTE  
+						METODO PARA OBTENER UN SOLO CLIENTE
 			parametro 					tipo 	 			Descripcion
 	  		@param $p_idCliente  	     int 		  Identificador del cliente
-	**********************************************************************************/	
+	**********************************************************************************/
 	function getCliente($p_idCliente)
 	{
 		$clientes=array(); //Arreglo vacio
@@ -28,11 +29,11 @@ class Clientes extends Cpweb
 		 	$clientes=$statement->FetchAll(PDO::FETCH_ASSOC);
 		 }
 		 	return $clientes;
-	} // Fin de la funcion    
+	} // Fin de la funcion
 
 
 	/***********************************************************************************
-				METODO PARA ELIMINAR UN CLIENTE DE LA BASE DE DATOS 
+				METODO PARA ELIMINAR UN CLIENTE DE LA BASE DE DATOS
 			parametro 					tipo 	 		Descripcion
 	  		@param $idcliente  			INT 		  Nombre de la tabla
 	**********************************************************************************/

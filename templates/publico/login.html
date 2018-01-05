@@ -3,9 +3,9 @@
 <head>
       <meta charset="utf-8">
       <title>Login</title>
-      <link rel="stylesheet" type="text/css" href="../css/flat.css" >
-      <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css" >
-      <link rel="stylesheet" type="text/css" href="../css/main.css" >
+      <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}css/flat.css" >
+      <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}bootstrap/bootstrap.css" >
+      <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}main.css" >
 
 </head>
 <body>
@@ -64,10 +64,10 @@
               <a href="forgot.php">¿Olvidaste tu contraseña </a>
           </form>
       </div>
-      {include file='footer.html'}
-      <script src="../js/jquery.js"></script>
-      <script src="../js/bootstrap/bootstrap.js"></script>
-      <script src="../js/jquery.validate.js"></script>
+       {include file='../layout/footer.html'}
+      <script src="{$smarty.const.JS}jquery.js"></script>
+      <script src="{$smarty.const.JS}bootstrap/bootstrap.js"></script>
+      <script src="{$smarty.const.JS}jquery.validate.js"></script>
 
   </div>
 </body>
