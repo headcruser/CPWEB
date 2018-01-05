@@ -1,11 +1,8 @@
 <?php
 	// DATABASE CONFIG
-	define('DB_PORT','172.20.108.24');
-	define('DB_IP','192.168.1.72');
-	define('DB_NAME','cp_web');
-	define('DB_USER','conta');
-	define('DB_PASS','123');
-	define('DB_ENGINE','mysql');
+	$data=__loader( CONFIG.'database.json');
+	define ('DB', $data['database'] );
+	$data=null;
 	// SMARTY CONFIGURARION
 	define('TEMPLATE',RESOURCES.'templates'.SD);
 	define('TEMPLATE_c',RESOURCES.'templates'.SD."templates_c".SD);
@@ -16,3 +13,19 @@
 	define ('JS', RESOURCES.'js'.SD);
 	define ('IMG', RESOURCES.'image'.SD);
 	define ('TEMPLATES', RESOURCES.'templates'.SD);
+
+	/**
+	 * Reader Configuration
+	 */
+	function __loader(string $pathFile):array
+	{
+		if( !existFile($pathFile) )
+			throw new Exception("File: ".$pathFile." not Exist");
+
+		$data = json_decode( file_get_contents($pathFile) , true);
+		return $data;
+	}
+
+	function existFile( string $file):bool{
+		return file_exists( $file );
+	}

@@ -1,0 +1,10 @@
+{
+    "database":{
+        "PORT": "172.20.108.24",
+	    "SERVER":"192.168.1.72",
+	    "NAME":"cp_web",
+	    "USER":"conta",
+	    "PASS":"123",
+	    "ENGINE":"mysql"
+    }
+}

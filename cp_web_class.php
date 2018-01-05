@@ -2,7 +2,7 @@
 	// SYSTEM FILES
 	define ('ROOT',__DIR__);
 	define ('SD',DIRECTORY_SEPARATOR);
-	define ("RESOURCES",dirname('.').SD);
+	define ('RESOURCES',dirname('.').SD);
 	define ('CONFIG',ROOT.SD.'config'.SD);
 	//INCLUDE CONFIG FILE
 	include (CONFIG.'configuration.php');
@@ -12,54 +12,6 @@
 	session_start();
 class Cpweb
 {
-
-	/***********************************************************************************/
-	//							VARIABLES DE LA CLASE
-	/***********************************************************************************/
-	  	//Atributos
-		 var $cliente=null;
-		 var $conn=null;
-		 var $tabla=null; // nuevo agregar
-
-
-	 // Constructor de la clase
-	function __construct(){}
-
-	/***********************************************************************************/
-	//							CONEXION A LA BASE DE DATOS
-	/***********************************************************************************/
-	function conexion()
-	{
-		//$mbd = new PDO('mysql:host=localhost;dbname=prueba', $usuario, $contraseña);
-		$this->conn = new PDO(DB_ENGINE.':host='.DB_IP.';dbname='.DB_NAME, DB_USER, DB_PASS);
-	} ////////////////////////////  Fin del metodo /////////////////////////////////////
-
-
-
-	/***********************************************************************************
-						METODO PARA ESTABLECER LA TABLA A MANIPULAR
-			parametro 					tipo 	 		Descripcion
-	  		@param $tabla  			   String 		  Nombre de la tabla
-	**********************************************************************************/
-	function setTabla($tabla)
-	{
-		$this->tabla=$tabla;
-	}////////////////////////////  Fin del metodo /////////////////////////////////////
-
-
-	/***********************************************************************************
-						METODO PARA OBTENER EL NOMBRE DE LA TABLA
-			parametro 					tipo 	 		Descripcion
-	-----------------------------------------------------------------------------------
-	Valores de retorno
-	@return Regresa el nombre de la tabla.
-	**********************************************************************************/
-	function getTabla()
-	{
-		return $this->tabla;
-	} ////////////////////////////  Fin del metodo /////////////////////////////////////
-
-
 	/***********************************************************************************
 					METODO PARA OBTENER UN ARREGLO A PARTIR DE UNA CONSULTA
 
@@ -381,7 +333,7 @@ class Cpweb
 		if(isset($privilegio))
 		{
 			$template->assign('privilegio',$privilegio);
-	  }
+	  	}
 		else{
 			$template->assign('privilegio','login');
 		}
