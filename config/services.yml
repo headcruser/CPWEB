@@ -1,0 +1,6 @@
+parameters:
+    app_name: Prueba del Inyector de Dependencias
+
+services:
+    request_context:
+        class: Symfony\Component\Routing\RequestContext

@@ -10,6 +10,13 @@
 	require_once('vendor/autoload.php');
 	// STARTING SESSION
 	session_start();
+
+	use Symfony\Component\DependencyInjection\ContainerBuilder;
+	use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+	use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
+	use Symfony\Component\Config\FileLocator;
+	use Symfony\Component\Config\ConfigCache;
+
 class Cpweb
 {
 	/***********************************************************************************
@@ -414,3 +421,24 @@ class Cpweb
 } // Fin de la clase
 $web=new Cpweb;
 $templates=$web->template();
+
+$file = ROOT . '/cache/container.php';
+$containerConfigCache = new ConfigCache( $file, true );
+
+if (!$containerConfigCache->isFresh()) { //si no está actualizado
+	$container = new ContainerBuilder();
+	$container->setParameter('app_path', ROOT);
+
+	$loader = new YamlFileLoader($container,new FileLocator( CONFIG ));
+	$loader->load('services.yml');
+	$container->compile();
+	$requestContext = $container->get('request_context');
+
+	$dumper = new PhpDumper($container);
+    $containerConfigCache->write(
+            $dumper->dump(array('class' => 'MyCachedContainer')), $container->getResources()
+    );
+}
+require_once $file;
+$con = new MyCachedContainer();
+$requestContext = $con->get('request_context');

@@ -1,0 +1,20 @@
+# Archivo de configuración del servidor
+RewriteEngine on
+
+# Ruta base del proyecto
+RewriteBase /CPWEB/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
+
+# Previene que se abran archivos y directorios
+Options All -Indexes
+
+# Protección al archivo htacces
+<Files .htaccess>
+   Order allow,deny
+    Deny from all
+</Files>
+
+#Otorga prioriodad a index.php
+DirectoryIndex index.php index.html
