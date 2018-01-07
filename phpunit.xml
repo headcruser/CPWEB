@@ -1,0 +1,16 @@
+<phpunit>
+    <testsuites>
+        <testsuite name="Framework">
+            <directory>test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+
+<!--
+        NOTAS ADICIONALES
+PHPUNIT ES UNA HERRAMIENTA PARA GENERAR PRUEBAS UNITARAS
+PARA PHP.
+
+COMANDO PARA EJECUTAR LOS TEST UNITARIOS
+-> .\vendor\bin\phpunit test/Framework/AppTest.php
+ -->

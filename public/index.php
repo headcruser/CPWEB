@@ -1,9 +1,7 @@
 <?php
-
-//DEFINE PATH SYSTEM
-define ('DS',DIRECTORY_SEPARATOR);
-define ('VENDOR', dirname(__DIR__,1).DS.'vendor'.DS.'autoload.php');
-require( VENDOR );
+define('DS', DIRECTORY_SEPARATOR);
+define('VENDOR', dirname(__DIR__, 1).DS.'vendor'.DS.'autoload.php');
+require(VENDOR);
 
 use GuzzleHttp\Psr7\ServerRequest;
 use function Http\Response\send;

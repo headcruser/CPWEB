@@ -1,0 +1,25 @@
+<?xml version ="1.0"?>
+<ruleset name="CPWEB">
+    <description>Mis Reglas para Formatear Archivos php</description>
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <file>src</file>
+    <file>public/index.php</file>
+
+    <rule ref="PSR2"></rule>
+
+</ruleset>
+
+<!--
+    NOTAS ADICIONALES
+    ------------------------------------------------------------
+    COMANDO PARA REVISAR ERRORES DE CODIFICACION
+    -> .\vendor\bin\phpcs src\Framework\App.php
+
+    COMANDO PARA CORREGIR LAS VIOLACIONES ESTANDAR DE CODIFICACION
+    -> .\vendor\bin\phpcbf public/index.php -w
+
+    COMANDO PARA REVISAR ESTANDARES SOPORTADOS
+    ->.\vendor\bin\phpcs -i
+ -->
