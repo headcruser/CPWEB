@@ -5,8 +5,9 @@ require(VENDOR);
 
 use GuzzleHttp\Psr7\ServerRequest;
 use function Http\Response\send;
+use App\CPWEB\CPWEBModule;
 
-$app = new \Framework\App();
+$app = new \Framework\App([CPWEBModule::class]);
 $response =$app->run(ServerRequest ::fromGlobals());
 
 // Send Response
