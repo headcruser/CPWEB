@@ -2,14 +2,14 @@
 namespace App\CPWEB;
 
 use Framework\Router;
-use Framework\Renderer;
+use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CPWEBModule
 {
     private $renderer;
-    public function __construct(Router $router, Renderer $renderer)
+    public function __construct(Router $router, RendererInterface $renderer)
     {
         $this->renderer=$renderer;
         $this->renderer->addPath('CPWEB', __DIR__.DS.'views');
@@ -19,7 +19,7 @@ class CPWEBModule
 
     public function index(Request $request):string
     {
-        return $this->renderer->render('@CPWEB/index');
+        return $this->renderer->render('publico.index_publico');
     }
 
     public function show(Request $request):string
