@@ -6,9 +6,8 @@ define('DOCUMENT_ROOT', dirname('..').DS);
 
 //SMARTY
 define('TEMPLATE', DIR_SYSTEM.'templates'.DS);
-define('TEMP_C', TEMPLATE."templates_c".DS);
+define('TEMP_C', DIR_SYSTEM.'cache'.DS."templates_c".DS);
 define('CACHE', DIR_SYSTEM.'cache'.DS);
-
 //PUBLIC RESOURCES
 define('CSS', DOCUMENT_ROOT.'css'.DS);
 define('JS', DOCUMENT_ROOT.'js'.DS);
