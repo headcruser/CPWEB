@@ -10,6 +10,7 @@
     <div class="contenedor">
       <section>
         <h1>HISTORIA</h1>
+        {$smarty.version}
         <article>
           <p>
             CP Web comienza operaciones el año de 2016 en México,
