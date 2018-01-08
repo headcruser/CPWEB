@@ -1,6 +1,6 @@
 # CONTADORES PUBLICOS WEB
 <p align="center">
-<img src="image/CPWEB.png" title="Perfiles aerodinamicos." >
+<img src="public/image/CPWEB.png" title="Contadores Publicos web." >
 <div align="center"> Sitio web para contadores.</div>
 </p>
 
