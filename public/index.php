@@ -7,7 +7,12 @@ use GuzzleHttp\Psr7\ServerRequest;
 use function Http\Response\send;
 use App\CPWEB\CPWEBModule;
 
-$app = new \Framework\App([CPWEBModule::class]);
+$renderer=new \Framework\Renderer();
+$renderer->addPath(dirname(__DIR__).'/views');
+$app = new \Framework\App(
+    [CPWEBModule::class],
+    ['renderer'=>$renderer]
+);
 $response =$app->run(ServerRequest ::fromGlobals());
 
 // Send Response

@@ -33,7 +33,7 @@ class Router
      */
     public function get(string $path, callable $callable, string $name)
     {
-        $this->router->addRoute(new ZendRouter($path, $callable, ['GET',$name]));
+        $this->router->addRoute(new ZendRouter($path, $callable, ['GET'], $name));
     }
 
     /**
@@ -56,6 +56,6 @@ class Router
 
     public function generateUri(string $name, array $params):?string
     {
-        return $this->router->generateUri($name, $params);
+         return $this->router->generateUri($name, $params);
     }
 }

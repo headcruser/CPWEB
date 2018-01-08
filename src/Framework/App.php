@@ -18,11 +18,14 @@ class App
      * __construct
      * @param string[] $modules List of Modules to load
      */
-    public function __construct(array $modules = [])
+    public function __construct(array $modules = [], array $dependencies = [])
     {
         $this->router=new Router();
+        if (array_key_exists('renderer', $dependencies)) {
+            $dependencies['renderer']->addGlobal('router', $this->router);
+        }
         foreach ($modules as $module) {
-            $this->modules[]=new $module($this->router);
+            $this->modules[]=new $module($this->router, $dependencies['renderer']);
         }
     }
 

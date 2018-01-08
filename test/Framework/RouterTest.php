@@ -59,13 +59,13 @@ class RouterTest extends TestCase
     }
     public function testGenerateUri()
     {
-        $this->router->get('/CPWEB', function () {
-            return 'hello';
+        $this->router->get('/blog', function () {
+            return 'azezea';
         }, 'posts');
-        $this->router->get('/CPWEB/{slug:[a-z0-9\-]+}-{id:\d+}', function () {
+        $this->router->get('/blog/{slug:[a-z0-9\-]+}-{id:\d+}', function () {
             return 'hello';
-        }, 'posts');
-        $uri=$this->router->generateUri('/CPWEB', ['slug'=>'mon-article','id'=>18]);
-        $this->assertEquals('/CPWEB/mon-article-18', $uri);
+        }, 'post.show');
+        $uri=$this->router->generateUri('post.show', ['slug'=>'mon-article','id'=>18]);
+        $this->assertEquals('/blog/mon-article-18', $uri);
     }
 }
