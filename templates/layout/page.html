@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{$smarty.server.DOCUMENT_ROOT}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <base href="http://localhost:8090/CPWEB" >
@@ -15,8 +14,7 @@
             <script src="{$smarty.const.JS}jquery.js"></script>
             <script src="{$smarty.const.JS}bootstrap/bootstrap.min.js"></script>
         {/block}
-        {block name=title}PLANTILLA GENERICA{/block}
-        {block name=icon}{/block}
+        {block name=title}<title>CPWEB</title>{/block}
     </head>
     <body class="cuerpo">
         <div id="wrapper">

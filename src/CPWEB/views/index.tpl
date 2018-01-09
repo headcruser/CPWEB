@@ -1,7 +1,5 @@
 {extends file='file:layout/page.html'}
-{block name=title}
-  <title> CPWEB Y ASOCIADOS </title>
-{/block}
+{block name=title}<title> CPWEB Y ASOCIADOS </title>{/block}
 {block name=icon}{/block}
 {block name=header}
   {include file='./header_publico.tpl'}
