@@ -1,5 +1,6 @@
 <?php
 use CpWebDotMe\lib\Controller\Controller;
+
 /**
 * indexController
 *
@@ -11,12 +12,12 @@ use CpWebDotMe\lib\Controller\Controller;
 */
 class indexController
 {
-	/**
-	 * Muestra la pagina principal
-	 * @return type void
-	 */
-	public function index()
-	{
-		echo "hola";
-	}
+    /**
+     * Muestra la pagina principal
+     * @return type void
+     */
+    public function index()
+    {
+        echo "hola";
+    }
 }
