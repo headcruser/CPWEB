@@ -39,12 +39,13 @@ class App
     {
         try {
             $uri=$request->getUri()->getPath();
-            if (!empty($uri && $uri[-1]==='/')) {
+            if ($this->isIndexPath($uri)) {
                 return (new Response())
                 ->withStatus(301)
                 ->withHeader('Location', substr($uri, 0, -1));
             }
             $route=$this->router->match($request);
+
             if (is_null($route)) {
                 return (new Response(404, [], '<h1> ERROR 404</h1>'));
             }
@@ -55,15 +56,26 @@ class App
 
             $response=call_user_func_array($route->getCallback(), [$request]);
 
-            if (is_string($response)) {
-                return (new Response(200, [], $response));
-            } elseif ($response instanceof ResponseInterface) {
-                return $response;
-            } else {
-                throw new \Exception('The response is not a string instance of Respnse interface', 1);
-            }
+            return $this->responseType($response);
+
         } catch (\Exception $e) {
-            return (new Response(404, [], '<h3>' .$e->getMessage().'</h3>'));
+            return (new Response(500, [], '<h3>' .$e->getMessage().'</h3>'));
         }
+    }
+
+    private function isIndexPath(string $http):bool
+    {
+        return!empty($http && $http[-1]==='/');
+    }
+
+    private function responseType($response):ResponseInterface
+    {
+        if (is_string($response)) {
+            return (new Response(200, [], $response));
+        }
+        if ($response instanceof ResponseInterface) {
+            return $response;
+        }
+        return (new Response(500, [], 'The response is not a string instance of Respnse interface'));
     }
 }
