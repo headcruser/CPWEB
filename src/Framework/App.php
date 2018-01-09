@@ -1,43 +1,38 @@
 <?php namespace Framework;
 
-use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use function Http\Response\send;
 use App\CPWEB\CPWEBModule;
 use App\CPWEB\Actions\CPWEBAction;
+use GuzzleHttp\Psr7\Response;
+use function Http\Response\send;
+use Framework\Renderer\SmartyRenderer;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class App
 {
     /**
-     *
-     * @var mixed
+     * Modules for Application
+     * @var array
      */
     private $modules=[];
-
+    /**
+     * Reference Router Class
+     * @var Router
+     */
     private $router;
     /**
      * App Constructor.
-     * __construct
-     * @param string[] $modules List of Modules to load
+     *
+     * Buiulder Container References
      */
     public function __construct()
     {
         $this->router=new Router();
 
-        $renderer=new \Framework\Renderer\SmartyRenderer();
-        $renderer->addPath(TEMPLATE);
+        $renderer=new SmartyRenderer(TEMPLATE, TEMP_C, CACHE);
+        $renderer->addGlobal('router', $this->router);
 
         $this->modules[]=new CPWEBModule($this->router, $renderer);
-        // if (array_key_exists('renderer', $dependencies)) {
-        //     $dependencies['renderer']->addGlobal('router', $this->router);
-        // }
-        // if (array_key_exists('action', $dependencies)) {
-        //     $action=$dependencies['action'];
-        // }
-        // foreach ($modules as $module) {
-        //     $this->modules[]=new $module($this->router, $dependencies['renderer'],$action );
-        // }
     }
 
     public function run(ServerRequestInterface $request):ResponseInterface

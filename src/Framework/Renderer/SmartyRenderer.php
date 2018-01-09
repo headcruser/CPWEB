@@ -6,15 +6,29 @@ use Smarty;
 
 class SmartyRenderer implements RendererInterface
 {
+    /**
+     * Const Folder Smarty
+     * @var string
+     */
     const DEFAULT_NAMESPACE= '__SMARTY';
-    const EXTENSION_FILE='.tpl';
+    /**
+     * Extension for Smarty
+     * @var string
+     */
+    const EXT='.tpl';
+    /**
+     * Smarty Reference
+     * @var Smarty
+     */
     private $template;
-    public function __construct()
+
+    public function __construct(string $template, string $temp_c, string $cache)
     {
         $this->template=new Smarty();
-        $this->template->setTemplateDir(TEMPLATE);
-        $this->template->setCompileDir(TEMP_C);
-        $this->template->setCacheDir(CACHE);
+        $this->template->setTemplateDir($template);
+        $this->template->setCompileDir($temp_c);
+        $this->template->setCacheDir($cache);
+        $this->addPath($template);
     }
     /**
      * addpath
@@ -35,34 +49,34 @@ class SmartyRenderer implements RendererInterface
     /**
      * render
      *
-     * Permit Render a View
-     * @ indicate Namespace of view
-     *      $this->render('@blog\view')
-     * load view normality
+     * Permit Render a View.
+     * '@' indicate Namespace of view for Module View Folder
+     *      $this->render('@blog\view') | CPWEB/views
+     * load view normality from template Smarty
      *      $this->render('view')
+     * if exist in other folder inside template smarty
+     *      $this->render('layout.footer')
+     *
      * @param string $view
      * @param array $params
      * @return string
      */
     public function render(string $view, array $params = []):string
     {
-        if ($this->hasNamespace($view)) {
-            $path=$this->remplaceNamespace($view).self::EXTENSION_FILE;
-        } else {
-            $path=$this->buildPath($view);
-        }
+        $path=($this->hasNamespace($view))?
+            $this->remplaceNamespace($view).self::EXT:
+            $this->buildPath($view);
+
         if (! file_exists($path)) {
             throw new \Exception('Render View Does Exist:'.$path);
         }
-
         return $this->template->fetch('file:'.$path);
     }
     /**
      * addGlobal
-     *
-     * Adding local Variables to view
-     * @param string $key
-     * @param object $value
+     * Adding local Variables to view using
+     * @param string $key name for reference
+     * @param object $value element adding
      * @return void
      */
     public function addGlobal(string $key, $value):void
@@ -75,7 +89,7 @@ class SmartyRenderer implements RendererInterface
      * Assing a Variable to Smarty template
      * @param mixed $key
      * @param mixed $value
-     * @return mixed
+     * @return void
      */
     public function assign($key = null, $value = null):void
     {
@@ -84,21 +98,39 @@ class SmartyRenderer implements RendererInterface
             $this->template->assign("$key", ${$key});
         }
     }
-
+    /**
+     * hasNamespace
+     *
+     * Search delimiter '@' for indicate namespace
+     * @param string $view
+     * @return bool true exist | false not exist
+     */
     private function hasNamespace(string $view):bool
     {
         return $view[0]==='@';
     }
-
-    private function getNamespace(string $view):string
-    {
-        return substr($view, 1, strpos($view, '/')-1);
-    }
-
+    /**
+     * remplaceNamespace
+     *
+     * Remove delimiter '@' from the path for the view
+     * @param string $view  path for Namespace
+     * @return string Return a string without '@'
+     */
     private function remplaceNamespace(string $view):string
     {
         $namespace =$this->getNamespace($view);
         return str_replace('@'.$namespace, $this->paths[$namespace], $view);
+    }
+    /**
+     * getNamespace
+     *
+     * get Name for Namespace
+     * @param string $view Namespace for view
+     * @return string Clear Namespace
+     */
+    private function getNamespace(string $view):string
+    {
+        return substr($view, 1, strpos($view, '/')-1);
     }
     /**
      * BuildPath
@@ -113,26 +145,19 @@ class SmartyRenderer implements RendererInterface
         $sizeArray=count($arrayPath);
         $path='';
         for ($i =0; $i < $sizeArray; $i++) {
-            if ($i == ($sizeArray-1)) {
-                $path .= $arrayPath[$i].self::EXTENSION_FILE;
-            } else {
-                $path .= $arrayPath[$i].DIRECTORY_SEPARATOR;
-            }
+            $path .=($i ==($sizeArray-1))?
+                $arrayPath[$i].self::EXT:
+                    $arrayPath[$i].DIRECTORY_SEPARATOR;
         }
         return $this->paths[self::DEFAULT_NAMESPACE].$path;
     }
     /**
      * pathConverToArray
      *
-     * Convierte la ruta a un arreglo, utilizando el delimitador '.'
-     * Por ejemplo
-     * (home.controller)
+     * Split the path using the delimiter'.'.
      *
-     * Resultado
-     * array(home,controller)
-     *
-     * @param string $path Ruta que se desea converir.
-     * @return array Regresa la ruta contenida en un array
+     * @param string $path Route Path
+     * @return array Return Array path
      */
     private function pathConverToArray(string $path):array
     {

@@ -8,13 +8,13 @@
   <nav class="barra">
     <ul>
       <li>
-        <a href="{$smarty.const.INDEX}">
+        <a href="{$router->generateUri('CPWEB.index')}">
           <span class="primero">
             <i class="icon icon-home"></i>
           </span>Home</a>
       </li>
       <li>
-        <a href="{$smarty.const.INDEX}quienes">
+        <a href="{$router->generateUri('CPWEB.quienes')}">
           <span class="segundo">
             <i class="icon icon-acerca"></i>
           </span>Quienes Somos</a>
@@ -26,30 +26,30 @@
           </span>Servicios</a>
         <ul>
           <li>
-            <a href="{$smarty.const.INDEX}contabilidad">Contabilidad</a>
+            <a href="{$router->generateUri('CPWEB.contabilidad')}">Contabilidad</a>
           </li>
           <li>
-            <a href="{$smarty.const.INDEX}nomina">Nomina</a>
+            <a href="{$router->generateUri('CPWEB.nomina')}">Nomina</a>
           </li>
           <li>
-            <a href="{$smarty.const.INDEX}auditoria">Auditoria</a>
+            <a href="{$router->generateUri('CPWEB.auditoria')}">Auditoria</a>
           </li>
           <li>
-            <a href="{$smarty.const.INDEX}asesoria">Asesoria Legal</a>
+            <a href="{$router->generateUri('CPWEB.asesoria')}">Asesoria Legal</a>
           </li>
           <li>
-            <a href="{$smarty.const.INDEX}planeacion">Planeacion Financiera</a>
+            <a href="{$router->generateUri('CPWEB.planeacion')}">Planeacion Financiera</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="{$smarty.const.INDEX}alianzas">
+        <a href="{$router->generateUri('CPWEB.alianzas')}">
           <span class="cuarto">
             <i class="icon icon-alianza"></i>
           </span>Alianzas</a>
       </li>
       <li>
-        <a href="{$smarty.const.INDEX}bolsa">
+        <a href="{$router->generateUri('CPWEB.bolsa')}">
           <span class="quinto">
             <i class="icon icon-bolsa"></i>
           </span>Bolsa de Trabajo</a>
@@ -61,7 +61,7 @@
           </span>Iniciar Sesion</a>
       </li>
       <li>
-        <a href="{$smarty.const.INDEX}contacto">
+        <a href="{$router->generateUri('CPWEB.contacto')}">
           <span class="septimo">
             <i class="icon icon-contacto"></i>
           </span>Contacto</a>

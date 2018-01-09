@@ -13,24 +13,61 @@ class CPWEBAction
         $this->renderer=$renderer;
     }
 
-    public function __invoke(Request $request)
-    {
-        $slug=$request->getAttribute('slug');
-        if ($slug) {
-            return $this->show($slug);
-        }
-        return $this->index();
-    }
-
     public function index():string
     {
         return $this->renderer->render('@CPWEB/index');
     }
 
-    public function show(string $slug):string
+    public function show(Request $request):string
     {
-        return  $this->renderer->render('@CPWEB/show', [
-            'slug'=>$slug
-        ]);
+        // return $this->renderer->render('@CPWEB/show', [
+        //     'slug'=>$request->getAttribute('slug')
+        // ]);
+        return 'hi';
+    }
+
+    public function alianzas():string
+    {
+        return $this->renderer->render('@CPWEB/alianzas');
+    }
+
+    public function asesoria():string
+    {
+        return $this->renderer->render('@CPWEB/asesoriaLegal');
+    }
+
+    public function auditoria():string
+    {
+        return $this->renderer->render('@CPWEB/auditoria');
+    }
+
+    public function bolsa():string
+    {
+        return $this->renderer->render('@CPWEB/bolsaTrabajo');
+    }
+
+    public function contabilidad():string
+    {
+        return $this->renderer->render('@CPWEB/contabilidad');
+    }
+
+    public function contacto():string
+    {
+        return $this->renderer->render('@CPWEB/contacto');
+    }
+
+    public function nomina():string
+    {
+        return $this->renderer->render('@CPWEB/nomina');
+    }
+
+    public function planeacion():string
+    {
+        return $this->renderer->render('@CPWEB/planeacionFinanciera');
+    }
+
+    public function quienes():string
+    {
+        return $this->renderer->render('@CPWEB/quienes');
     }
 }
