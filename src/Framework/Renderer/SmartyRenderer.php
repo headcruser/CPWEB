@@ -1,8 +1,9 @@
 <?php
 namespace Framework\Renderer;
 
-use Framework\Renderer\RendererInterface;
 use Smarty;
+use Framework\Renderer\Exception\RendererException;
+use Framework\Renderer\RendererInterface;
 
 class SmartyRenderer implements RendererInterface
 {
@@ -68,7 +69,7 @@ class SmartyRenderer implements RendererInterface
             $this->buildPath($view);
 
         if (! file_exists($path)) {
-            throw new \Exception('Render View Does Exist:'.$path);
+            throw new RendererException('The route of the view does not exist: '.$path);
         }
         return $this->template->fetch('file:'.$path);
     }
