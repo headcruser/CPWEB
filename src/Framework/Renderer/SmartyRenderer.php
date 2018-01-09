@@ -52,7 +52,7 @@ class SmartyRenderer implements RendererInterface
             $path=$this->buildPath($view);
         }
         if (! file_exists($path)) {
-            throw new \Exception('Render View Does Exist');
+            throw new \Exception('Render View Does Exist:'.$path);
         }
 
         return $this->template->fetch('file:'.$path);

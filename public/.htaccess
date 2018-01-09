@@ -2,7 +2,7 @@
 RewriteEngine on
 
 # Ruta base del proyecto
-RewriteBase /CPWEB/
+RewriteBase /CPWEB/public
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]

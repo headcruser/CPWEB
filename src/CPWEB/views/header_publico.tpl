@@ -8,13 +8,13 @@
   <nav class="barra">
     <ul>
       <li>
-        <a href="index.php">
+        <a href="{$smarty.const.INDEX}">
           <span class="primero">
             <i class="icon icon-home"></i>
           </span>Home</a>
       </li>
       <li>
-        <a href="quienes.php">
+        <a href="{$smarty.const.INDEX}quienes">
           <span class="segundo">
             <i class="icon icon-acerca"></i>
           </span>Quienes Somos</a>
@@ -26,30 +26,30 @@
           </span>Servicios</a>
         <ul>
           <li>
-            <a href="contabilidad.php">Contabilidad</a>
+            <a href="{$smarty.const.INDEX}contabilidad">Contabilidad</a>
           </li>
           <li>
-            <a href="nomina.php">Nomina</a>
+            <a href="{$smarty.const.INDEX}nomina">Nomina</a>
           </li>
           <li>
-            <a href="auditoria.php">Auditoria</a>
+            <a href="{$smarty.const.INDEX}auditoria">Auditoria</a>
           </li>
           <li>
-            <a href="asesoriaLegal.php">Asesoria Legal</a>
+            <a href="{$smarty.const.INDEX}asesoria">Asesoria Legal</a>
           </li>
           <li>
-            <a href="planeacionFinanciera.php">Planeacion Financiera</a>
+            <a href="{$smarty.const.INDEX}planeacion">Planeacion Financiera</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="alianzas.php">
+        <a href="{$smarty.const.INDEX}alianzas">
           <span class="cuarto">
             <i class="icon icon-alianza"></i>
           </span>Alianzas</a>
       </li>
       <li>
-        <a href="bolsaTrabajo.php">
+        <a href="{$smarty.const.INDEX}bolsa">
           <span class="quinto">
             <i class="icon icon-bolsa"></i>
           </span>Bolsa de Trabajo</a>
@@ -61,7 +61,7 @@
           </span>Iniciar Sesion</a>
       </li>
       <li>
-        <a href="contacto.php">
+        <a href="{$smarty.const.INDEX}contacto">
           <span class="septimo">
             <i class="icon icon-contacto"></i>
           </span>Contacto</a>

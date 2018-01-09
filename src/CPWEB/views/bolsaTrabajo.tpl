@@ -1,7 +1,7 @@
-{extends file="../layout/page.html"}
+{extends file='file:layout/page.html'}
 {block name=title}<title>BOLSA DE TRABAJO</title>{/block}
 {block name=icon}{/block}
-{block name=header} {include file='publico/header_publico.html'} {/block}
+{block name=header} {include file='./header_publico.tpl'} {/block}
 {block name=content}
 <div class="contenedor">
   <section>
@@ -68,4 +68,4 @@
   </aside>
 </div>  <!--Fin del contenedor-->
 {/block}
-{block name=footer}{include file='../layout/footer.html'}{/block}
+{block name=footer}{include file='file:layout/footer.html'}{/block}
