@@ -1,6 +1,8 @@
+# config/services.yml
 parameters:
-    app_name: Prueba del Inyector de Dependencias
+    app.mailer.transport:  sendmail
 
 services:
-    request_context:
-        class: Symfony\Component\Routing\RequestContext
+    app.mailer:
+        class:        AppBundle\Mailer
+        arguments:    ['%app.mailer.transport%']
