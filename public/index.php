@@ -3,7 +3,6 @@ define('DS', DIRECTORY_SEPARATOR);
 define('DIR_SYSTEM', dirname(__DIR__, 1).DS);
 define('VENDOR', DIR_SYSTEM.'vendor'.DS.'autoload.php');
 define('DOCUMENT_ROOT', dirname('.').DS);
-define('INDEX', 'http://localhost:8090/CPWEB'.'/');
 
 //SMARTY
 define('TEMPLATE', DIR_SYSTEM.'templates'.DS);
