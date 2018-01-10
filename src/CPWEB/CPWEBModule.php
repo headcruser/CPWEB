@@ -2,12 +2,13 @@
 namespace App\CPWEB;
 
 use Framework\Router;
+use Framework\Module;
 use App\CPWEB\Actions\CPWEBAction;
 use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class CPWEBModule
+class CPWEBModule extends Module
 {
     const VIEWS= __DIR__.DS.'views';
 
