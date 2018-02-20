@@ -1,9 +1,10 @@
 <?php namespace Framework;
 
+use PDO;
 use App\CPWEB\CPWEBModule;
-use App\CPWEB\Actions\CPWEBAction;
 use GuzzleHttp\Psr7\Response;
 use function Http\Response\send;
+use App\CPWEB\Actions\CPWEBAction;
 use Framework\Renderer\SmartyRenderer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -16,45 +17,56 @@ class App
      */
     private $modules=[];
     /**
-     * Reference Router Class
-     * @var Router
+     * Container
+     * @var ContainerInterface
      */
-    private $router;
+    private $container;
     /**
      * App Constructor.
      *
-     * Buiulder Container References
+     * @param ContainerInterface $container
+     * @param string[] $List of Modules a charger
      */
-    public function __construct()
+    public function __construct($container, array $modules = [])
     {
-        $this->router=new Router();
+        $this->container = $container;
+        foreach($modules as $module){
+            $this->modules[]= $container->get($module);
+        }
 
-        $renderer=new SmartyRenderer(TEMPLATE, TEMP_C, CACHE);
-        $renderer->addGlobal('router', $this->router);
-
-        $this->modules[]=new CPWEBModule($this->router, $renderer);
+        // $this->modules[]=new CPWEBModule($this->router, $renderer,new PDO('mysql:host=localhost;dbname=blog', 'root','admin120324',[
+        //     PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
+        //     PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
+        // ]));
     }
 
     public function run(ServerRequestInterface $request):ResponseInterface
     {
         try {
             $uri=$request->getUri()->getPath();
-            if ($this->isIndexPath($uri)) {
+            if ($this->isIndexPath($uri))
+            {
                 return (new Response())
                 ->withStatus(301)
                 ->withHeader('Location', substr($uri, 0, -1));
             }
-            $route=$this->router->match($request);
+            $router = $this->container->get(Router::class);
+            $route = $router->match($request);
 
-            if (is_null($route)) {
+            if (is_null($route))
                 return (new Response(404, [], '<h1> ERROR 404</h1>'));
-            }
+
             $params=$route ->getParams();
-            $request=array_reduce(array_keys($params), function ($request, $key) use ($params) {
+            $request=array_reduce(array_keys($params),
+                function ($request, $key) use ($params) {
                 return $request->withAttribute($key, $params[$key]);
             }, $request);
+            $callback=$route->getCallback();
 
-            $response=call_user_func_array($route->getCallback(), [$request]);
+            if(is_string($callback)){
+                $callback=$this->container->get($callback);
+            }
+            $response=call_user_func_array($callback, [$request]);
 
             return $this->responseType($response);
         } catch (\Exception $e) {

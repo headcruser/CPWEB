@@ -8,9 +8,20 @@ class CPWEBAction
 {
     private $renderer;
 
+    private $pdo;
+
     public function __construct(RendererInterface $renderer)
     {
         $this->renderer=$renderer;
+    }
+
+    public function __invoke(Request $request)
+    {
+        $slug = $request->getAttribute('slug');
+        if($slug)
+            return $this->show($slug);
+
+        return $this->index();
     }
 
     public function index():string
@@ -18,7 +29,7 @@ class CPWEBAction
         return $this->renderer->render('@CPWEB/index');
     }
 
-    public function show(Request $request):string
+    public function show(string $slug):string
     {
         // return $this->renderer->render('@CPWEB/show', [
         //     'slug'=>$request->getAttribute('slug')

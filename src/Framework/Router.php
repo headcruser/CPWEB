@@ -27,11 +27,11 @@ class Router
     /**
      * get
      * @param string $path
-     * @param callable $callable
+     * @param string|callable $callable
      * @param string  $name
      * @return mixed
      */
-    public function get(string $path, callable $callable, string $name)
+    public function get(string $path, $callable, string $name)
     {
         $this->router->addRoute(new ZendRouter($path, $callable, ['GET'], $name));
     }

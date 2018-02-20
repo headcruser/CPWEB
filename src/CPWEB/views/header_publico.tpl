@@ -14,7 +14,7 @@
           </span>Home</a>
       </li>
       <li>
-        <a href="{$router->generateUri('CPWEB.quienes')}">
+        <a href="">
           <span class="segundo">
             <i class="icon icon-acerca"></i>
           </span>Quienes Somos</a>
@@ -26,30 +26,30 @@
           </span>Servicios</a>
         <ul>
           <li>
-            <a href="{$router->generateUri('CPWEB.contabilidad')}">Contabilidad</a>
+            <a href="">Contabilidad</a>
           </li>
           <li>
-            <a href="{$router->generateUri('CPWEB.nomina')}">Nomina</a>
+            <a href="">Nomina</a>
           </li>
           <li>
-            <a href="{$router->generateUri('CPWEB.auditoria')}">Auditoria</a>
+            <a href="">Auditoria</a>
           </li>
           <li>
-            <a href="{$router->generateUri('CPWEB.asesoria')}">Asesoria Legal</a>
+            <a href="">Asesoria Legal</a>
           </li>
           <li>
-            <a href="{$router->generateUri('CPWEB.planeacion')}">Planeacion Financiera</a>
+            <a href="">Planeacion Financiera</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="{$router->generateUri('CPWEB.alianzas')}">
+        <a href="">
           <span class="cuarto">
             <i class="icon icon-alianza"></i>
           </span>Alianzas</a>
       </li>
       <li>
-        <a href="{$router->generateUri('CPWEB.bolsa')}">
+        <a href="">
           <span class="quinto">
             <i class="icon icon-bolsa"></i>
           </span>Bolsa de Trabajo</a>
@@ -61,7 +61,7 @@
           </span>Iniciar Sesion</a>
       </li>
       <li>
-        <a href="{$router->generateUri('CPWEB.contacto')}">
+        <a href="">
           <span class="septimo">
             <i class="icon icon-contacto"></i>
           </span>Contacto</a>
