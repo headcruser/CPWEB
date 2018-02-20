@@ -33,11 +33,6 @@ class App
         foreach($modules as $module){
             $this->modules[]= $container->get($module);
         }
-
-        // $this->modules[]=new CPWEBModule($this->router, $renderer,new PDO('mysql:host=localhost;dbname=blog', 'root','admin120324',[
-        //     PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
-        //     PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
-        // ]));
     }
 
     public function run(ServerRequestInterface $request):ResponseInterface
@@ -88,5 +83,10 @@ class App
             return $response;
         }
         return (new Response(500, [], 'The response is not a string instance of Respnse interface'));
+    }
+
+    public function getContainer()
+    {
+        return $this->container;
     }
 }

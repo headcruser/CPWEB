@@ -3,10 +3,7 @@ require(dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'au
 // SYSTEM
 define('DS', DIRECTORY_SEPARATOR);
 define('PATH', dirname(__DIR__, 1).DS);
-//SMARTY
-define('TEMPLATE', PATH.'templates'.DS);
-define('CACHE', PATH.'cache'.DS);
-define('TEMP_C', CACHE."templates_c".DS);
+
 //PUBLIC RESOURCES
 define('CSS', '.'.DS.'css'.DS);
 define('JS', '.'.DS.'js'.DS);
@@ -29,5 +26,8 @@ foreach($modules as $module)
 $container = $builder->build();
 
 $app = new \Framework\App($container, $modules);
-$response =$app->run(\GuzzleHttp\Psr7\ServerRequest ::fromGlobals());
-\Http\Response\send($response); //Send Response
+
+if(php_sapi_name()!=='cli'){
+    $response =$app->run(\GuzzleHttp\Psr7\ServerRequest ::fromGlobals());
+    \Http\Response\send($response); //Send Response
+}

@@ -3,7 +3,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class AddPrimaryKeyCustomers extends AbstractMigration
+class TablaCliente extends AbstractMigration
 {
     /**
      * Change Method.
@@ -28,5 +28,15 @@ class AddPrimaryKeyCustomers extends AbstractMigration
      */
     public function change()
     {
+        $cliente = $this->table('cliente', ['id' =>'id_cliente']);
+        $cliente->addColumn('razon_social', 'string', ['null' => true])
+              ->addColumn('rfc', 'string', ['limit' => 13])
+              ->addColumn('domicilio', 'string', ['limit' => 255])
+              ->addColumn('correo', 'string', ['limit' => 200])
+              ->addColumn('telefono', 'string', ['limit' => 10])
+              ->addColumn('id_tipo', 'integer')
+              ->addColumn('id_estado', 'integer')
+              ->addColumn('id_usuario', 'integer')
+              ->create();
     }
 }

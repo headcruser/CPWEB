@@ -2,19 +2,14 @@
 use Framework\Renderer\RendererInterface;
 use Framework\Renderer\SmartyRendererFactory;
 
-
-// //DATABASE
-// define('PORT', '3306');
-// define('HOST', 'localhost');
-// define('NAME', 'development_db');
-// define('USER', 'root');
-// define('PASS', 'admin120324');
-// define('ENGINE', 'mysql');
-// define('CHARSET', 'utf8');
-
 require(dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php');
 
 return [
+    'database.host'=>'localhost',
+    'database.user'=>'root',
+    'database.password'=>'admin120324',
+    'database.name'=>'development_db',
+    'database.port'=>'3306',
     'templates'=> dirname(__DIR__, 1).'/templates/',
     'templates_c'=> dirname(__DIR__, 1).'/cache/templates_c/',
     'cache'=> dirname(__DIR__, 1).'/cache/',
