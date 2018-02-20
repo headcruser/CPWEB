@@ -15,10 +15,10 @@ class CPWEBModule extends Module
     const MIGRATIONS=__DIR__.'/db/migrations';
     const SEEDS=__DIR__.'/db/seeds';
 
-    public function __construct(string $prefix,Router $router, RendererInterface $renderer)
+    public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
         $renderer->addPath('CPWEB', self::VIEWS);
-        $router->get('/CPWEB',CPWEBAction::class, 'CPWEB.index');
+        $router->get('/CPWEB', CPWEBAction::class, 'CPWEB.index');
         $router->get('/CPWEB/{slug:[a-z\-0-9]+}', CPWEBAction::class, 'CPWEB.show');
         $renderer->addGlobal('router', $router);
     }

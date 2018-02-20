@@ -18,8 +18,9 @@ class CPWEBAction
     public function __invoke(Request $request)
     {
         $slug = $request->getAttribute('slug');
-        if($slug)
+        if ($slug) {
             return $this->show($slug);
+        }
 
         return $this->index();
     }

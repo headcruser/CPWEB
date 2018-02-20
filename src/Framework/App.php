@@ -30,7 +30,7 @@ class App
     public function __construct($container, array $modules = [])
     {
         $this->container = $container;
-        foreach($modules as $module){
+        foreach ($modules as $module) {
             $this->modules[]= $container->get($module);
         }
     }
@@ -39,8 +39,7 @@ class App
     {
         try {
             $uri=$request->getUri()->getPath();
-            if ($this->isIndexPath($uri))
-            {
+            if ($this->isIndexPath($uri)) {
                 return (new Response())
                 ->withStatus(301)
                 ->withHeader('Location', substr($uri, 0, -1));
@@ -48,17 +47,21 @@ class App
             $router = $this->container->get(Router::class);
             $route = $router->match($request);
 
-            if (is_null($route))
+            if (is_null($route)) {
                 return (new Response(404, [], '<h1> ERROR 404</h1>'));
+            }
 
             $params=$route ->getParams();
-            $request=array_reduce(array_keys($params),
+            $request=array_reduce(
+                array_keys($params),
                 function ($request, $key) use ($params) {
-                return $request->withAttribute($key, $params[$key]);
-            }, $request);
+                    return $request->withAttribute($key, $params[$key]);
+                },
+                $request
+            );
             $callback=$route->getCallback();
 
-            if(is_string($callback)){
+            if (is_string($callback)) {
                 $callback=$this->container->get($callback);
             }
             $response=call_user_func_array($callback, [$request]);

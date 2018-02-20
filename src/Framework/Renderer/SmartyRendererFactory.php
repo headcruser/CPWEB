@@ -11,6 +11,7 @@ class SmartyRendererFactory
         return new \Framework\Renderer\SmartyRenderer(
             $container->get('templates'),
             $container->get('templates_c'),
-            $container->get('cache'));
+            $container->get('cache')
+        );
     }
 }
