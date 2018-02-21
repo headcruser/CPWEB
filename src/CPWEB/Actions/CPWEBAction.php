@@ -1,28 +1,34 @@
 <?php
 namespace App\CPWEB\Actions;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Framework\Router;
+use Framework\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use App\CPWEB\Table\ClienteRepository;
 
 class CPWEBAction
 {
     private $renderer;
 
-    private $pdo;
+    private $cliente;
 
-    public function __construct(RendererInterface $renderer)
+    public function __construct(RendererInterface $renderer,Router $router, ClienteRepository $cliente)
     {
         $this->renderer=$renderer;
+        $this->cliente=$cliente;
     }
 
     public function __invoke(Request $request)
     {
-        $slug = $request->getAttribute('slug');
-        if ($slug) {
-            return $this->show($slug);
-        }
+        $method=$request->getAttribute('slug');
+        if(!$method)
+            return $this->index();
 
-        return $this->index();
+        if (method_exists($this,$method)) {
+            return $this->$method($request);
+        }
+        return '404';
     }
 
     public function index():string
@@ -30,12 +36,11 @@ class CPWEBAction
         return $this->renderer->render('@CPWEB/index');
     }
 
-    public function show(string $slug):string
+    public function show(Request $request):string
     {
-        // return $this->renderer->render('@CPWEB/show', [
-        //     'slug'=>$request->getAttribute('slug')
-        // ]);
-        return 'hi';
+        echo '<pre>';
+        print_r($this->cliente->findPaginated());
+        return '';
     }
 
     public function alianzas():string

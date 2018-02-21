@@ -14,7 +14,7 @@
           </span>Home</a>
       </li>
       <li>
-        <a href="">
+        <a href="{$router->generateUri('CPWEB.show',['slug'=>'alianzas'])}">
           <span class="segundo">
             <i class="icon icon-acerca"></i>
           </span>Quienes Somos</a>
@@ -26,19 +26,19 @@
           </span>Servicios</a>
         <ul>
           <li>
-            <a href="">Contabilidad</a>
+            <a href="{$router->generateUri('CPWEB.show',['slug'=>'contabilidad'])}">Contabilidad</a>
           </li>
           <li>
-            <a href="">Nomina</a>
+            <a href="{$router->generateUri('CPWEB.show',['slug'=>'nomina'])}">Nomina</a>
           </li>
           <li>
-            <a href="">Auditoria</a>
+            <a href="{$router->generateUri('CPWEB.show',['slug'=>'auditoria'])}">Auditoria</a>
           </li>
           <li>
-            <a href="">Asesoria Legal</a>
+            <a href="{$router->generateUri('CPWEB.show',['slug'=>'asesoria'])}">Asesoria Legal</a>
           </li>
           <li>
-            <a href="">Planeacion Financiera</a>
+            <a href="{$router->generateUri('CPWEB.show',['slug'=>'planeacion'])}">Planeacion Financiera</a>
           </li>
         </ul>
       </li>
@@ -49,7 +49,7 @@
           </span>Alianzas</a>
       </li>
       <li>
-        <a href="">
+        <a href="{$router->generateUri('CPWEB.show',['slug'=>'bolsa'])}">
           <span class="quinto">
             <i class="icon icon-bolsa"></i>
           </span>Bolsa de Trabajo</a>
@@ -61,7 +61,7 @@
           </span>Iniciar Sesion</a>
       </li>
       <li>
-        <a href="">
+        <a href="{$router->generateUri('CPWEB.show',['slug'=>'contacto'])}">
           <span class="septimo">
             <i class="icon icon-contacto"></i>
           </span>Contacto</a>

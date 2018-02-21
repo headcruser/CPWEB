@@ -19,7 +19,8 @@ class CPWEBModule extends Module
     {
         $renderer->addPath('CPWEB', self::VIEWS);
         $router->get('/CPWEB', CPWEBAction::class, 'CPWEB.index');
-        $router->get('/CPWEB/{slug:[a-z\-0-9]+}', CPWEBAction::class, 'CPWEB.show');
+        $router->get('/CPWEB/{slug:[a-z\-0-9]+}/{id:[0-9]+}', CPWEBAction::class, 'CPWEB.show');
+        // $router->get('/CPWEB/{slug:[a-z\-0-9]+}', CPWEBAction::class, 'CPWEB.show');
         $renderer->addGlobal('router', $router);
     }
 }
