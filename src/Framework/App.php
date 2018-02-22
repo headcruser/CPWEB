@@ -39,11 +39,21 @@ class App
     {
         try {
             $uri=$request->getUri()->getPath();
+            $parsedBody = $request->getParsedBody();
+            //ADAPTER METHOD DELETE
+            if (
+                array_key_exists('_METHOD',$parsedBody)&&
+                in_array($parsedBody['_METHOD'],['DELETE','PUT'])
+            ){
+                $request=$request->withMethod($parsedBody['_METHOD']);
+            }
+
             if ($this->isIndexPath($uri)) {
                 return (new Response())
                 ->withStatus(301)
                 ->withHeader('Location', substr($uri, 0, -1));
             }
+
             $router = $this->container->get(Router::class);
             $route = $router->match($request);
 

@@ -11,7 +11,8 @@ define('IMG', '.'.DS.'image'.DS);
 define('TEMPLATES', '.'.DS.'templates'.DS);
 
 $modules = [
-    \App\CPWEB\CPWEBModule::class
+    \App\CPWEB\CPWEBModule::class,
+    \App\Admin\AdminModule::class
 ];
 
 $builder = new \DI\ContainerBuilder();

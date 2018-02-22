@@ -2,45 +2,43 @@
 namespace App\CPWEB\Actions;
 
 use Framework\Router;
-use Framework\RouterAwareAction;
+use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\CPWEB\Table\ClienteRepository;
-
 class CPWEBAction
 {
+    use RouterAwareAction;
+
     private $renderer;
 
     private $cliente;
+
+    private $router;
 
     public function __construct(RendererInterface $renderer,Router $router, ClienteRepository $cliente)
     {
         $this->renderer=$renderer;
         $this->cliente=$cliente;
+        $this->router=$router;
     }
 
     public function __invoke(Request $request)
     {
         $method=$request->getAttribute('slug');
-        if(!$method)
+        if(!$method){
             return $this->index();
+        }
 
         if (method_exists($this,$method)) {
             return $this->$method($request);
         }
-        return '404';
+        return $this->redirect('cpweb.index');
     }
 
     public function index():string
     {
         return $this->renderer->render('@CPWEB/index');
-    }
-
-    public function show(Request $request):string
-    {
-        echo '<pre>';
-        print_r($this->cliente->findPaginated());
-        return '';
     }
 
     public function alianzas():string
