@@ -23,13 +23,25 @@ class SmartyRenderer implements RendererInterface
      */
     private $template;
 
-    public function __construct(string $template, string $temp_c, string $cache)
+    public function __construct(string $directory, string $temp_c, string $cache)
     {
         $this->template=new Smarty();
-        $this->template->setTemplateDir($template);
+        $this->template->setTemplateDir($directory);
         $this->template->setCompileDir($temp_c);
         $this->template->setCacheDir($cache);
-        $this->addPath($template);
+        $this->addPath($directory);
+        // function declaration Example plugin
+        $hola = function ($params, $smarty)
+        {
+        if(empty($params["format"])) {
+            $format = "%b %e, %Y";
+        } else {
+            $format = $params["format"];
+        }
+        return strftime($format,time());
+        };
+
+        $this->template->registerPlugin("function","date_now", $hola);
     }
     /**
      * addpath
@@ -164,4 +176,6 @@ class SmartyRenderer implements RendererInterface
     {
         return explode('.', $path);
     }
+
+
 }

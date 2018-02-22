@@ -2,10 +2,12 @@
 namespace App\Admin\Actions;
 
 use Framework\Router;
-use Framework\Renderer\RendererInterface;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use App\CPWEB\Table\ClienteRepository;
 use Framework\Actions\RouterAwareAction;
+use Framework\Renderer\RendererInterface;
+use Pagerfanta\View\TwitterBootstrap4View;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
 class AdminCpwebActions
 {
     use RouterAwareAction;
@@ -32,13 +34,32 @@ class AdminCpwebActions
        if($request->getAttribute('id')){
            return $this->editar($request);
        }
-       return $this->index();
+       return $this->index($request);
     }
 
-    public function index():string
+    public function index(Request $request):string
     {
-        $this->renderer->assign('clientes',$this->cliente->findPaginated());
+        $params=$request->getQueryParams();
+        $clientes=$this->cliente->findPaginated(10,$params['p']?? 1);
+        $paginacion = new TwitterBootstrap4View();
+
+        $route='admin.clientes.index';
+        $queryArgs=$params;
+        $html=$paginacion->render($clientes,function(int $page) use ($route,$queryArgs){
+            if($page==1)
+            {
+                $queryArgs=[];
+            }
+            if($page>1)
+            {
+                $queryArgs['p']=$page;
+            }
+            return $this->router->generateUri($route,[],$queryArgs);
+        });
+        $this->renderer->assign('clientes',$clientes);
+        $this->renderer->assign('html',$html);
         return $this->renderer->render('@ADMIN/listarClientes');
+
     }
 
     public function editar(Request $request)

@@ -1,7 +1,9 @@
 <?php
 namespace App\CPWEB\Table;
 
+use Pagerfanta\Pagerfanta;
 use App\CPWEB\Entity\Cliente ;
+use Framework\Database\PaginatedQuery;
 
 class ClienteRepository
 {
@@ -15,12 +17,18 @@ class ClienteRepository
      * Paginate clients
      * @return stdClass[]
      */
-    public function findPaginated():array
+    public function findPaginated(int $perPage,int $currentPage):Pagerfanta
     {
-        $query= $this->pdo
-                ->query('SELECT * FROM cliente ORDER BY id_cliente DESC LIMIT 10');
-        $query->setFetchMode(\PDO::FETCH_CLASS,Cliente::class);
-        return $query->fetchAll();
+        $query = new PaginatedQuery
+        (
+            $this->pdo,
+            'SELECT * FROM cliente',
+            'SELECT COUNT(*) FROM cliente;'
+        );
+        return (new Pagerfanta($query))
+        ->setMaxPerPage($perPage)
+        ->setCurrentPage($currentPage);
+
     }
     /**
      * Recuperate a Client with id
