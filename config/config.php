@@ -1,4 +1,8 @@
 <?php
+use Framework\Router;
+use Framework\Session\PHPSession;
+use Framework\Session\ArraySession;
+use Framework\Session\SessionInterface;
 use Framework\Renderer\RendererInterface;
 use Framework\Renderer\SmartyRendererFactory;
 
@@ -13,14 +17,17 @@ return [
     'templates'=> dirname(__DIR__, 1).'/templates/',
     'templates_c'=> dirname(__DIR__, 1).'/cache/templates_c/',
     'cache'=> dirname(__DIR__, 1).'/cache/',
-    \Framework\Router::class=>\DI\object(),
+    SessionInterface::class=>\DI\object(ArraySession::class),
+    Router::class=>\DI\object(),
     RendererInterface::class=> \DI\factory(SmartyRendererFactory::class),
-    \PDO::class=>new \PDO('mysql:host='.'localhost'.
-                        ';dbname='.'development_db',
-                         'root',
-                         'admin120324',
+    \PDO::class=>function(\Psr\Container\ContainerInterface $c){
+        return new \PDO('mysql:host='.$c->get('database.host').
+                        ';dbname='.$c->get('database.name'),
+                         $c->get('database.user'),
+                         $c->get('database.password'),
                          [
                             PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
                             PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
-                        ])
+                        ]);
+    }
 ];

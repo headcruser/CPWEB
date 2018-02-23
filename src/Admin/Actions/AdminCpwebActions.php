@@ -2,7 +2,9 @@
 namespace App\Admin\Actions;
 
 use Framework\Router;
+use Framework\Session\FlashService;
 use App\CPWEB\Table\ClienteRepository;
+use Framework\Session\SessionInterface;
 use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
 use Pagerfanta\View\TwitterBootstrap4View;
@@ -15,12 +17,18 @@ class AdminCpwebActions
     private $renderer;
     private $cliente;
     private $router;
+    private $flash;
 
-    public function __construct(RendererInterface $renderer,Router $router, ClienteRepository $cliente)
-    {
-        $this->renderer=$renderer;
-        $this->cliente=$cliente;
-        $this->router=$router;
+    public function __construct(
+        RendererInterface $renderer,
+        Router $router,
+        ClienteRepository $cliente,
+        FlashService $flash
+    ){
+        $this->renderer = $renderer;
+        $this->cliente = $cliente;
+        $this->router = $router;
+        $this->flash = $flash;
     }
 
     public function __invoke(Request $request)
@@ -70,9 +78,7 @@ class AdminCpwebActions
         if( $request->getMethod()=='POST' )
         {
             $params = $this->getParams($request);
-
             $this->cliente->update($cliente->id_cliente,$params);
-
             return $this->redirect('admin.clientes.index');
         }
         return $this->renderer->render('@ADMIN/editar');
