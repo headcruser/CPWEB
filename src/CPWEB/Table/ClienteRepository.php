@@ -1,103 +1,29 @@
 <?php
 namespace App\CPWEB\Table;
 
-use Pagerfanta\Pagerfanta;
 use App\CPWEB\Entity\Cliente ;
+use Framework\Database\Table;
 use Framework\Database\PaginatedQuery;
+use Pagerfanta\Pagerfanta;
 
-class ClienteRepository
+class ClienteRepository extends Table
 {
-    private $pdo;
-    public function __construct(\PDO $pdo)
-    {
-         $this->pdo = $pdo;
+    protected $entity = Cliente::class;
 
-    }
-    /**
-     * Paginate clients
-     * @return stdClass[]
-     */
-    public function findPaginated(int $perPage,int $currentPage):Pagerfanta
-    {
-        $query = new PaginatedQuery
-        (
-            $this->pdo,
-            'SELECT * FROM cliente',
-            'SELECT COUNT(*) FROM cliente;'
-        );
-        return (new Pagerfanta($query))
-        ->setMaxPerPage($perPage)
-        ->setCurrentPage($currentPage);
+    protected $table = 'cliente';
 
-    }
+    protected $id = 'id_cliente';
     /**
-     * Recuperate a Client with id
-     * @param int $id
-     * @return Cliente
+     * __construct
+     * @param PDO $pdo
      */
-    public function find(int $id):Cliente
-    {
-        $query = $this->pdo
-            ->prepare('SELECT * FROM cliente WHERE id_cliente =?');
-        $query->execute([$id]);
-        $query->setFetchMode(\PDO::FETCH_CLASS,Cliente::class);
-        return $query->fetch();
+    public function __construct(\PDO $pdo){
+         parent::__construct($pdo);
     }
-    /**
-     * update
-     * @param int $id
-     * @param array $params
-     * @return bool
-     */
-    public function update(int $id,array $params):bool
-    {
-        $fieldQuery = $this->buildFieldQuery($params);
-        $params['id_cliente']=$id;
 
-        $statement = $this->pdo
-            ->prepare("UPDATE cliente SET $fieldQuery WHERE id_cliente = :id_cliente");
-
-        return $statement->execute($params);
-    }
-    /**
-     * insert
-     * @param array $params
-     * @return bool
-     */
-    public function insert(array $params):bool
-    {
-        $fields = array_keys($params);
-        $values = array_map(function($field){
-            return ':'.$field;
-        },$fields);
-        $statement = $this->pdo
-            ->prepare("INSERT INTO cliente
-            (". join(',',$fields).") VALUES (".join(',',$values).")");
-
-        return $statement->execute($params);
-    }
-    /**
-     * delete a Customer
-     * @param int $id id_client
-     * @return bool
-     */
-    public function delete(int $id):bool
-    {
-        $statement = $this->pdo
-            ->prepare('DELETE FROM cliente WHERE id_cliente = ?');
-        return $statement->execute([$id]);
-    }
-    /**
-     * buildFieldQuery
-     * @param array $params
-     * @return mixed
-     */
-    private function buildFieldQuery(array $params)
-    {
-        return join(',',array_map(
-            function($field){return "$field=:$field";
-            },array_keys($params))
-        );
-    }
+   protected function paginationQuery()
+   {
+       return parent::paginationQuery()." ORDER BY $this->id DESC";
+   }
 
 }

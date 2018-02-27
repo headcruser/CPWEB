@@ -8,11 +8,13 @@
 {/block}
 {block name=title}<title> Listado Clientes</title>{/block}
 {block name=content}
- {if $flash->isExistMessage('success')}
-    <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>!</strong> {$flash->get('success')}
-    </div>
+{if isset($flash)}
+    {if $flash->isExistMessage('success')}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>!</strong> {$flash->get('success')}
+        </div>
+    {/if}
  {/if}
 <a href="{$router->generateUri('admin.clientes.create')}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Crear cliente</a>
 <table class="table table-condensed">
