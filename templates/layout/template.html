@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Contadores publicos web">
+        <base href="{if isset($router)}{$router->generateUri('CPWEB.index')}{else}/{/if}">
+        {block name=title}<title>CPWEB</title>{/block}
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}styles.css">
+        <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+         {block name=script}{/block}
+    </head>
+    <body>
+         {block name=content}{/block}
+    </body>
+</html>

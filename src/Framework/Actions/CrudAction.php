@@ -1,38 +1,47 @@
 <?php
-namespace App\Admin\Actions;
+namespace Framework\Actions;
 
 use Framework\Router;
 use Framework\Session\FlashService;
-use App\CPWEB\Table\ClienteRepository;
-use Framework\Session\SessionInterface;
-use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
-use Pagerfanta\View\TwitterBootstrap4View;
+use Framework\Actions\RouterAwareAction;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class AdminCpwebActions
+class CrudAction
 {
     use RouterAwareAction;
 
     private $renderer;
-    private $cliente;
+    private $table;
     private $router;
     private $flash;
+
+    protected $pathView; //@ADMIN
+
+    protected $routerPrefix; //admin.clientes smarty
+
+    protected $messages = [
+        'create' =>'Elemento creado Correctamente',
+        'edit' =>'Elemento Actualizado Correctamente'
+    ];
 
     public function __construct(
         RendererInterface $renderer,
         Router $router,
-        ClienteRepository $cliente,
+        $table,
         FlashService $flash
     ){
         $this->renderer = $renderer;
-        $this->cliente = $cliente;
+        $this->table = $table;
         $this->router = $router;
         $this->flash = $flash;
     }
 
     public function __invoke(Request $request)
     {
+        $this->renderer->addGlobal('viewPrefix',$this->pathView);
+        $this->renderer->addGlobal('routerPrefix',$this->routerPrefix);
+
         if($request->getMethod()==='DELETE'){
             return $this->delete($request);
         }
@@ -45,6 +54,11 @@ class AdminCpwebActions
        return $this->index($request);
     }
 
+    /**
+     * List Elements
+     * @param Request $request
+     * @return string
+     */
     public function index(Request $request):string
     {
         $params=$request->getQueryParams();
@@ -66,8 +80,7 @@ class AdminCpwebActions
         });
         $this->renderer->assign('clientes',$clientes);
         $this->renderer->assign('html',$html);
-        return $this->renderer->render('@ADMIN/index');
-
+        return $this->renderer->render($this->$pathView.'index');
     }
 
     public function editar(Request $request)
@@ -81,7 +94,7 @@ class AdminCpwebActions
             $this->cliente->update($cliente->id_cliente,$params);
             return $this->redirect('admin.clientes.index');
         }
-        return $this->renderer->render('@ADMIN/edit');
+        return $this->renderer->render($this->$pathView.'edit');
     }
 
     public function create(Request $request)
@@ -94,7 +107,7 @@ class AdminCpwebActions
 
             return $this->redirect('admin.clientes.index');
         }
-         return $this->renderer->render('@ADMIN/create');
+         return $this->renderer->render($this->$pathView.'create');
     }
     public function delete(Request $request)
     {

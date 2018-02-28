@@ -57,6 +57,6 @@
  {date_now}
 
 {* or to format differently *}
-{date_now format="%Y/%m/%d"}
+{date_now format="%Y/%m/%d"}}
 
 {/block}

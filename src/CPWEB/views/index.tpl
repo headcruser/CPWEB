@@ -1,13 +1,10 @@
-{extends file='file:layout/page.html'}
+{extends file='file:layout/template.html'}
 {block name=title}<title> CPWEB Y ASOCIADOS </title>{/block}
-{block name=icon}{/block}
-{block name=header}
-  {include file='./header_publico.tpl'}
-{/block}
 {block name=content}
-    <div class="contenedor">
+  {include file='./header_publico.tpl'}
+    <div class="container">
       <section>
-        <h1>HISTORIA</h1>
+        <h2>HISTORIA</h2>
         <article>
           <p>
             CP Web comienza operaciones el año de 2016 en México,
@@ -35,12 +32,10 @@
           </p>
         </article>
       </section>
-
-      <aside id="bienvenida">
+      <aside>
         <h2>Información</h2>
-        <div class="container-fluid">
           <img src="{$smarty.const.IMG}autor.jpg" />
-        </div>
+
         <div class="center-block">
           <p>
             <strong>
