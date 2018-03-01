@@ -1,0 +1,70 @@
+.header {
+    background: url(../image/sad.jpeg);
+    background-position: center;
+    background-attachment: contain;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+.menu {
+  height: 100px;
+  background: rgba(#000, 0.2);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba($COLOR8,0.6);
+  a {
+    color: $COLOR8;
+    text-decoration: none;
+    &:hover {
+      color: rgba(#343434,0.8)
+    }
+  }
+
+  .logo,.social {
+    flex: 1 1 auto;
+  }
+  .nav {
+    flex: 5 1 auto;
+    display: flex;
+    justify-content: center;
+    a {
+      font-size: 11px;
+      text-transform: uppercase;
+      padding: 0 10px;
+      letter-spacing: 2px;
+      justify-content: center;
+    }
+  }
+  .logo {
+    a {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .social {
+    display: flex;
+    a {
+      font-size: 25px;
+      padding: 0 5px;
+    }
+
+  }
+}
+.principal{
+  height: 500px;
+  display: flex;
+  align-items: center;
+  h1{
+    font-family: 'Lora', serif;
+    font-size: 23px;
+    color: $COLOR8;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.6;
+  }
+}

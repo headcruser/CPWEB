@@ -1,0 +1,19 @@
+.footer {
+  background: $COLOR1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 10px;
+  .pie {
+    width: 300px;
+
+    a {
+      color: $COLOR8;
+      font-size: 12px;
+      border-width: 40;
+      font-family: 'Monserrat', serif;
+      text-decoration: none;
+    }
+  }
+}
