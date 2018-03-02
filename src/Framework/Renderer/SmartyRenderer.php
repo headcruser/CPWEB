@@ -2,11 +2,15 @@
 namespace Framework\Renderer;
 
 use Smarty;
-use Framework\Renderer\Exception\RendererException;
+use Psr\Container\ContainerInterface;
 use Framework\Renderer\RendererInterface;
+use Framework\Renderer\Plugins\SmartyPlugins;
+use Framework\Renderer\Exception\RendererException;
+use Framework\Router;
 
 class SmartyRenderer implements RendererInterface
 {
+    use SmartyPlugins;
     /**
      * Const Folder Smarty
      * @var string
@@ -23,26 +27,26 @@ class SmartyRenderer implements RendererInterface
      */
     private $template;
 
-    public function __construct(string $directory, string $temp_c, string $cache)
-    {
-        $this->template=new Smarty();
-        $this->template->setTemplateDir($directory);
-        $this->template->setCompileDir($temp_c);
-        $this->template->setCacheDir($cache);
-        $this->addPath($directory);
-        // function declaration Example plugin
-        $hola = function ($params, $smarty)
-        {
-        if(empty($params["format"])) {
-            $format = "%b %e, %Y";
-        } else {
-            $format = $params["format"];
-        }
-        return strftime($format,time());
-        };
+    private $container;
+    private $router;
 
-        $this->template->registerPlugin("function","date_now", $hola);
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+        $this->router = $this->container->get(Router::class);
+        $this->template = new Smarty();
+        $directory = $this->container->get('templates');
+
+        $this->template->setTemplateDir($directory);
+        $this->template->setCompileDir($this->container->get('templates_c'));
+        $this->template->setCacheDir($this->container->get('cache'));
+
+        $this->addPath($directory);
+        $this->registerPlugins();
     }
+
+
+
     /**
      * addpath
      *
@@ -176,6 +180,4 @@ class SmartyRenderer implements RendererInterface
     {
         return explode('.', $path);
     }
-
-
 }

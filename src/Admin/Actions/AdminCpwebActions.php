@@ -49,25 +49,9 @@ class AdminCpwebActions
     {
         $params=$request->getQueryParams();
         $clientes=$this->cliente->findPaginated(10,$params['p']?? 1);
-        $paginacion = new TwitterBootstrap4View();
-
-        $route='admin.clientes.index';
-        $queryArgs=$params;
-        $html=$paginacion->render($clientes,function(int $page) use ($route,$queryArgs){
-            if($page==1)
-            {
-                $queryArgs=[];
-            }
-            if($page>1)
-            {
-                $queryArgs['p']=$page;
-            }
-            return $this->router->generateUri($route,[],$queryArgs);
-        });
         $this->renderer->assign('clientes',$clientes);
-        $this->renderer->assign('html',$html);
-        return $this->renderer->render('@ADMIN/index');
 
+        return $this->renderer->render('@ADMIN/index');
     }
 
     public function editar(Request $request)
