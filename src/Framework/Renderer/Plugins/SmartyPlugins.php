@@ -7,16 +7,6 @@ use Pagerfanta\View\TwitterBootstrap4View;
  */
 trait SmartyPlugins
 {
-  function hola ($params)
-  {
-      if(empty($params["format"])) {
-          $format = "%b %e, %Y";
-      } else {
-          $format = $params["format"];
-      }
-      return strftime($format,time());
-  }
-
   /**
    * Build View Paginate Result
    * @param array $params Elemens for build Views
@@ -42,13 +32,31 @@ trait SmartyPlugins
           });
         echo $html;
   }
+
+/**
+ * Build Router Params
+ *
+ * @param mixed $params
+ * @return void
+ */
+ function router($params)
+ {
+    $nombreRuta = $params['nombreRuta'];
+    $parametros = isset($params['parametros'])?$params['parametros']:null;
+
+    if($parametros){
+        echo $this->router->generateUri($nombreRuta,$parametros);
+        return ;
+    }
+    echo $this->router->generateUri($nombreRuta);
+ }
  /**
   * registerPlugins at SmartyRenderer Class
   *
   * @return void
   */
   function registerPlugins(){
-     $this->template->registerPlugin("function","date_now", [$this,'hola']);
+     $this->template->registerPlugin("function","router", [$this,'router']);
      $this->template->registerPlugin("function","pagination", [$this,'pagination']);
   }
 }

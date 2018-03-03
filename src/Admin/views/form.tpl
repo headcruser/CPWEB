@@ -53,6 +53,7 @@
         <input type="number" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_usuario"  {if isset($cliente)} value="{$cliente->id_usuario}"{/if}>
     </div>
 </div>
-
-<input class="btn btn-primary" type="submit" value="Guardar">
-<a href="{$router->generateUri('admin.clientes.index')}" class="btn btn-default"><i class="far fa-arrow-alt-circle-left"></i> Cancelar</a>
+<div class="center-block">
+    <input class="btn btn-primary" type="submit" value="Guardar">
+    <a href="{router nombreRuta='admin.clientes.index'}" class="btn btn-default"><i class="far fa-arrow-alt-circle-left"></i> Cancelar</a>
+</div>
