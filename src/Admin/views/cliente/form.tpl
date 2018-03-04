@@ -29,28 +29,28 @@
 <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Telefono</label>
     <div class="col-sm-10">
-        <input type="number" class="form-control" id="inputName" data-minlength="10" placeholder="Escribe un numero Telefonico" required name="telefono" {if isset($item)} value="{$item->telefono}"{/if} >
+        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="Escribe un numero Telefonico" required name="telefono" {if isset($item)} value="{$item->telefono}"{/if} >
     </div>
 </div>
 
 <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">id_tipo</label>
     <div class="col-sm-10">
-        <input type="number" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_tipo"  {if isset($item)} value="{$item->id_tipo}"{/if} >
+        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_tipo"  {if isset($item)} value="{$item->id_tipo}"{/if} >
     </div>
 </div>
 
 <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">id_estado</label>
     <div class="col-sm-10">
-        <input type="number" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_estado"  {if isset($item)} value="{$item->id_estado}"{/if}  >
+        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_estado"  {if isset($item)} value="{$item->id_estado}"{/if}  >
     </div>
 </div>
 
 <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">id_usuario</label>
     <div class="col-sm-10">
-        <input type="number" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_usuario"  {if isset($item)} value="{$item->id_usuario}"{/if}>
+        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_usuario"  {if isset($item)} value="{$item->id_usuario}"{/if}>
     </div>
 </div>
 <div class="center-block">

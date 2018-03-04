@@ -116,10 +116,12 @@ class CrudAction
     {
         if( $request->getMethod()=='POST' )
         {
-            $params = $this->getParams($request);
-
+            $gump = $this->getValidator($request);
+            if(!is_array($gump)){
+                return $gump->get_readable_errors(true);
+                // Construir mensaje para usuario
+            }
             $this->table->insert($params);
-
             return $this->redirect($this->routerPrefix.'.index');
         }
          return $this->renderer->render($this->pathView.'create');
@@ -141,5 +143,13 @@ class CrudAction
         return array_filter($request->getParsedBody(),function($key){
             return in_array($key,[]);
         },ARRAY_FILTER_USE_KEY);
+    }
+
+    protected function getValidator(Request $request)
+    {
+        $gump = new \GUMP();
+        $data = $gump->sanitize($this->getParams($request));
+        $gump->validation_rules( array([]));
+        return $gump;
     }
 }
