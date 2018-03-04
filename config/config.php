@@ -2,8 +2,12 @@
 use Framework\Router;
 use Framework\Session\PHPSession;
 use Framework\Session\ArraySession;
+use Framework\Session\FlashService;
 use Framework\Session\SessionInterface;
 use Framework\Renderer\RendererInterface;
+use Framework\Renderer\Plugins\SmartyFlash;
+use Framework\Renderer\Plugins\SmartyRouter;
+use Framework\Renderer\Plugins\SmartyPagination;
 use Framework\Renderer\SmartyRendererFactory;
 
 require(dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php');
@@ -17,6 +21,11 @@ return [
     'templates'=> dirname(__DIR__, 1).'/templates/',
     'templates_c'=> dirname(__DIR__, 1).'/cache/templates_c/',
     'cache'=> dirname(__DIR__, 1).'/cache/',
+    'smarty.plugins'=>[
+        \DI\get(SmartyFlash::class),
+        \DI\get(SmartyPagination::class),
+        \DI\get(SmartyRouter::class)
+    ],
     SessionInterface::class=>\DI\object(ArraySession::class),
     Router::class=>\DI\object(),
     RendererInterface::class=> \DI\factory(SmartyRendererFactory::class),

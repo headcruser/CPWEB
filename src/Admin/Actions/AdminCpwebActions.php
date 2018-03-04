@@ -29,6 +29,7 @@ class AdminCpwebActions
         $this->cliente = $cliente;
         $this->router = $router;
         $this->flash = $flash;
+        $this->renderer->addGlobal('flash',$this->flash);
     }
 
     public function __invoke(Request $request)
@@ -63,6 +64,7 @@ class AdminCpwebActions
         {
             $params = $this->getParams($request);
             $this->cliente->update($cliente->id_cliente,$params);
+            $this->flash->success('articulo modificado exitosamente');
             return $this->redirect('admin.clientes.index');
         }
         return $this->renderer->render('@ADMIN/edit');

@@ -1,18 +1,14 @@
 <?php
 namespace Framework\Renderer;
 
-use Smarty;
-use Psr\Container\ContainerInterface;
 use Framework\Renderer\RendererInterface;
-use Framework\Renderer\Plugins\SmartyPlugins;
 use Framework\Renderer\Exception\RendererException;
-use Framework\Router;
+use Smarty;
 
 class SmartyRenderer implements RendererInterface
 {
-    use SmartyPlugins;
     /**
-     * Const Folder Smarty
+     * Const Folder Smarty Namespace
      * @var string
      */
     const DEFAULT_NAMESPACE= '__SMARTY';
@@ -26,27 +22,22 @@ class SmartyRenderer implements RendererInterface
      * @var Smarty
      */
     private $template;
-
-    private $container;
-    private $router;
-
-    public function __construct(ContainerInterface $container)
+    /**
+     * $paths Paths view folder Smarty
+     *
+     * @var array
+     */
+    private $paths = [];
+    /**
+     * __construct
+     *
+     * @param Smarty $smarty
+     */
+    public function __construct(Smarty $smarty)
     {
-        $this->container = $container;
-        $this->router = $this->container->get(Router::class);
-        $this->template = new Smarty();
-        $directory = $this->container->get('templates');
-
-        $this->template->setTemplateDir($directory);
-        $this->template->setCompileDir($this->container->get('templates_c'));
-        $this->template->setCacheDir($this->container->get('cache'));
-
-        $this->addPath($directory);
-        $this->registerPlugins();
+        $this->template = $smarty;
+        $this->addPath($this->template->getTemplateDir(0));
     }
-
-
-
     /**
      * addpath
      *
@@ -80,9 +71,8 @@ class SmartyRenderer implements RendererInterface
      */
     public function render(string $view, array $params = []):string
     {
-        $path=($this->hasNamespace($view))?
-            $this->remplaceNamespace($view).self::EXT:
-            $this->buildPath($view);
+        $path=($this->hasNamespace($view))? $this->remplaceNamespace($view).self::EXT:
+                                            $this->buildPath($view);
 
         if (! file_exists($path)) {
             throw new RendererException('The route of the view does not exist: '.$path);

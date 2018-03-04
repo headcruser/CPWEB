@@ -31,8 +31,4 @@ class FlashService
         }
         return null;
     }
-
-    public function isExistMessage($type):bool{
-         return array_key_exists($type,$this->session->get($this->sessionKey,[]));
-    }
 }

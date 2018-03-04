@@ -10,14 +10,14 @@
 {block name=content}
 
 <div class="container">
-    {if isset($flash)}
-        {if $flash->isExistMessage('success')}
-            <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>!</strong> {$flash->get('success')}
-            </div>
-        {/if}
+
+    {if {flash type='success'}}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>!</strong> {flash type='success'}
+        </div>
     {/if}
+
 
     <table class="table table-condensed">
         <caption class="text-center">Clientes</caption>
