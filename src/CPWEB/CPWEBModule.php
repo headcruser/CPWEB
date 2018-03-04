@@ -2,7 +2,7 @@
 namespace App\CPWEB;
 
 use App\CPWEB\Actions\CPWEBAction;
-use App\Admin\Actions\AdminCpwebActions;
+use App\Admin\Actions\ClientesCrudActions;
 use Framework\Router;
 use Framework\Module;
 use Psr\Container\ContainerInterface;
@@ -30,7 +30,7 @@ class CPWEBModule extends Module
         if($container->has('admin.prefix'))
         {
             $prefix=$container->get('admin.prefix');
-            $router->crud("$prefix/clientes", AdminCpwebActions::class, 'admin.clientes');
+            $router->crud("$prefix/clientes", ClientesCrudActions::class, 'admin.clientes');
         }
     }
 }

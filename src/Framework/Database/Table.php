@@ -134,4 +134,12 @@ class Table
     public function getPDO():\PDO{
         return $this->pdo;
     }
+    /**
+     * get ID name
+     * @return void
+     */
+    public function getID() :string
+    {
+        return $this->id;
+    }
 }

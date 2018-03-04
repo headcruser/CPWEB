@@ -1,4 +1,4 @@
-{extends file='./layout.tpl'}
+{extends file='file:layout/adminTemplate.html'}
 {block name=styles}
     <link rel="stylesheet" type="text/css" href="{$smarty.const.CSS}jquery-confirm.min.css">
 {/block}
@@ -33,20 +33,19 @@
             </tr>
         </thead>
         <tbody>
-        {foreach $clientes as $cliente}
+        {foreach $items as $item}
         <tr>
-            <td>{$cliente->id_cliente}</td>
-            <td>{$cliente->razon_social}</td>
-            <td>{$cliente->rfc}</td>
-            <td>{$cliente->domicilio}</td>
-            <td>{$cliente->correo}</td>
-            <td>{$cliente->telefono}</td>
+            <td>{$item->id_cliente}</td>
+            <td>{$item->razon_social}</td>
+            <td>{$item->rfc}</td>
+            <td>{$item->domicilio}</td>
+            <td>{$item->correo}</td>
+            <td>{$item->telefono}</td>
             <td>
-
-                <a href="{router nombreRuta='admin.clientes.edit' parametros=['id'=>$cliente->id_cliente]}"
+                <a href="{router nombreRuta="$routerPrefix.edit" parametros=['id'=>$item->id_cliente]}"
                  class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                 <form style="display:inline"
-                    action="{router nombreRuta='admin.clientes.delete' parametros=['id'=>$cliente->id_cliente]}"
+                    action="{router nombreRuta="$routerPrefix.delete" parametros=['id'=>$item->id_cliente]}"
                     method="POST" onsubmit="confirm('Deseas eliminar el registro')">
                 <input type="hidden" name="_METHOD" value="DELETE">
                 <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
@@ -57,12 +56,14 @@
         {/foreach}
         </tbody>
     </table>
-    <a href="{router nombreRuta='admin.clientes.create'}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Crear cliente</a>
+    <a href="{router nombreRuta="$routerPrefix.create"}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Crear cliente</a>
 
     <div class="center-block">
         <div class="container">
-            {pagination route="admin.clientes.index" elements=$clientes}
+            {pagination route="$routerPrefix.index" elements=$items}
         </div>
     </div>
+    {$viewPrefix}
+    {$routerPrefix}
 </div>
 {/block}

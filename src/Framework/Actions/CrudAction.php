@@ -9,21 +9,41 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CrudAction
 {
-    use RouterAwareAction;
-
+    /**
+     * @var RendererInterface
+     */
     private $renderer;
+    /**
+     * @var mixed
+     */
     private $table;
+    /**
+     * @var Router
+     */
     private $router;
+    /**
+     * @var FlashService
+     */
     private $flash;
-
-    protected $pathView; //@ADMIN
-
-    protected $routerPrefix; //admin.clientes smarty
-
+    /**
+     * example (@ADMIN)
+     * @var string
+     */
+    protected $pathView;
+    /**
+     * example (admin.clientes smarty)
+     * @var string
+     */
+    protected $routerPrefix;
+    /**
+     * @var array
+     */
     protected $messages = [
         'create' =>'Elemento creado Correctamente',
         'edit' =>'Elemento Actualizado Correctamente'
     ];
+
+    use RouterAwareAction;
 
     public function __construct(
         RendererInterface $renderer,
@@ -49,7 +69,7 @@ class CrudAction
            return $this->create($request);
         }
        if($request->getAttribute('id')){
-           return $this->editar($request);
+           return $this->update($request);
        }
        return $this->index($request);
     }
@@ -61,73 +81,65 @@ class CrudAction
      */
     public function index(Request $request):string
     {
-        $params=$request->getQueryParams();
-        $clientes=$this->cliente->findPaginated(10,$params['p']?? 1);
-        $paginacion = new TwitterBootstrap4View();
-
-        $route='admin.clientes.index';
-        $queryArgs=$params;
-        $html=$paginacion->render($clientes,function(int $page) use ($route,$queryArgs){
-            if($page==1)
-            {
-                $queryArgs=[];
-            }
-            if($page>1)
-            {
-                $queryArgs['p']=$page;
-            }
-            return $this->router->generateUri($route,[],$queryArgs);
-        });
-        $this->renderer->assign('clientes',$clientes);
-        $this->renderer->assign('html',$html);
-        return $this->renderer->render($this->$pathView.'index');
+        $params = $request->getQueryParams();
+        $items = $this->table->findPaginated(10,$params['p']?? 1);
+        $this->renderer->assign('items',$items);
+        return $this->renderer->render($this->pathView.'index');
     }
-
-    public function editar(Request $request)
+    /**
+     * update Elements Table in database
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function update(Request $request)
     {
-        $cliente = $this->cliente->find($request->getAttribute('id'));
-        $this->renderer->assign('cliente',$cliente);
+        $item = $this->table->find($request->getAttribute('id'));
+        $this->renderer->assign('item',$item);
 
         if( $request->getMethod()=='POST' )
         {
             $params = $this->getParams($request);
-            $this->cliente->update($cliente->id_cliente,$params);
-            return $this->redirect('admin.clientes.index');
+            $id = $this->table->getID();
+            $this->table->update($item->$id,$params);
+            return $this->redirect($this->routerPrefix.'.index');
         }
-        return $this->renderer->render($this->$pathView.'edit');
+        return $this->renderer->render($this->pathView.'edit');
     }
-
+    /**
+     * create a element in database
+     *
+     * @param Request $request
+     * @return void
+     */
     public function create(Request $request)
     {
         if( $request->getMethod()=='POST' )
         {
             $params = $this->getParams($request);
 
-            $this->cliente->insert($params);
+            $this->table->insert($params);
 
-            return $this->redirect('admin.clientes.index');
+            return $this->redirect($this->routerPrefix.'.index');
         }
-         return $this->renderer->render($this->$pathView.'create');
+         return $this->renderer->render($this->pathView.'create');
     }
+    /**
+     * delete elements in Database
+     *
+     * @param Request $request
+     * @return void
+     */
     public function delete(Request $request)
     {
-        $this->cliente->delete($request->getAttribute('id'));
-        return $this->redirect('admin.clientes.index');
+        $this->table->delete($request->getAttribute('id'));
+        return $this->redirect($this->routerPrefix.'.index');
     }
 
-    private function getParams(Request $request)
+    protected function getParams(Request $request)
     {
         return array_filter($request->getParsedBody(),function($key){
-            return in_array($key,[
-                'razon_social',
-                'rfc',
-                'domicilio',
-                'correo',
-                'telefono',
-                'id_tipo',
-                'id_estado',
-                'id_usuario'
-            ]);
+            return in_array($key,[]);
         },ARRAY_FILTER_USE_KEY);
     }
 }
