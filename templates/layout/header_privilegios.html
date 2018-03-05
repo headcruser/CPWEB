@@ -1,137 +1,43 @@
-<!-- header privilegios -->
-<header>
-  <div id="enlaces">
-    <a href="en">English version </a>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{router nombreRuta='admin'}">ADMINISTRACION</a>
   </div>
-
-  <!--logotipos -->
-  <div id="logo">
-    <!--Agrega una imagen -->
-    <img src="{$smarty.const.IMG}CPWEB.png" />
-  </div>
-
-    <!-- Menu de navegación -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-navegacion" aria-expanded="false">
-            <span class="sr-only">Desplegar / Ocultar menu</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- Titulo de la pagina web -->
-          <img src="{$smarty.const.IMG}iconHotel.png"/>
-          <a class="navbar-brand" href="../index.php">CPWEB</a>
-        </div>
-
-        <!-- Inicia el menu-->
-        <div class="collapse navbar-collapse" id="menu-navegacion">
-          <ul class="nav navbar-nav">
-
-            {if isset($privilegio)}
-              {if $privilegio eq "cliente"}
-            <li ><a href="../admin/index.php">Inicio</a></li>
-            {else}
-                <li ><a href="index.php">Inicio</a></li>
-            {/if}
-          {/if}
-
-          {if $privilegio eq "cliente"}
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-              Servicios <span class="caret"></span>
-            </a>
-              <!-- SubMenu -->
-              <ul class="dropdown-menu" role="menu">
-                  <li><a href="../cliente/cotizacion.php">Cotizaciones</a></li>
-              </ul>
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="{router nombreRuta='admin.clientes.index'}">CLIENTES</a>
+      </li>
+      <li><a href="#">CONTADORES</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          OPCIONES
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#">PERFIL</a>
           </li>
-          {/if}
-
-        <!-- Seccion Servicios -->
-            {if isset($privilegio)}
-            {if $privilegio eq "contador"}
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                Catálogo <span class="caret"></span>
-              </a>
-                <!-- SubMenu -->
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="clientes.php">Ir a Clientes</a></li>
-                    <li><a href="estados.php">Ir a Entidad Federativa</a></li>
-                    <li><a href="tipo.php">Ir a Tipo de Clientes</a></li>
-                    <li><a href="cotizacion_detalle.php">Cotizacion Detalle</a></li>
-
-                  <li role="separator" class="divider"></li>
-                  <li ><a href="../admin/servicio.php">Servicios</a></li>
-                  <li><a href="reporte.php">Visualizar Reporte</a></li>
-                </ul>
-            </li>
-            {/if}
-          {/if}
-
-
-            {if isset($privilegio)}
-            {if $privilegio eq "contador"}
-            <li><a href="cotizacion.php">Ver cotizaciones</a></li>
-            <li><a href="vista_cotizacion.php">Reportes PDF</a></li>
-            {/if}
-          {/if}
-
-        </ul>     <!-- fin de la barra derecha -->
-
-          <ul class="nav navbar-nav navbar-right">
-
-            <!-- INDICA SI EL USUARIO QUIERE INICIAR SESION-->
-            {if isset($privilegio)}
-              {if $privilegio eq "contador" or $privilegio eq "administrador"}
-              <li><a href="login.php?accion=logout">Cerrar Sesion</a></li>
-              {else }
-                {if $privilegio eq "login"}
-                <li><a href="login.php">Iniciar Sesion</a></li>
-                {/if}
-              {/if}
-            {/if}
-
-            {if isset($privilegio)}
-              {if $privilegio eq "cliente"}
-              <li><a href="../admin/login.php?accion=logout">Cerrar Sesion</a></li>
-              {/if}
-            {/if}
-
-
-
-
-            {if isset($privilegio)}
-              {if $privilegio eq "administrador"}
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administración<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-
-                    <li><a href="usuario.php">Usuario</a></li>
-                    <li><a href="rol.php">Rol</a></li>
-                    <li><a href="privilegio.php">Privilegio</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="rol_privilegio.php">Rol Privilegio</a></li>
-                    <li><a href="usuario_rol.php">Usuario Rol</a></li>
-              </ul>
-            </li>
-            {/if}
-          {/if}
-
-            {if isset($privilegio)}
-              {if $privilegio eq "contador" or $privilegio eq "administrador"}
-              <li><a href="perfil.php">Mi perfil</a></li>
-                {else}
-                    {if $privilegio eq "cliente"}
-                    <li><a href="../admin/perfil.php">Mi perfil</a></li>
-                    {/if}
-              {/if}
-            {/if}
-          </ul>
-
-      </div>
-    </nav>
-</header>
+          <li>
+            <a href="#">FACTURACION</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="#">ADMINISTRADOR</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="#">SALIR</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

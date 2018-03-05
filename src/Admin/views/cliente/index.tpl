@@ -63,7 +63,5 @@
             {pagination route="$routerPrefix.index" elements=$items}
         </div>
     </div>
-    {$viewPrefix}
-    {$routerPrefix}
 </div>
 {/block}

@@ -60,6 +60,14 @@ class Table
         return $query->fetch()?:null;
     }
     /**
+     * Recuperate Number of Registers
+     * @return int
+     */
+    public function count():int
+    {
+        return $this->fetchColumn("SELECT COUNT($this->id) FROM {$this->table}");
+    }
+    /**
      * update
      * @param int $id
      * @param array $params
@@ -141,5 +149,44 @@ class Table
     public function getID() :string
     {
         return $this->id;
+    }
+    /**
+     * fetchOrFail
+     *
+     * @param string $query
+     * @param mixed array
+     * @return mixed
+     * @throws Exception
+     */
+    private function fetchOrFail(string $query, array $params = [])
+    {
+        $query = $this->pdo->prepare($query);
+        $query->execute($params);
+
+        if($this->entity){
+            $query->setFetchMode(\PDO::FETCH_CLASS, $this->entity);
+        }
+        $record = $query->fetch();
+
+        if( $record === false){
+            throw new \Exception("No RecordException");
+        }
+        return $record;
+    }
+    /**
+     * fetchColumn
+     *
+     * @param string $query
+     * @param array $params
+     * @return mixed
+     */
+    private function fetchColumn(string $query, array $params = [])
+    {
+        $query = $this->pdo->prepare($query);
+        $query->execute($params);
+        if($this->entity){
+            $query->setFetchMode(\PDO::FETCH_CLASS, $this->entity);
+        }
+        return $query->fetchColumn();
     }
 }
