@@ -90,7 +90,7 @@ class App
      *
      * @return Container
      */
-    private function getContainer()
+    public function getContainer()
     {
         if($this->container === null)
         {
