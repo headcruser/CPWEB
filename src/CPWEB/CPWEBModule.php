@@ -1,12 +1,13 @@
 <?php
 namespace App\CPWEB;
 
-use App\CPWEB\Actions\CPWEBAction;
-use App\Admin\Actions\ClientesCrudActions;
 use Framework\Router;
 use Framework\Module;
+use App\CPWEB\Actions\CPWEBAction;
 use Psr\Container\ContainerInterface;
 use Framework\Renderer\RendererInterface;
+use App\Admin\Actions\ClientesCrudActions;
+use App\Admin\Actions\UsuariosCrudActions;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -33,6 +34,7 @@ class CPWEBModule extends Module
         {
             $prefix=$container->get('admin.prefix');
             $router->crud("$prefix/clientes", ClientesCrudActions::class, 'admin.clientes');
+            $router->crud("$prefix/usuarios", UsuariosCrudActions::class, 'admin.usuarios');
         }
     }
 }

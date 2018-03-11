@@ -19,7 +19,7 @@
         "spipu/html2pdf": "^5.0",
         "guzzlehttp/psr7": "^1.4",
         "http-interop/response-sender": "^1.0",
-        "zendframework/zend-expressive-fastroute": "^2.0",
+        "zendframework/zend-expressive-fastroute": "=2.1.2",
         "robmorgan/phinx": "^0.9.2",
         "php-di/php-di": "^5.4",
         "pagerfanta/pagerfanta": "^1.0",
