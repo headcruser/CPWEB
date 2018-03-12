@@ -1,11 +1,11 @@
 <?php
-namespace App\CPWEB;
+namespace App\CPWEB\widgets;
 
 use App\Admin\AdminWidgetInterface;
 use App\CPWEB\Table\ClienteRepository;
 use Framework\Renderer\RendererInterface;
 
-class CpwebWidget implements AdminWidgetInterface
+class ClienteWidget implements AdminWidgetInterface
 {
   /**
    * @var undefined
@@ -16,7 +16,7 @@ class CpwebWidget implements AdminWidgetInterface
   /**
    * @var string
    */
-  protected $pathView = '@CPWEB/';
+  protected $pathView = '@ADMIN/widgets/';
 
   public function __construct(RendererInterface $renderer, ClienteRepository $clientes){
     $this->renderer = $renderer;
@@ -27,6 +27,6 @@ class CpwebWidget implements AdminWidgetInterface
   {
     $count = $this->clientes->count();
     $this->renderer->assign('noClientes',$count);
-    return $this->renderer->render($this->pathView.'widget');
+    return $this->renderer->render($this->pathView.'ClienteWidget');
   }
 }

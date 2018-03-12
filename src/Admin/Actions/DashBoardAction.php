@@ -27,7 +27,7 @@ class DashBoardAction
   }
   public function __invoke()
   {
-    $this->renderer->assign('widgetCliente',$this->widgets[0]->render());
+    $this->renderer->assign('widgets',$this->widgets);
     return $this->renderer->render($this->pathView.'dashboard');
   }
 }
