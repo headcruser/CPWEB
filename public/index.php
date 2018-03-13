@@ -20,6 +20,7 @@ use Framework\Middleware\{
 $app = (new \Framework\App(PATH.'config/config.php'))
     ->addModule(\App\Admin\AdminModule::class)
     ->addModule(\App\CPWEB\CPWEBModule::class)
+    ->addModule(\App\Auth\AuthModule::class)
         ->pipe(TrailingSlashMiddleware::class)
         ->pipe(MethodMiddleware::class)
         ->pipe(RouterMiddleware::class)

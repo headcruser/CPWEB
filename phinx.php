@@ -3,12 +3,8 @@ require 'public/index.php';
 $migrations=[];
 $seeds = [];
 
-$modules = [
-    \App\CPWEB\CPWEBModule::class,
-    \App\Admin\AdminModule::class
-];
 
-foreach($modules as $module)
+foreach($app->getModules() as $module)
 {
     if($module::MIGRATIONS){
         $migrations[] = $module::MIGRATIONS;

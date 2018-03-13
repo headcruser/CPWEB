@@ -134,4 +134,13 @@ class App
         return null;
     }
 
+    /**
+     * Get modules for Application
+     *
+     * @return  array
+     */
+    public function getModules():array
+    {
+        return $this->modules;
+    }
 }
