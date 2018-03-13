@@ -95,6 +95,7 @@ class App
         if($this->container === null)
         {
             $builder = new \DI\ContainerBuilder();
+            $builder->writeProxiesToFile(true,dirname(__DIR__, 2).'/cache/temp/proxies');
             $builder->addDefinitions($this->definition);
             foreach ($this->modules as $module) {
                 if ($module::DEFINITIONS) {

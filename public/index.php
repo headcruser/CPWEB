@@ -1,13 +1,13 @@
 <?php
 // SYSTEM
 define('DS', DIRECTORY_SEPARATOR);
-define('PATH', dirname(__DIR__, 1).DS);
 //PUBLIC RESOURCES
 define('CSS', '.'.DS.'css'.DS);
 define('JS', '.'.DS.'js'.DS);
 define('IMG', '.'.DS.'image'.DS);
 
-require(PATH.'vendor'.DS.'autoload.php');
+chdir(dirname(__DIR__));
+require('vendor/autoload.php');
 
 use Framework\Middleware\{
     MethodMiddleware,
@@ -17,7 +17,7 @@ use Framework\Middleware\{
     TrailingSlashMiddleware
 };
 
-$app = (new \Framework\App(PATH.'config/config.php'))
+$app = (new \Framework\App('config/config.php'))
     ->addModule(\App\Admin\AdminModule::class)
     ->addModule(\App\CPWEB\CPWEBModule::class)
     ->addModule(\App\Auth\AuthModule::class)
