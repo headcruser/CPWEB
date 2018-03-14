@@ -6,10 +6,10 @@ interface User
   /**
    * @return string
    */
-  public function getUserName():string;
+    public function getUserName():string;
 
   /**
    * @return string[]
    */
-  public function getRoles():array;
+    public function getRoles():array;
 }

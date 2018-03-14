@@ -32,12 +32,11 @@ class TablaUsuario extends AbstractMigration
         $cliente->addColumn('email', 'string', ['limit' => 100]) //alter table usuario MODIFY email varchar (100);
               ->addColumn('contrasena', 'string', ['limit' => 32])
               ->addColumn('clave', 'string', ['limit' => 64])
-              ->addColumn('fecha_clave', 'date',['null' => true])
+              ->addColumn('fecha_clave', 'date', ['null' => true])
               ->addColumn('nombres', 'string', ['limit' => 255])
               ->addColumn('apellidos', 'string', ['limit' => 255])
-              ->addColumn('nacimiento', 'date' ,['null' => true])
+              ->addColumn('nacimiento', 'date', ['null' => true])
               ->addColumn('foto', 'blob')
               ->create();
-
     }
 }

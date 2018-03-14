@@ -48,7 +48,7 @@ class EstadoSeeder extends AbstractSeed
             ['descripcion'=>'Veracruz-Llave'],
             ['descripcion'=>'Yucatan'],
             ['descripcion'=>'Zacatecas'],
-		];
+        ];
          $this->table('estado')
             ->insert($data)
             ->save();

@@ -30,8 +30,7 @@ class CPWEBModule extends Module
         $renderer->addPath('CPWEB', self::VIEWS);
         $renderer->addGlobal('router', $router);
 
-        if($container->has('admin.prefix'))
-        {
+        if ($container->has('admin.prefix')) {
             $prefix=$container->get('admin.prefix');
             $router->crud("$prefix/clientes", ClientesCrudActions::class, 'admin.clientes');
             $router->crud("$prefix/usuarios", UsuariosCrudActions::class, 'admin.usuarios');

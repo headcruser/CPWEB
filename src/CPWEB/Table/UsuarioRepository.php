@@ -17,13 +17,13 @@ class UsuarioRepository extends Table
      * __construct
      * @param PDO $pdo
      */
-    public function __construct(\PDO $pdo){
+    public function __construct(\PDO $pdo)
+    {
          parent::__construct($pdo);
     }
 
-   protected function paginationQuery()
-   {
-       return parent::paginationQuery()." ORDER BY $this->id DESC";
-   }
-
+    protected function paginationQuery()
+    {
+        return parent::paginationQuery()." ORDER BY $this->id DESC";
+    }
 }

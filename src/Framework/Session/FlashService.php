@@ -16,17 +16,17 @@ class FlashService
 
     public function success(string $message)
     {
-        $flash = $this->session->get($this->sessionKey,[]);
+        $flash = $this->session->get($this->sessionKey, []);
         $flash['success'] = $message;
-        $this->session->set($this->sessionKey,$flash);
+        $this->session->set($this->sessionKey, $flash);
     }
     public function get(string $type):?string
     {
-        if(is_null($this->message)){
-            $this->message = $this->session->get($this->sessionKey,[]);
+        if (is_null($this->message)) {
+            $this->message = $this->session->get($this->sessionKey, []);
             $this->session->delete($this->sessionKey);
         }
-        if(array_key_exists($type,$this->message)){
+        if (array_key_exists($type, $this->message)) {
             return $this->message[$type];
         }
         return null;

@@ -25,30 +25,36 @@ class UsuariosCrudActions extends CrudAction
         UsuarioRepository $cliente,
         FlashService $flash,
         ImageUserUpload $imageUserUpload
-    ){
-        parent::__construct($renderer, $router,$cliente,$flash);
+    ) {
+        parent::__construct($renderer, $router, $cliente, $flash);
         $this->imageUserUpload = $imageUserUpload;
+    }
+    public function delete(Request $request)
+    {
+        $usuario = $this->table->find($request->getAttribute('id'));
+        $this->imageUserUpload->delete($usuario->foto);
+        return parent::delete($request);
     }
 
     protected function getParams(Request $request, $item)
     {
         $uploadPicture = $request->getUploadedFiles();
-        $params = array_merge($request->getParsedBody(),$uploadPicture);
+        $params = array_merge($request->getParsedBody(), $uploadPicture);
 
         //Refactor Class Validation item
         $isUploadFile = $params['foto']->getError()===UPLOAD_ERR_OK;
 
-        if($isUploadFile) {
-            $params['foto'] = $this->imageUserUpload->upload($params['foto'],$item->foto);
-        }else{
-            if(!$item->foto){
+        if ($isUploadFile) {
+            $params['foto'] = $this->imageUserUpload->upload($params['foto'], $item->foto);
+        } else {
+            if (!$item->foto) {
                 throw new \Exception("No has subido foto");
             }
             $params['foto'] = $item->foto;
         }
 
-        $params = array_filter($params,function($key){
-            return in_array($key,[
+        $params = array_filter($params, function ($key) {
+            return in_array($key, [
                 'email',
                 'contrasena',
                 'nombres',
@@ -56,9 +62,9 @@ class UsuariosCrudActions extends CrudAction
                 'nacimiento',
                 'foto'
             ]);
-        },ARRAY_FILTER_USE_KEY);
+        }, ARRAY_FILTER_USE_KEY);
 
-        return array_merge($params,[
+        return array_merge($params, [
             'clave'=>$item->clave,
             'fecha_clave'=>$item->fecha_clave]);
     }
@@ -67,7 +73,7 @@ class UsuariosCrudActions extends CrudAction
     {
         $gump = new \GUMP();
         $params = $gump->sanitize($request->getParsedBody());
-        $gump->validation_rules( array(
+        $gump->validation_rules(array(
                 'email'    => 'required|valid_email|max_len,100',
                 'contrasena'       => 'required|alpha_numeric|max_len,32|min_len,8',
                 'clave'    => 'required|max_len,64',
@@ -90,12 +96,13 @@ class UsuariosCrudActions extends CrudAction
         ));
 
         $validated_data = $gump->run($params);
-        if(!$validated_data) {
+        if (!$validated_data) {
             return $gump;
         }
         return $validated_data;
     }
-    protected function getNewEntity(){
+    protected function getNewEntity()
+    {
         $usuario = new Usuario();
         $usuario->clave = '_clave';
         $usuario->fecha_clave = date("Y-m-d H:i:s");

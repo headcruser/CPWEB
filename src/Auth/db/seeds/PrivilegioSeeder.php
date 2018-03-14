@@ -18,7 +18,7 @@ class PrivilegioSeeder extends AbstractSeed
          $data = [
             ['descripcion'=>'root'],
             ['descripcion'=>'administrador']
-		];
+         ];
          $this->table('privilegio')
             ->insert($data)
             ->save();

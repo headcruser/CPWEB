@@ -32,6 +32,5 @@ class TablaRolPrivilegio extends AbstractMigration
         $table->addColumn('id_rol', 'integer')
               ->addColumn('id_privilegio', 'integer')
               ->create();
-
     }
 }

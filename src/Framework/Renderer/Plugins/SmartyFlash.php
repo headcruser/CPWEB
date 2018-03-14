@@ -5,18 +5,19 @@ use Framework\Session\FlashService;
 
 class SmartyFlash
 {
-  public $flashService;
+    public $flashService;
 
-  const NAME='flash';
+    const NAME='flash';
 
-  public function __construct(FlashService $flashService){
-    $this->flashService = $flashService;
-  }
+    public function __construct(FlashService $flashService)
+    {
+        $this->flashService = $flashService;
+    }
 
-  public function flash($params)
-  {
-      if($this->flashService->get($params['type'])){
-          echo 'hola';
-      }
-  }
+    public function flash($params)
+    {
+        if ($this->flashService->get($params['type'])) {
+            echo 'hola';
+        }
+    }
 }

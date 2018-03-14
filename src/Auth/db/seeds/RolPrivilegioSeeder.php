@@ -28,7 +28,7 @@ class RolPrivilegioSeeder extends AbstractSeed
                 'id_rol'=>3,
                 'id_privilegio'=>2
             ]
-		];
+        ];
          $this->table('rol_privilegio')
             ->insert($data)
             ->save();

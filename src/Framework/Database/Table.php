@@ -17,17 +17,17 @@ class Table
      * __construct
      * @param PDO $pdo
      */
-    public function __construct(\PDO $pdo){
+    public function __construct(\PDO $pdo)
+    {
          $this->pdo = $pdo;
     }
      /**
      * Paginate Elements
      * @return Pagerfanta[]
      */
-    public function findPaginated(int $perPage,int $currentPage):Pagerfanta
+    public function findPaginated(int $perPage, int $currentPage):Pagerfanta
     {
-        $query = new PaginatedQuery
-        (
+        $query = new PaginatedQuery(
             $this->pdo,
             $this->paginationQuery(),
             "SELECT COUNT(*) FROM $this->table",
@@ -41,7 +41,8 @@ class Table
      * paginationQuery
      * @return mixed
      */
-    protected function paginationQuery(){
+    protected function paginationQuery()
+    {
         return "SELECT * FROM $this->table";
     }
     /**
@@ -54,8 +55,8 @@ class Table
         $query = $this->pdo
             ->prepare("SELECT * FROM $this->table WHERE $this->id =?");
         $query->execute([$id]);
-        if($this->entity){
-            $query->setFetchMode(\PDO::FETCH_CLASS,$this->entity);
+        if ($this->entity) {
+            $query->setFetchMode(\PDO::FETCH_CLASS, $this->entity);
         }
         return $query->fetch()?:null;
     }
@@ -73,7 +74,7 @@ class Table
      * @param array $params
      * @return bool
      */
-    public function update(int $id,array $params):bool
+    public function update(int $id, array $params):bool
     {
         $fieldQuery = $this->buildFieldQuery($params);
         $params[$this->id]=$id;
@@ -91,10 +92,10 @@ class Table
     public function insert(array $params):bool
     {
         $fields = array_keys($params);
-        $values = join(', ',array_map(function($field){
+        $values = join(', ', array_map(function ($field) {
             return ':'.$field;
-        },$fields));
-        $fields = join(', ',$fields);
+        }, $fields));
+        $fields = join(', ', $fields);
         $statement = $this->pdo->prepare("INSERT INTO $this->table ($fields) VALUES ($values)");
 
         return $statement->execute($params);
@@ -117,10 +118,12 @@ class Table
      */
     private function buildFieldQuery(array $params)
     {
-        return join(',',array_map(
-            function($field){return "$field=:$field";
-            },array_keys($params))
-        );
+        return join(',', array_map(
+            function ($field) {
+                return "$field=:$field";
+            },
+            array_keys($params)
+        ));
     }
     /**
      * Get the value of entity
@@ -132,14 +135,16 @@ class Table
     /**
      * Get the value of table
      */
-    public function getTable():string{
+    public function getTable():string
+    {
         return $this->table;
     }
     /**
      * Insance PDO
      * @return PDO
      */
-    public function getPDO():\PDO{
+    public function getPDO():\PDO
+    {
         return $this->pdo;
     }
     /**
@@ -163,12 +168,12 @@ class Table
         $query = $this->pdo->prepare($query);
         $query->execute($params);
 
-        if($this->entity){
+        if ($this->entity) {
             $query->setFetchMode(\PDO::FETCH_CLASS, $this->entity);
         }
         $record = $query->fetch();
 
-        if( $record === false){
+        if ($record === false) {
             throw new \Exception("No RecordException");
         }
         return $record;
@@ -184,7 +189,7 @@ class Table
     {
         $query = $this->pdo->prepare($query);
         $query->execute($params);
-        if($this->entity){
+        if ($this->entity) {
             $query->setFetchMode(\PDO::FETCH_CLASS, $this->entity);
         }
         return $query->fetchColumn();

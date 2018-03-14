@@ -1,5 +1,6 @@
 <?php
 namespace App\CPWEB\Entity;
+
 class Usuario
 {
     public $id_usuario;
@@ -12,7 +13,10 @@ class Usuario
     public $nacimiento;
     public $foto;
 
-    public function getThumb(){
-        return '/uploads/user/'.$this->foto;
+    public function getThumb()
+    {
+        ['filename'=>$filename,'extension'=>$extension]=pathinfo($this->foto);
+        // return '/uploads/user/'.$this->foto;
+        return '/uploads/user/'.$filename.'_thumb.'.$extension;
     }
 }

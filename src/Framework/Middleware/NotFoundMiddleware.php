@@ -6,11 +6,12 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class NotFoundMiddleware
 {
-  public function __invoke(ServerRequestInterface $request , callable $next){
+    public function __invoke(ServerRequestInterface $request, callable $next)
+    {
 
-      echo "<pre>";
-      var_dump($request);die();
-       return (new Response(404, [], 'ERROR 404'));
-  }
-
+        echo "<pre>";
+        var_dump($request);
+        die();
+         return (new Response(404, [], 'ERROR 404'));
+    }
 }

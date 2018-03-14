@@ -7,11 +7,11 @@ use Interop\Http\Server\RequestHandlerInterface;
 
 class LoggedInMiddleware implements MiddlewareInterface
 {
-  private $auth;
+    private $auth;
 
-  public function __construct(Auth $auth){
-
-  }
+    public function __construct(Auth $auth)
+    {
+    }
    /**
      * Process an incoming server request and return a response, optionally delegating
      * response creation to a handler.
@@ -21,9 +21,7 @@ class LoggedInMiddleware implements MiddlewareInterface
      *
      * @return ResponseInterface
      */
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler){
-
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler)
+    {
     }
 }
-
-

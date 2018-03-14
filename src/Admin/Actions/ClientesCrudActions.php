@@ -21,14 +21,14 @@ class ClientesCrudActions extends CrudAction
         Router $router,
         ClienteRepository $cliente,
         FlashService $flash
-    ){
-        parent::__construct($renderer, $router,$cliente,$flash);
+    ) {
+        parent::__construct($renderer, $router, $cliente, $flash);
     }
 
     protected function getParams(Request $request, $item)
     {
-        return array_filter($request->getParsedBody(),function($key){
-            return in_array($key,[
+        return array_filter($request->getParsedBody(), function ($key) {
+            return in_array($key, [
                 'razon_social',
                 'rfc',
                 'domicilio',
@@ -38,14 +38,14 @@ class ClientesCrudActions extends CrudAction
                 'id_estado',
                 'id_usuario'
             ]);
-        },ARRAY_FILTER_USE_KEY);
+        }, ARRAY_FILTER_USE_KEY);
     }
 
     protected function getValidator(Request $request)
     {
         $gump = new \GUMP();
         $params = $gump->sanitize($this->getParams($request));
-        $gump->validation_rules( array(
+        $gump->validation_rules(array(
                 'razon_social'    => 'required|max_len,255',
                 'rfc'       => 'required|alpha_numeric|max_len,13|min_len,8',
                 'domicilio'    => 'required|max_len,255',
@@ -69,13 +69,14 @@ class ClientesCrudActions extends CrudAction
         ));
 
         $validated_data = $gump->run($params);
-        if(!$validated_data) {
+        if (!$validated_data) {
             return $gump;
         }
         return $validated_data;
     }
 
-     protected function getNewEntity(){
+    protected function getNewEntity()
+    {
         $usuario = new Cliente();
         return $usuario;
     }

@@ -7,7 +7,7 @@ class PHPSession implements SessionInterface
 {
     private function ensuredStarted()
     {
-        if( session_status()=== PHP_SESSION_NONE ){
+        if (session_status()=== PHP_SESSION_NONE) {
             session_start();
         }
     }
@@ -20,7 +20,7 @@ class PHPSession implements SessionInterface
     function get(string $key, $default = null)
     {
         $this->ensuredStarted();
-        if(array_key_exists($key,$_SESSION)){
+        if (array_key_exists($key, $_SESSION)) {
             return $_SESSION[$key];
         }
         return $default;
@@ -32,11 +32,10 @@ class PHPSession implements SessionInterface
      * @param $value
      * @return void
      */
-    function set(string $key,$value):void
+    function set(string $key, $value):void
     {
         $this->ensuredStarted();
         $_SESSION[$key]=$value;
-
     }
     /**
      * delete
@@ -50,5 +49,4 @@ class PHPSession implements SessionInterface
         unset($_SESSION[$key]);
         session_destroy();
     }
-
 }

@@ -17,7 +17,7 @@ interface SessionInterface
      * @param $value
      * @return void
      */
-    function set(string $key,$value):void;
+    function set(string $key, $value):void;
     /**
      * delete
      *

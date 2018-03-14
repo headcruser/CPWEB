@@ -14,9 +14,9 @@ class SmartyRendererFactory
         $smarty->setTemplateDir($container->get('templates'));
         $smarty->setCompileDir($container->get('templates_c'));
         $smarty->setCacheDir($container->get('cache'));
-        if($container->has('smarty.plugins')) {
+        if ($container->has('smarty.plugins')) {
             foreach ($container->get('smarty.plugins') as $plugin) {
-                $smarty->registerPlugin("function",$plugin::NAME, [$plugin,$plugin::NAME]);
+                $smarty->registerPlugin("function", $plugin::NAME, [$plugin,$plugin::NAME]);
             }
         }
         return new SmartyRenderer($smarty);

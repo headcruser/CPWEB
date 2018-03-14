@@ -1,5 +1,6 @@
 <?php
 namespace App\CPWEB\Entity;
+
 class Cliente
 {
     public $id_cliente;

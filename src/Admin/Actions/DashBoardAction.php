@@ -9,25 +9,26 @@ class DashBoardAction
   /**
    * @var RendererInterface
    */
-  private $renderer;
+    private $renderer;
 
   /**
    * @var AdminWidgedInterface
    */
-  private $widgets;
+    private $widgets;
 
   /**
    * @var string
    */
-  protected $pathView = '@ADMIN/';
+    protected $pathView = '@ADMIN/';
 
-  public function __construct(RendererInterface $renderer , array $widgets){
-    $this->renderer = $renderer;
-    $this->widgets = $widgets;
-  }
-  public function __invoke()
-  {
-    $this->renderer->assign('widgets',$this->widgets);
-    return $this->renderer->render($this->pathView.'dashboard');
-  }
+    public function __construct(RendererInterface $renderer, array $widgets)
+    {
+        $this->renderer = $renderer;
+        $this->widgets = $widgets;
+    }
+    public function __invoke()
+    {
+        $this->renderer->assign('widgets', $this->widgets);
+        return $this->renderer->render($this->pathView.'dashboard');
+    }
 }

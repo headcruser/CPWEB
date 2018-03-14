@@ -62,14 +62,14 @@ class Router
      * @param string $prefix Name method action
      * @return void
      */
-    public function crud(string $prefixPath,$callable,string $prefix)
+    public function crud(string $prefixPath, $callable, string $prefix)
     {
         $this->get("$prefixPath", $callable, "$prefix.index");
         $this->get("$prefixPath/new", $callable, "$prefix.create");
         $this->post("$prefixPath/new", $callable);
         $this->get("$prefixPath/{id:\d+}", $callable, "$prefix.edit");
         $this->post("$prefixPath/{id:\d+}", $callable);
-        $this->delete("$prefixPath/{id:\d+}", $callable,"$prefix.delete");
+        $this->delete("$prefixPath/{id:\d+}", $callable, "$prefix.delete");
     }
     /**
      * match
@@ -95,12 +95,14 @@ class Router
      * @return null|string
      */
     public function generateUri(
-        string $name, array $params = [],array $queryParams = []):?string
-    {
+        string $name,
+        array $params = [],
+        array $queryParams = []
+    ):?string {
          $uri= $this->router->generateUri($name, $params);
-         if(!empty($queryParams)){
+        if (!empty($queryParams)) {
             return $uri.'?'.http_build_query($queryParams);
-         }
+        }
          return $uri;
     }
 }

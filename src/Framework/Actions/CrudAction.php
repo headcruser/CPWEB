@@ -16,7 +16,7 @@ class CrudAction
     /**
      * @var mixed
      */
-    private $table;
+    protected $table;
     /**
      * @var Router
      */
@@ -50,7 +50,7 @@ class CrudAction
         Router $router,
         $table,
         FlashService $flash
-    ){
+    ) {
         $this->renderer = $renderer;
         $this->table = $table;
         $this->router = $router;
@@ -59,19 +59,19 @@ class CrudAction
 
     public function __invoke(Request $request)
     {
-        $this->renderer->addGlobal('viewPrefix',$this->pathView);
-        $this->renderer->addGlobal('routerPrefix',$this->routerPrefix);
+        $this->renderer->addGlobal('viewPrefix', $this->pathView);
+        $this->renderer->addGlobal('routerPrefix', $this->routerPrefix);
 
-        if($request->getMethod()==='DELETE'){
+        if ($request->getMethod()==='DELETE') {
             return $this->delete($request);
         }
-        if(substr((string)$request->getUri(),-3 )==='new'){
-           return $this->create($request);
+        if (substr((string)$request->getUri(), -3)==='new') {
+            return $this->create($request);
         }
-       if($request->getAttribute('id')){
-           return $this->update($request);
-       }
-       return $this->index($request);
+        if ($request->getAttribute('id')) {
+            return $this->update($request);
+        }
+        return $this->index($request);
     }
 
     /**
@@ -82,8 +82,8 @@ class CrudAction
     public function index(Request $request):string
     {
         $params = $request->getQueryParams();
-        $items = $this->table->findPaginated(10,$params['p']?? 1);
-        $this->renderer->assign('items',$items);
+        $items = $this->table->findPaginated(10, $params['p']?? 1);
+        $this->renderer->assign('items', $items);
         return $this->renderer->render($this->pathView.'index');
     }
     /**
@@ -95,13 +95,12 @@ class CrudAction
     public function update(Request $request)
     {
         $item = $this->table->find($request->getAttribute('id'));
-        $this->renderer->assign('item',$item);
+        $this->renderer->assign('item', $item);
 
-        if( $request->getMethod()=='POST' )
-        {
+        if ($request->getMethod()=='POST') {
             $params = $this->getParams($request, $item);
             $id = $this->table->getID();
-            $this->table->update($item->$id,$params);
+            $this->table->update($item->$id, $params);
             return $this->redirect($this->routerPrefix.'.index');
         }
         return $this->renderer->render($this->pathView.'edit');
@@ -115,9 +114,8 @@ class CrudAction
     public function create(Request $request)
     {
         $item = $this->getNewEntity();
-        if( $request->getMethod()=='POST' )
-        {
-            $this->table->insert($this->getParams($request,$item));
+        if ($request->getMethod()=='POST') {
+            $this->table->insert($this->getParams($request, $item));
             return $this->redirect($this->routerPrefix.'.index');
         }
          return $this->renderer->render($this->pathView.'create');
@@ -134,22 +132,23 @@ class CrudAction
         return $this->redirect($this->routerPrefix.'.index');
     }
 
-    protected function getParams(Request $request,$item)
+    protected function getParams(Request $request, $item)
     {
-        return array_filter($request->getParsedBody(),function($key){
-            return in_array($key,[]);
-        },ARRAY_FILTER_USE_KEY);
+        return array_filter($request->getParsedBody(), function ($key) {
+            return in_array($key, []);
+        }, ARRAY_FILTER_USE_KEY);
     }
 
     protected function getValidator(Request $request)
     {
         $gump = new \GUMP();
         $data = $gump->sanitize($request->getParsedBody());
-        $gump->validation_rules( array([]));
+        $gump->validation_rules(array([]));
         return $gump;
     }
 
-    protected function getNewEntity(){
+    protected function getNewEntity()
+    {
         return [];
     }
 }

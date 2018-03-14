@@ -25,13 +25,12 @@ class UsuarioSeeder extends AbstractSeed
                 'fecha_clave'=>null,
                 'nombres'=>$faker->name,
                 'apellidos'=>$faker->name,
-                'nacimiento'=>$faker->date('Y-m-d','now'),
-                'foto'=>$faker->imageUrl(640,480)
+                'nacimiento'=>$faker->date('Y-m-d', 'now'),
+                'foto'=>$faker->imageUrl(640, 480)
             ];
         }
         $this->table('usuario')
             ->insert($data)
             ->save();
-
     }
 }

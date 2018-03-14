@@ -14,9 +14,9 @@ class AdminModule extends Module
     public function __construct(
         RendererInterface $renderer,
         Router $router,
-        string $prefix)
-    {
+        string $prefix
+    ) {
         $renderer->addPath('ADMIN', self::VIEWS);
-        $router->get($prefix,DashBoardAction::class,'admin');
+        $router->get($prefix, DashBoardAction::class, 'admin');
     }
 }

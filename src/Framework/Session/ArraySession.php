@@ -14,7 +14,7 @@ class ArraySession implements SessionInterface
      */
     function get(string $key, $default = null)
     {
-        if(array_key_exists($key,$this->session)){
+        if (array_key_exists($key, $this->session)) {
             return $this->session[$key];
         }
         return $default;
@@ -26,10 +26,9 @@ class ArraySession implements SessionInterface
      * @param $value
      * @return void
      */
-    function set(string $key,$value):void
+    function set(string $key, $value):void
     {
         $this->session[$key] = $value;
-
     }
     /**
      * delete
@@ -41,5 +40,4 @@ class ArraySession implements SessionInterface
     {
         unset($this->session[$key]);
     }
-
 }

@@ -8,5 +8,5 @@ interface Auth
  /**
   * @return User|null
   */
-  function getUser():?User;
+    function getUser():?User;
 }

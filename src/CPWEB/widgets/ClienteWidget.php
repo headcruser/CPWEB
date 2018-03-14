@@ -10,23 +10,24 @@ class ClienteWidget implements AdminWidgetInterface
   /**
    * @var undefined
    */
-  private $renderer;
+    private $renderer;
 
-  private $clientes;
+    private $clientes;
   /**
    * @var string
    */
-  protected $pathView = '@ADMIN/widgets/';
+    protected $pathView = '@ADMIN/widgets/';
 
-  public function __construct(RendererInterface $renderer, ClienteRepository $clientes){
-    $this->renderer = $renderer;
-    $this->clientes = $clientes;
-  }
+    public function __construct(RendererInterface $renderer, ClienteRepository $clientes)
+    {
+        $this->renderer = $renderer;
+        $this->clientes = $clientes;
+    }
 
-  public function render():string
-  {
-    $count = $this->clientes->count();
-    $this->renderer->assign('noClientes',$count);
-    return $this->renderer->render($this->pathView.'ClienteWidget');
-  }
+    public function render():string
+    {
+        $count = $this->clientes->count();
+        $this->renderer->assign('noClientes', $count);
+        return $this->renderer->render($this->pathView.'ClienteWidget');
+    }
 }

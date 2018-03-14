@@ -9,13 +9,11 @@ define('IMG', '.'.DS.'image'.DS);
 chdir(dirname(__DIR__));
 require('vendor/autoload.php');
 
-use Framework\Middleware\{
-    MethodMiddleware,
-    RouterMiddleware,
-    NotFoundMiddleware,
-    DispacherMiddleware,
-    TrailingSlashMiddleware
-};
+use Framework\Middleware\MethodMiddleware;
+use Framework\Middleware\RouterMiddleware;
+use Framework\Middleware\NotFoundMiddleware;
+use Framework\Middleware\DispacherMiddleware;
+use Framework\Middleware\TrailingSlashMiddleware;
 
 $app = (new \Framework\App('config/config.php'))
     ->addModule(\App\Admin\AdminModule::class)

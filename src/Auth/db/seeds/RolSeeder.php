@@ -20,7 +20,7 @@ class RolSeeder extends AbstractSeed
             ['descripcion'=>'contador'],
             ['descripcion'=>'cliente'],
             ['descripcion'=>'login']
-		];
+        ];
          $this->table('rol')
             ->insert($data)
             ->save();

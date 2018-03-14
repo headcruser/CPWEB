@@ -31,6 +31,5 @@ class TablaPrivilegio extends AbstractMigration
         $privilegio = $this->table('privilegio', ['id' =>'id_privilegio']);
         $privilegio->addColumn('descripcion', 'string', ['limit' => 100])
             ->create();
-
     }
 }
