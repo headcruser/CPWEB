@@ -99,7 +99,7 @@ class CrudAction
 
         if( $request->getMethod()=='POST' )
         {
-            $params = $this->getParams($request);
+            $params = $this->getParams($request, $item);
             $id = $this->table->getID();
             $this->table->update($item->$id,$params);
             return $this->redirect($this->routerPrefix.'.index');
@@ -114,14 +114,10 @@ class CrudAction
      */
     public function create(Request $request)
     {
+        $item = $this->getNewEntity();
         if( $request->getMethod()=='POST' )
         {
-            $gump = $this->getValidator($request);
-            if(!is_array($gump)){
-                return $gump->get_readable_errors(true);
-                // Construir mensaje para usuario
-            }
-            $this->table->insert($params);
+            $this->table->insert($this->getParams($request,$item));
             return $this->redirect($this->routerPrefix.'.index');
         }
          return $this->renderer->render($this->pathView.'create');
@@ -138,7 +134,7 @@ class CrudAction
         return $this->redirect($this->routerPrefix.'.index');
     }
 
-    protected function getParams(Request $request)
+    protected function getParams(Request $request,$item)
     {
         return array_filter($request->getParsedBody(),function($key){
             return in_array($key,[]);
@@ -148,8 +144,12 @@ class CrudAction
     protected function getValidator(Request $request)
     {
         $gump = new \GUMP();
-        $data = $gump->sanitize($this->getParams($request));
+        $data = $gump->sanitize($request->getParsedBody());
         $gump->validation_rules( array([]));
         return $gump;
+    }
+
+    protected function getNewEntity(){
+        return [];
     }
 }

@@ -1,5 +1,5 @@
 {extends file='file:layout/adminTemplate.html'}
-{block name=title}<title> Editar Informacion  </title>{/block}
+{block name=title}<title> Editar Cliente  </title>{/block}
 {block name=content}
 <div class="container">
     <form class="form-horizontal" method="POST"

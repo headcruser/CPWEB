@@ -2,11 +2,12 @@
 namespace App\Admin\Actions;
 
 use Framework\Router;
+use App\CPWEB\Entity\Cliente;
 use Framework\Actions\CrudAction;
 use Framework\Session\FlashService;
 use App\CPWEB\Table\ClienteRepository;
-use Framework\Renderer\RendererInterface;
 use Framework\Actions\RouterAwareAction;
+use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ClientesCrudActions extends CrudAction
@@ -24,7 +25,7 @@ class ClientesCrudActions extends CrudAction
         parent::__construct($renderer, $router,$cliente,$flash);
     }
 
-    protected function getParams(Request $request)
+    protected function getParams(Request $request, $item)
     {
         return array_filter($request->getParsedBody(),function($key){
             return in_array($key,[
@@ -72,5 +73,10 @@ class ClientesCrudActions extends CrudAction
             return $gump;
         }
         return $validated_data;
+    }
+
+     protected function getNewEntity(){
+        $usuario = new Cliente();
+        return $usuario;
     }
 }

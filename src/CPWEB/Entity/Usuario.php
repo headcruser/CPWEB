@@ -11,4 +11,8 @@ class Usuario
     public $apellidos;
     public $nacimiento;
     public $foto;
+
+    public function getThumb(){
+        return '/uploads/user/'.$this->foto;
+    }
 }

@@ -2,11 +2,13 @@
 namespace App\Admin\Actions;
 
 use Framework\Router;
+use App\CPWEB\Entity\Usuario;
+use App\Admin\ImageUserUpload;
 use Framework\Actions\CrudAction;
 use Framework\Session\FlashService;
 use App\CPWEB\Table\UsuarioRepository;
-use Framework\Renderer\RendererInterface;
 use Framework\Actions\RouterAwareAction;
+use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class UsuariosCrudActions extends CrudAction
@@ -15,35 +17,56 @@ class UsuariosCrudActions extends CrudAction
 
     protected $routerPrefix = 'admin.usuarios';
 
+    private $imageUserUpload;
+
     public function __construct(
         RendererInterface $renderer,
         Router $router,
         UsuarioRepository $cliente,
-        FlashService $flash
+        FlashService $flash,
+        ImageUserUpload $imageUserUpload
     ){
         parent::__construct($renderer, $router,$cliente,$flash);
+        $this->imageUserUpload = $imageUserUpload;
     }
 
-    protected function getParams(Request $request)
+    protected function getParams(Request $request, $item)
     {
-        return array_filter($request->getParsedBody(),function($key){
+        $uploadPicture = $request->getUploadedFiles();
+        $params = array_merge($request->getParsedBody(),$uploadPicture);
+
+        //Refactor Class Validation item
+        $isUploadFile = $params['foto']->getError()===UPLOAD_ERR_OK;
+
+        if($isUploadFile) {
+            $params['foto'] = $this->imageUserUpload->upload($params['foto'],$item->foto);
+        }else{
+            if(!$item->foto){
+                throw new \Exception("No has subido foto");
+            }
+            $params['foto'] = $item->foto;
+        }
+
+        $params = array_filter($params,function($key){
             return in_array($key,[
                 'email',
                 'contrasena',
-                'clave',
-                'fecha_clave',
                 'nombres',
                 'apellidos',
                 'nacimiento',
                 'foto'
             ]);
         },ARRAY_FILTER_USE_KEY);
+
+        return array_merge($params,[
+            'clave'=>$item->clave,
+            'fecha_clave'=>$item->fecha_clave]);
     }
 
     protected function getValidator(Request $request)
     {
         $gump = new \GUMP();
-        $params = $gump->sanitize($this->getParams($request));
+        $params = $gump->sanitize($request->getParsedBody());
         $gump->validation_rules( array(
                 'email'    => 'required|valid_email|max_len,100',
                 'contrasena'       => 'required|alpha_numeric|max_len,32|min_len,8',
@@ -71,5 +94,11 @@ class UsuariosCrudActions extends CrudAction
             return $gump;
         }
         return $validated_data;
+    }
+    protected function getNewEntity(){
+        $usuario = new Usuario();
+        $usuario->clave = '_clave';
+        $usuario->fecha_clave = date("Y-m-d H:i:s");
+        return $usuario;
     }
 }
