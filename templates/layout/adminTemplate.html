@@ -15,7 +15,25 @@
   {block name=title}<title>CPWEB</title>{/block}
 </head>
   <body>
-     {include file='layout/header_privilegios.html'}
-    {block name=content}{/block}
+    {include file='layout/header_privilegios.html'}
+    <div class="container">
+       {if {flash type='success'}}
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>!</strong> {flash type='success'}
+      </div>
+      {/if}
+      {if {flash type='error'}}
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{flash type='error'}</strong>
+      </div>
+      {/if}
+      {block name=content}{/block}
+    </div>
   </body>
 </html>

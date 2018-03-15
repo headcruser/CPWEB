@@ -12,7 +12,7 @@ class CrudAction
     /**
      * @var RendererInterface
      */
-    private $renderer;
+    protected $renderer;
     /**
      * @var mixed
      */
@@ -20,11 +20,11 @@ class CrudAction
     /**
      * @var Router
      */
-    private $router;
+    protected $router;
     /**
      * @var FlashService
      */
-    private $flash;
+    protected $flash;
     /**
      * example (@ADMIN)
      * @var string
@@ -101,6 +101,7 @@ class CrudAction
             $params = $this->getParams($request, $item);
             $id = $this->table->getID();
             $this->table->update($item->$id, $params);
+            $this->flash->success($this->messages['edit']);
             return $this->redirect($this->routerPrefix.'.index');
         }
         return $this->renderer->render($this->pathView.'edit');
@@ -116,6 +117,7 @@ class CrudAction
         $item = $this->getNewEntity();
         if ($request->getMethod()=='POST') {
             $this->table->insert($this->getParams($request, $item));
+            $this->flash->success($this->messages['create']);
             return $this->redirect($this->routerPrefix.'.index');
         }
          return $this->renderer->render($this->pathView.'create');

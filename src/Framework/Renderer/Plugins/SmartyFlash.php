@@ -16,8 +16,6 @@ class SmartyFlash
 
     public function flash($params)
     {
-        if ($this->flashService->get($params['type'])) {
-            echo 'hola';
-        }
+        return $this->flashService->get($params['type']);
     }
 }

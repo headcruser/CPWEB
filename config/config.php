@@ -26,7 +26,7 @@ return [
         \DI\get(SmartyPagination::class),
         \DI\get(SmartyRouter::class)
     ],
-    SessionInterface::class=>\DI\object(ArraySession::class),
+    SessionInterface::class=>\DI\object(PHPSession::class),
     Router::class=>\DI\object(),
     RendererInterface::class=> \DI\factory(SmartyRendererFactory::class),
     \PDO::class=>function(\Psr\Container\ContainerInterface $c){

@@ -6,18 +6,9 @@
      <script src="{$smarty.const.JS}jquery-confirm.min.js"></script>
      <script src="{$smarty.const.JS}dialog.js"></script>
 {/block}
-{block name=title}<title> Listado Usuarios</title>{/block}
+{block name=title}<title> Listado Usuarios s</title>{/block}
 {block name=content}
-
-<div class="container">
-
-    {if {flash type='success'}}
-        <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>!</strong> {flash type='success'}
-        </div>
-    {/if}
-
+    <a href="{router nombreRuta="$routerPrefix.create"}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Crear Usuario</a>
 
     <table class="table table-condensed">
         <caption class="text-center">Usuario</caption>
@@ -54,12 +45,10 @@
         {/foreach}
         </tbody>
     </table>
-    <a href="{router nombreRuta="$routerPrefix.create"}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Crear Usuario</a>
 
     <div class="center-block">
         <div class="container">
             {pagination route="$routerPrefix.index" elements=$items}
         </div>
     </div>
-</div>
 {/block}
