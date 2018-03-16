@@ -24,6 +24,6 @@ class ClienteRepository extends Table
 
     protected function paginationQuery()
     {
-        return parent::paginationQuery()." ORDER BY $this->id DESC";
+        return "SELECT * FROM VISTA_CLIENTE ORDER BY $this->id DESC";
     }
 }

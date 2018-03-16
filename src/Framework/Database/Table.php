@@ -45,6 +45,21 @@ class Table
     {
         return "SELECT * FROM $this->table";
     }
+
+    public function findList():array{
+        $results = $this->pdo
+            ->query($this->findListQuery())
+            ->fetchAll(\PDO::FETCH_NUM);
+        $list = [];
+        foreach($results as $result){
+            $list[$result[0]] = $result[1];
+        }
+        return $list;
+    }
+
+    protected function findListQuery():string{
+        return "SELECT $this->id ,descripcion FROM $this->table";
+    }
     /**
      * Recuperate an Element
      * @param int $id

@@ -1,18 +1,18 @@
 <?php
 namespace App\CPWEB\Table;
 
-use App\CPWEB\Entity\Usuario ;
+use Pagerfanta\Pagerfanta;
+use App\CPWEB\Entity\Estado;
 use Framework\Database\Table;
 use Framework\Database\PaginatedQuery;
-use Pagerfanta\Pagerfanta;
 
-class UsuarioRepository extends Table
+class EstadoRepository extends Table
 {
-    protected $entity = Usuario::class;
+    protected $entity = Estado::class;
 
-    protected $table = 'usuario';
+    protected $table = 'estado';
 
-    protected $id = 'id_usuario';
+    protected $id = 'id_estado';
     /**
      * __construct
      * @param PDO $pdo
@@ -24,10 +24,10 @@ class UsuarioRepository extends Table
 
     protected function paginationQuery()
     {
-        return parent::paginationQuery()." ORDER BY $this->id DESC";
+        return parent::paginationQuery()." ORDER BY descripcion ASC";
     }
 
     protected function findListQuery():string{
-        return "SELECT $this->id ,email FROM $this->table";
+        return "SELECT $this->id ,descripcion FROM VISTA_ESTADO";
     }
 }

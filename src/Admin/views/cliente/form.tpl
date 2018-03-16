@@ -34,26 +34,48 @@
 </div>
 
 <div class="form-group">
-    <label for="inputName" class="col-sm-2 control-label">id_tipo</label>
+    <label for="inputName" class="col-sm-2 control-label">TIPO CLIENTE</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_tipo"  {if isset($item)} value="{$item->id_tipo}"{/if} >
+        <select class="form-control" name="id_tipo" >
+            {foreach from=$params['tipo'] item=tipo key = id}
+                <option value={$id} {if isset($item)} {if $item->id_tipo eq $id} selected {/if} {/if} >
+                        {$tipo}</option>
+            {/foreach}
+        </select>
     </div>
 </div>
 
+
 <div class="form-group">
-    <label for="inputName" class="col-sm-2 control-label">id_estado</label>
+    <label for="inputName" class="col-sm-2 control-label">ESTADO</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_estado"  {if isset($item)} value="{$item->id_estado}"{/if}  >
+        <select class="form-control" name="id_estado" >
+            {foreach from=$params['estado'] item=estado key = id}
+                <option value={$id} {if isset($item)} {if $item->id_estado eq $id} selected {/if} {/if} >
+                        {$estado}</option>
+            {/foreach}
+        </select>
     </div>
 </div>
 
+
 <div class="form-group">
-    <label for="inputName" class="col-sm-2 control-label">id_usuario</label>
+    <label for="inputName" class="col-sm-2 control-label">USUARIO</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputName" data-minlength="10" placeholder="ID Usuario" required name="id_usuario"  {if isset($item)} value="{$item->id_usuario}"{/if}>
+        <select class="form-control" name="id_usuario" >
+            {foreach from=$params['usuario'] item=usuario key = id}
+                <option value={$id} {if isset($item)} {if $item->id_usuario eq $id} selected {/if} {/if} >
+                        {$usuario}</option>
+            {/foreach}
+        </select>
     </div>
 </div>
+
+
 <div class="center-block">
     <input class="btn btn-primary" type="submit" value="Guardar">
     <a href="{router nombreRuta="$routerPrefix.index"}" class="btn btn-default"><i class="far fa-arrow-alt-circle-left"></i> Cancelar</a>
 </div>
+
+
+

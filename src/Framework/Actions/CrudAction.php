@@ -104,6 +104,8 @@ class CrudAction
             $this->flash->success($this->messages['edit']);
             return $this->redirect($this->routerPrefix.'.index');
         }
+        $params = $this->formParams();
+        $this->renderer->assign('params', $params);
         return $this->renderer->render($this->pathView.'edit');
     }
     /**
@@ -120,7 +122,9 @@ class CrudAction
             $this->flash->success($this->messages['create']);
             return $this->redirect($this->routerPrefix.'.index');
         }
-         return $this->renderer->render($this->pathView.'create');
+        $params = $this->formParams();
+        $this->renderer->assign('params', $params);
+        return $this->renderer->render($this->pathView.'create');
     }
     /**
      * delete elements in Database
@@ -152,5 +156,9 @@ class CrudAction
     protected function getNewEntity()
     {
         return [];
+    }
+
+    protected function formParams( array $items = []):array{
+        return $items;
     }
 }

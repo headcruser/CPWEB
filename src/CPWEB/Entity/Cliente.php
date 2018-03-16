@@ -12,4 +12,7 @@ class Cliente
     public $id_tipo;
     public $id_estado;
     public $id_usuario;
+    public $tipo;
+    public $usuario;
+    public $estado;
 }

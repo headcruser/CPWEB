@@ -5,7 +5,10 @@ use Framework\Router;
 use App\CPWEB\Entity\Cliente;
 use Framework\Actions\CrudAction;
 use Framework\Session\FlashService;
+use App\CPWEB\Table\TipoRepository;
+use App\CPWEB\Table\EstadoRepository;
 use App\CPWEB\Table\ClienteRepository;
+use App\CPWEB\Table\UsuarioRepository;
 use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -16,13 +19,25 @@ class ClientesCrudActions extends CrudAction
 
     protected $routerPrefix = 'admin.clientes';
 
+    private $tipo;
+
+    private $estado;
+
+    private $usuario;
+
     public function __construct(
         RendererInterface $renderer,
         Router $router,
         ClienteRepository $cliente,
-        FlashService $flash
+        FlashService $flash,
+        TipoRepository $tipo,
+        EstadoRepository $estado,
+        UsuarioRepository $usuario
     ) {
         parent::__construct($renderer, $router, $cliente, $flash);
+        $this->tipo = $tipo;
+        $this->estado = $estado;
+        $this->usuario = $usuario;
     }
 
     protected function getParams(Request $request, $item)
@@ -79,5 +94,12 @@ class ClientesCrudActions extends CrudAction
     {
         $usuario = new Cliente();
         return $usuario;
+    }
+
+    protected function formParams( array $items = []):array{
+        $params['usuario']= $this->usuario->findList();
+        $params['tipo']= $this->tipo->findList();
+        $params['estado']= $this->estado->findList();
+        return $params;
     }
 }
