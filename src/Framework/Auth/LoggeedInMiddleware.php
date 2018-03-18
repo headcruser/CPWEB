@@ -11,6 +11,7 @@ class LoggedInMiddleware implements MiddlewareInterface
 
     public function __construct(Auth $auth)
     {
+        $this->auth = $auth;
     }
    /**
      * Process an incoming server request and return a response, optionally delegating
@@ -23,5 +24,10 @@ class LoggedInMiddleware implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler)
     {
+        $user = $this->auth->getUser();
+        if(is_null($user)){
+            throw new \Exception("Error Processing Request", 1);
+        }
+        return $request->handler($request);
     }
 }

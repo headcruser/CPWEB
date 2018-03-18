@@ -5,9 +5,13 @@ use App\CPWEB\CPWEBModule;
 use GuzzleHttp\Psr7\Response;
 use function Http\Response\send;
 use App\CPWEB\Actions\CPWEBAction;
+use Middlewares\Utils\RequestHandler;
 use Framework\Renderer\SmartyRenderer;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Interop\Http\Server\RequestHandlerInterface;
+
 
 class App
 {
@@ -119,9 +123,27 @@ class App
     {
         $middleware = $this->getMiddleware();
         if (is_null($middleware)) {
-            throw new Exception("El middleware no ha sido requerido", 1);
+            throw new Exception("Middleware does not Exist", 1);
         }
-        return call_user_func_array($middleware, [$request,[$this,'process']]);
+        elseif(is_callable($middleware)) {
+            call_user_func_array($middleware, [$request,[$this,'process']]);
+        }elseif($middleware instanceof MiddlewareInterface) {
+            return $middleware->process($request,new RequestHandler([$this,'process']));
+        }
+        return $this->consume($request);
+    }
+
+    /**
+     * LiFO Despacher for middlewares
+     * Extract first Element for next Callable worflow
+     * @return void
+     */
+    private function consume(ServerRequestInterface $request){
+        $copyAppClass = $this->clone();
+        $copyAppClass->removeMiddleware();
+        $copyAppClass->resetIndexMiddlewares();
+        $middleware = $copyAppClass->getMiddleware();
+        return call_user_func_array($middleware, [$request,[$copyAppClass,'process']]);
     }
 
     /**
@@ -129,7 +151,7 @@ class App
      *
      * @return callable | null
      */
-    private function getMiddleware():?callable
+    private function getMiddleware()
     {
         if (array_key_exists($this->index, $this->middlewares)) {
             $middleware = $this->container->get($this->middlewares[$this->index]);
@@ -140,6 +162,25 @@ class App
     }
 
     /**
+     * Get Copy Reference This Class
+     *
+     * @return self
+     */
+    public function clone():self{
+        $stack = clone $this;
+        return $stack;
+    }
+
+    /**
+     * remove Frist Middleware Element
+     *
+     * @return void
+     */
+    public function removeMiddleware(){
+        array_shift($this->middlewares);
+    }
+
+    /**
      * Get modules for Application
      *
      * @return  array
@@ -147,5 +188,23 @@ class App
     public function getModules():array
     {
         return $this->modules;
+    }
+
+    /**
+     * get List Middlewares
+     *
+     * @return array
+     */
+    public function getMiddlewares(){
+        return $this->middlewares;
+    }
+
+    /**
+     * reset Index reference for Middlweares
+     *
+     * @return void
+     */
+    public function resetIndexMiddlewares(){
+        $this->index = 0;
     }
 }

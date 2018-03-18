@@ -28,7 +28,20 @@ class DashBoardAction
     }
     public function __invoke()
     {
-        $this->renderer->assign('widgets', $this->widgets);
+        $this->renderer->assign('widgets', $this->buildWidgets());
         return $this->renderer->render($this->pathView.'dashboard');
+    }
+
+    /**
+     * Render Widgets for template
+     *
+     * @return void
+     */
+    private function buildWidgets():string {
+        $widgets ='';
+        foreach($this->widgets as $widget) {
+            $widgets.= $widget->render();
+        }
+        return $widgets;
     }
 }

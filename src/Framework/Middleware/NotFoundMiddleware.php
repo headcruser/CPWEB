@@ -10,6 +10,7 @@ class NotFoundMiddleware
     {
 
         echo "<pre>";
+        echo "NOT FOUND MIDDLEWARE <br><br>";
         var_dump($request);
         die();
          return (new Response(404, [], 'ERROR 404'));

@@ -6,10 +6,10 @@
         <div class="menu margenInterno">
           <div class="logo"> <a href="#"> CPWEB</a></div>
           <div class="nav">
-            <a href="{$router->generateUri('CPWEB.index')}">
+            <a href="{router nombreRuta="CPWEB.index"}">
               <i class="fas fa-home"></i> Home</a>
 
-            <a href="{$router->generateUri('CPWEB.show',['slug'=>'alianzas'])}">
+            <a href="{router nombreRuta="CPWEB.show" parametros=['slug'=>'alianzas']}">
               <i class="fas fa-users"></i> Quienes</a>
 
             <a href="#"><i class="fab fa-servicestack"></i> Servicios</a>
@@ -17,7 +17,7 @@
             <a href=""><i class="fas fa-address-card"></i> Alianzas
             </a>
 
-            <a href="{$router->generateUri('CPWEB.show',['slug'=>'bolsa'])}">
+            <a href="#">
                 <i class="fas fa-briefcase"></i>  Bolsa
             </a>
 
@@ -25,7 +25,7 @@
                 <i class="fas fa-user"></i>
               Login</a>
 
-            <a href="{$router->generateUri('CPWEB.show',['slug'=>'contacto'])}">
+            <a href="">
                 <i class="fas fa-phone-volume"></i> Contacto
             </a>
           </div>
