@@ -6,15 +6,17 @@
 {* {router nombreRuta="$routerPrefix.create"} *}
 <div class="col-md-4"></div>
 <div class="col-md-4 border">
-  <form method="post" enctype="application/x-www-form-urlencoded" action="#">
+  <form method="post" enctype="application/x-www-form-urlencoded" action="{router nombreRuta="auth.login"}">
     <legend class="text-center"> INICIO DE SESIÓN</legend>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Email" autofocus>
+      <input type="email" class="form-control" id="email" placeholder="Email" name="email"
+      autofocus>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password">
+      <input type="password" class="form-control" id="password" name="password"
+      placeholder="Password">
     </div>
     <div class="checkbox">
       <label>

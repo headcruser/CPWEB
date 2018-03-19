@@ -5,7 +5,7 @@ use Interop\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Interop\Http\Server\RequestHandlerInterface;
 
-class LoggedInMiddleware implements MiddlewareInterface
+class LoggedInMiddleware
 {
     private $auth;
 
@@ -13,21 +13,13 @@ class LoggedInMiddleware implements MiddlewareInterface
     {
         $this->auth = $auth;
     }
-   /**
-     * Process an incoming server request and return a response, optionally delegating
-     * response creation to a handler.
-     *
-     * @param ServerRequestInterface $request
-     * @param RequestHandlerInterface $handler
-     *
-     * @return ResponseInterface
-     */
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler)
+
+    public function __invoke(ServerRequestInterface $request, callable $next)
     {
         $user = $this->auth->getUser();
         if(is_null($user)){
             throw new \Exception("Error Processing Request", 1);
         }
-        return $request->handler($request);
+        return $next($request);
     }
 }

@@ -7,6 +7,7 @@ use App\Auth\Actions\LoginAction;
 use App\CPWEB\Actions\CPWEBAction;
 use Psr\Container\ContainerInterface;
 use App\Admin\Actions\TipoCrudActions;
+use App\Auth\Actions\LoginAttemptAction;
 use App\Admin\Actions\EstadoCrudActions;
 use Framework\Renderer\RendererInterface;
 use App\Admin\Actions\ClientesCrudActions;
@@ -37,7 +38,9 @@ class CPWEBModule extends Module
         }
         if($container->has('auth.login')){
             $prefix = $container->get('auth.login');
-            $router->get($prefix, LoginAction::class, 'login');
+            $router->get($prefix, LoginAction::class, 'auth.login');
+            $router->post($prefix, LoginAttemptAction::class);
+
         }
     }
 }

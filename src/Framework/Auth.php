@@ -1,12 +1,14 @@
 <?php
 namespace Framework;
 
-use Framework\Auth\User;
+use App\CPWEB\Entity\Usuario;
+
+
 
 interface Auth
 {
  /**
   * @return User|null
   */
-    function getUser():?User;
+    function getUser():?Usuario;
 }
