@@ -27,7 +27,8 @@ class EstadoRepository extends Table
         return parent::paginationQuery()." ORDER BY descripcion ASC";
     }
 
-    protected function findListQuery():string{
+    protected function findListQuery():string
+    {
         return "SELECT $this->id ,descripcion FROM VISTA_ESTADO";
     }
 }

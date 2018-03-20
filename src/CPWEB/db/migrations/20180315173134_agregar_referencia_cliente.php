@@ -32,20 +32,32 @@ class AgregarReferenciaCliente extends AbstractMigration
             ->addColumn('id_tipo', 'integer')
             ->addColumn('id_estado', 'integer')
             ->addColumn('id_usuario', 'integer')
-            ->addForeignKey('id_usuario','usuario','id_usuario',
+            ->addForeignKey(
+                'id_usuario',
+                'usuario',
+                'id_usuario',
                 [
                     'delete'=>'SET NULL',
                     'constraint' => 'fk_usuario',
-                ])
-            ->addForeignKey('id_estado','estado','id_estado',
+                ]
+            )
+            ->addForeignKey(
+                'id_estado',
+                'estado',
+                'id_estado',
                 [
                     'delete'=>'SET NULL',
                     'constraint' => 'fk_estadoRepublica',
-                ])
-            ->addForeignKey('id_tipo','tipo','id_tipo',
+                ]
+            )
+            ->addForeignKey(
+                'id_tipo',
+                'tipo',
+                'id_tipo',
                 [
                     'delete'=>'SET NULL',
                     'constraint' => 'fk_tipoCliente',
-                ]);
+                ]
+            );
     }
 }

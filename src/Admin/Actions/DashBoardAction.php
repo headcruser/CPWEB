@@ -37,9 +37,10 @@ class DashBoardAction
      *
      * @return void
      */
-    private function buildWidgets():string {
+    private function buildWidgets():string
+    {
         $widgets ='';
-        foreach($this->widgets as $widget) {
+        foreach ($this->widgets as $widget) {
             $widgets.= $widget->render();
         }
         return $widgets;

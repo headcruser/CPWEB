@@ -1,7 +1,6 @@
 <?php
 namespace App\CPWEB\Table;
 
-
 use Pagerfanta\Pagerfanta;
 use App\CPWEB\Entity\Tipo;
 use Framework\Database\Table;
@@ -28,7 +27,8 @@ class TipoRepository extends Table
         return parent::paginationQuery()." ORDER BY $this->id DESC";
     }
 
-     protected function findListQuery():string{
+    protected function findListQuery():string
+    {
         return "SELECT $this->id ,descripcion FROM VISTA_TIPO";
     }
 }

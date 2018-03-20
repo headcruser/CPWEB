@@ -23,6 +23,5 @@ class TipoClienteSeeder extends AbstractSeed
          $this->table('tipo')
             ->insert($data)
             ->save();
-
     }
 }

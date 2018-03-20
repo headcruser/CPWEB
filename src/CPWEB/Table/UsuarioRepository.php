@@ -27,7 +27,8 @@ class UsuarioRepository extends Table
         return parent::paginationQuery()." ORDER BY $this->id DESC";
     }
 
-    protected function findListQuery():string{
+    protected function findListQuery():string
+    {
         return "SELECT $this->id ,email FROM $this->table";
     }
 
@@ -36,10 +37,10 @@ class UsuarioRepository extends Table
      * @param int $id
      * @return mixed
      */
-    public function findUserLogin(string $email ,string $password):Usuario
+    public function findUserLogin(string $email, string $password):Usuario
     {
         $query = $this->getPDO()
-            ->prepare( parent::paginationQuery()." WHERE email =? and contrasena = ?  limit 1");
+            ->prepare(parent::paginationQuery()." WHERE email =? and contrasena = ?  limit 1");
         $query->execute([$email,$password]);
         if ($this->entity) {
             $query->setFetchMode(\PDO::FETCH_CLASS, $this->entity);

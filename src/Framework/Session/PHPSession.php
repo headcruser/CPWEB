@@ -17,7 +17,7 @@ class PHPSession implements SessionInterface
      * @param $default
      * @return void
      */
-    function get(string $key, $default = null)
+    public function get(string $key, $default = null)
     {
         $this->ensuredStarted();
         if (array_key_exists($key, $_SESSION)) {
@@ -32,7 +32,7 @@ class PHPSession implements SessionInterface
      * @param $value
      * @return void
      */
-    function set(string $key, $value):void
+    public function set(string $key, $value):void
     {
         $this->ensuredStarted();
         $_SESSION[$key]=$value;
@@ -43,7 +43,7 @@ class PHPSession implements SessionInterface
      * @param string $key
      * @return void
      */
-    function delete(string $key):void
+    public function delete(string $key):void
     {
         $this->ensuredStarted();
         unset($_SESSION[$key]);

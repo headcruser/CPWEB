@@ -31,6 +31,5 @@ class TipoCliente extends AbstractMigration
         $tipo = $this->table('tipo', ['id' =>'id_tipo']);
         $tipo->addColumn('descripcion', 'string', ['limit' => 50])
             ->create();
-
     }
 }

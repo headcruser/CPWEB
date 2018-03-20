@@ -96,7 +96,8 @@ class ClientesCrudActions extends CrudAction
         return $usuario;
     }
 
-    protected function formParams( array $items = []):array{
+    protected function formParams(array $items = []):array
+    {
         $params['usuario']= $this->usuario->findList();
         $params['tipo']= $this->tipo->findList();
         $params['estado']= $this->estado->findList();

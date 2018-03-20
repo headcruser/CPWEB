@@ -17,7 +17,7 @@ class LoggedInMiddleware
     public function __invoke(ServerRequestInterface $request, callable $next)
     {
         $user = $this->auth->getUser();
-        if(is_null($user)){
+        if (is_null($user)) {
             throw new \Exception("Error Processing Request", 1);
         }
         return $next($request);

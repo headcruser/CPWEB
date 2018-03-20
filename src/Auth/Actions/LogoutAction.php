@@ -3,42 +3,36 @@ namespace App\Auth\Actions;
 
 use Framework\Router;
 use App\Auth\DatabaseAuth;
-use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class LoginAttemptAction
+class LogoutAction
 {
-    private $renderer;
-   /**
+
+  /**
    * @var string
    */
     protected $pathView = '@Auth/';
 
     private $auth;
 
-    private $router;
+    private $renderer;
 
-    use RouterAwareAction;
+    private $flash;
 
     public function __construct(
         RendererInterface $renderer,
         DatabaseAuth $auth,
-        Router $router
+        FlashService $flash
     ) {
         $this->renderer = $renderer;
         $this->auth = $auth;
-        $this->router = $router;
+        $this->flash = $flash;
     }
     public function __invoke(ServerRequestInterface $request)
     {
-        $params = $request->getParsedBody();
-        $user = $this->auth->login($params['email'], $params['password']);
-
-        if ($user) {
-            return $this->redirect('admin');
-        } else {
-            return $this->redirect('auth.login');
-        }
+        $this->auth->logout();
+        $this->flash->success('Saliendo..');
+        return new RedirectResponse('/');
     }
 }

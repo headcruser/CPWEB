@@ -3,8 +3,6 @@ namespace Framework;
 
 use App\CPWEB\Entity\Usuario;
 
-
-
 interface Auth
 {
  /**

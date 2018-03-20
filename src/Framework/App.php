@@ -12,7 +12,6 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Interop\Http\Server\RequestHandlerInterface;
 
-
 class App
 {
     /**
@@ -124,11 +123,10 @@ class App
         $middleware = $this->getMiddleware();
         if (is_null($middleware)) {
             throw new Exception("Middleware does not Exist", 1);
-        }
-        elseif(is_callable($middleware)) {
+        } elseif (is_callable($middleware)) {
             call_user_func_array($middleware, [$request,[$this,'process']]);
-        }elseif($middleware instanceof MiddlewareInterface) {
-            return $middleware->process($request,new RequestHandler([$this,'process']));
+        } elseif ($middleware instanceof MiddlewareInterface) {
+            return $middleware->process($request, new RequestHandler([$this,'process']));
         }
         return $this->consume($request);
     }
@@ -138,7 +136,8 @@ class App
      * Extract first Element for next Callable worflow
      * @return void
      */
-    private function consume(ServerRequestInterface $request){
+    private function consume(ServerRequestInterface $request)
+    {
         $copyAppClass = $this->clone();
         $copyAppClass->removeMiddleware();
         $copyAppClass->resetIndexMiddlewares();
@@ -166,7 +165,8 @@ class App
      *
      * @return self
      */
-    public function clone():self{
+    public function clone():self
+    {
         $stack = clone $this;
         return $stack;
     }
@@ -176,7 +176,8 @@ class App
      *
      * @return void
      */
-    public function removeMiddleware(){
+    public function removeMiddleware()
+    {
         array_shift($this->middlewares);
     }
 
@@ -195,7 +196,8 @@ class App
      *
      * @return array
      */
-    public function getMiddlewares(){
+    public function getMiddlewares()
+    {
         return $this->middlewares;
     }
 
@@ -204,7 +206,8 @@ class App
      *
      * @return void
      */
-    public function resetIndexMiddlewares(){
+    public function resetIndexMiddlewares()
+    {
         $this->index = 0;
     }
 }

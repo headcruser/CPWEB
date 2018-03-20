@@ -158,7 +158,8 @@ class CrudAction
         return [];
     }
 
-    protected function formParams( array $items = []):array{
+    protected function formParams(array $items = []):array
+    {
         return $items;
     }
 }
